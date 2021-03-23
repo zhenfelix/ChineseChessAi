@@ -55,7 +55,7 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
 
 void chessboard::undo()
 {
-    std::cout << "hello, undo detected!" << std::endl;
+//    std::cout << "hello, undo detected!" << std::endl;
     if (records.empty())
     {
         std::cout << "already the first step!" << std::endl;
@@ -66,10 +66,10 @@ void chessboard::undo()
     // int aimx, aimy, startx, starty;
     // std::pair<int, int> start_xy, aim_xy;
     // start_xy = records.top().first, aim_xy = records.top().second;
-    auto [start_xy, aim_xy] = records.top();
+    auto &[start_xy, aim_xy] = records.top();
     records.pop();
-    auto [startx, starty] = start_xy;
-    auto [aimx, aimy] = aim_xy;
+    auto &[startx, starty] = start_xy;
+    auto &[aimx, aimy] = aim_xy;
     // std::cout << startx << ", " << starty << ", " << aimx << ", " << aimy << std::endl;
     c[startx][starty] = c[aimx][aimy];
     c[startx][starty]->setPos(startx, starty);
@@ -218,7 +218,32 @@ std::vector<Stone*> chessboard::getStones()
     return res;
 }
 
-void chessboard ::show()
+std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> chessboard::getMoves()
+{
+    std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> candidates;
+    std::vector<Stone*> candidate_stones = getStones();
+    for(auto s: candidate_stones)
+    {
+        int start_row, start_col;
+        s->getPos(start_row,start_col);
+        for (int aim_row = 0; aim_row < 10; aim_row++)
+        {
+            for (int aim_col = 0; aim_col < 9; aim_col++)
+            {
+                if(move(start_row,start_col,aim_row,aim_col))
+                {
+                    candidates.push_back({{start_row,start_col},{aim_row,aim_col}});
+                    undo();
+                }
+            }
+            
+        }
+        
+    }
+    return candidates;
+}
+
+    void chessboard ::show()
 {
     if (!is_show)
         return;

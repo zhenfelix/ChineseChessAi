@@ -11,15 +11,14 @@ class Minimax : public Player
     Q_OBJECT
 
 public:
-    Minimax(bool isHuman_, Display *D_ptr_);
-
-public:
-    // bool isHuman;
-    // Display *D_ptr;
+    Minimax(bool isHuman_, Display *D_ptr_, int maximizer_color_);
     void think();
 
+public:
+    int maximizer_color;
+
 private:
-    // int boardEval(int);
+    void dfs(int depth, int alpha, int beta, int &best_score, std::pair<std::pair<int,int>,std::pair<int,int>> &best_move);
 
 // public slots:
 //     void think();

@@ -21,6 +21,7 @@ public:
     Stone *get(int x, int y) { return c[x][y]; }
     int getVertical(){ return vertical; }
     std::vector<Stone*> getStones();
+    std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> getMoves();
     int getid(int x, int y)
     {
         if (c[x][y] != NULL)

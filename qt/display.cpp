@@ -32,8 +32,9 @@ void Display::setup()
     connect(&cb, SIGNAL(update()), this, SLOT(repaint()));
 
     player_a = new Player(true,this);
-    // player_b = new Player(true,this);
-    player_b = new Player(false, this);
+//     player_b = new Player(true,this);
+    // player_b = new Player(false, this);
+    player_b = new Minimax(false,this,-1);
 
     // player_b = new Minimax(false, this);
     color2player[-1] = player_a;
