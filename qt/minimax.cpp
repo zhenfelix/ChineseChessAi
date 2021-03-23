@@ -14,16 +14,4 @@ void Minimax::think()
     D_ptr->cb.random_move();
 }
 
-// int Minimax::boardEval(chessboard &cb)
-// {
-//     int score = 0;
-//     for (int r = 0; r < 10; r++)
-//     {
-//         for (int col = 0; col < 9; col++)
-//         {
-//             if(cb.c[row][col])
-//         }
-        
-//     }
-    
-// }
+

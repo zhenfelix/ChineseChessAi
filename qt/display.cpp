@@ -32,8 +32,10 @@ void Display::setup()
     connect(&cb, SIGNAL(update()), this, SLOT(repaint()));
 
     player_a = new Player(true,this);
-    // player_b = new Player(false,this);
-    player_b = new Minimax(false, this);
+    // player_b = new Player(true,this);
+    player_b = new Player(false, this);
+
+    // player_b = new Minimax(false, this);
     color2player[-1] = player_a;
     color2player[1] = player_b;
 }
@@ -84,7 +86,7 @@ bool Display::move(int startx, int starty, int aimx, int aimy)
 {
     bool flag = cb.move(startx, starty, aimx, aimy);
     cb.show();
-    update();
+    // update();
     return flag;
 }
 void Display::relay_receive()
@@ -122,12 +124,12 @@ void Display::mouseReleaseEvent(QMouseEvent *qMouse)
             message.pop();
         }
     }
-    update();
+    update();//highlight selected color
     while (!color2player[cb.color]->isHuman)
     {
         color2player[cb.color]->think();
-        cb.show();
-        repaint();
+        // cb.show();
+        // repaint();
         // usleep(1000000); 
         //The difference between QT update and repaint
 

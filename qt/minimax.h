@@ -13,11 +13,13 @@ class Minimax : public Player
 public:
     Minimax(bool isHuman_, Display *D_ptr_);
 
-
 public:
     // bool isHuman;
     // Display *D_ptr;
     void think();
+
+private:
+    // int boardEval(int);
 
 // public slots:
 //     void think();

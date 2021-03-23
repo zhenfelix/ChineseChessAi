@@ -8,6 +8,7 @@
 using namespace std;
 
 char chessboard::chessword[15][4] = {"帥", "相", "炮", "仕", "俥", "傌", "兵", "", "卒", "馬", "車", "士", "砲", "象", "将"}; //名字
+int chessboard::stonevalue[15] = {-10000,-4,-9,-4,-18,-8,-2,0,2,8,18,4,9,4,10000};//stone value
 // bool chessboard::end = true;
 // int chessboard::color = -1;    //initialize first hand color
 // int chessboard::vertical = -1; //initialize first hand vertical position
@@ -40,18 +41,19 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
         c[aimx][aimy] = c[startx][starty];
         c[aimx][aimy]->setPos(aimx,aimy);
         c[startx][starty] = NULL;
-        std::pair<int,int> start_xy = std::pair<int,int>(startx,starty);
-        std::pair<int,int> aim_xy = std::pair<int,int>(aimx,aimy);
-        records.push(std::pair<std::pair<int, int>, std::pair<int, int>>(start_xy,aim_xy));
+        std::pair<int, int> start_xy = {startx, starty};
+        std::pair<int, int> aim_xy = {aimx, aimy};
+        records.push({start_xy, aim_xy});
         color *= -1;
         vertical *= -1;
+        show();
         return true;
     }
     // cout << "走法错误，不符合规则" << endl;
     return false;
 }
 
-void chessboard::moveBack()
+void chessboard::undo()
 {
     std::cout << "hello, undo detected!" << std::endl;
     if (records.empty())
@@ -77,15 +79,10 @@ void chessboard::moveBack()
         c[aimx][aimy] = capturedStones[records.size()];
         capturedStones.erase(records.size());
     }
+    show();
 }
 
-void chessboard::undo()
-{
-    moveBack();
-    if(!is_show)return;
-    show();
-    emit update();
-}
+
 
 void chessboard::dummy_move()
 {
@@ -108,8 +105,7 @@ void chessboard::random_move()
     } while (!move(row_start,col_start,row_aim,col_aim));
     
     std::cout << "random move in chessboard!" << std::endl;
-    // color *= -1;
-    // vertical *= -1;
+    
 }
 
 
@@ -130,9 +126,23 @@ void chessboard::flip()
             }
     vertical *= -1;
     show();
-    emit update();
+    
 }
 
+int chessboard::boardEval(int maximizer_color) //color of maximizer player
+{
+    int score = 0;
+    std::vector<Stone *> st = getStones();
+    for (auto s : st)
+    {
+        if (!s)
+            continue;
+        int id = s->get();
+        score += maximizer_color * chessboard::stonevalue[id + 7];
+    }
+
+    return score;
+}
 
 chessboard ::~chessboard()
 {
@@ -210,6 +220,8 @@ std::vector<Stone*> chessboard::getStones()
 
 void chessboard ::show()
 {
+    if (!is_show)
+        return;
     cout << "吴  零一二三四五六七八" << endl
          << endl;
     char num[10][4] = {"零", "一", "二", "三", "四", "五", "六", "七", "八", "九"};
@@ -229,6 +241,8 @@ void chessboard ::show()
         }
         cout << endl;
     }
+    std::cout << boardEval(-1) << std::endl;
+    emit update();//update qt gui signal
 }
 
 void chessboard::play()

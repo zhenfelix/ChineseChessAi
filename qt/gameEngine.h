@@ -31,20 +31,20 @@ public:
     void show();
     void play();
     bool move(int startx, int starty, int aimx, int aimy);
-    void moveBack();
+    // void moveBack();
     void dummy_move();
     void random_move();
+    int boardEval(int);
     ~chessboard();   //析构函数
 
 public:
     static char chessword[15][4];
-    bool is_show;//computer self played chessboard will not be shown
+    static int stonevalue[15];
     int color; //current player color, red: -1
-    bool game_running;  //判断结束
     int vertical;       // first hand vertical position, 1: up, -1 down
-    // static bool end; //判断结束
-    // static int color; //current player color, red: -1
-    // static int vertical; //current player vertical position
+    bool game_running;  //判断结束
+    bool is_show;       //computer self played chessboard will not be shown
+
     
     std::stack<std::pair<std::pair<int,int>,std::pair<int,int>>> records;
     std::map<int,Stone*> capturedStones;
