@@ -3,12 +3,8 @@
 Display::Display(QWidget *parent) 
     : QWidget(parent), cb(true)
 {
-    
     setup();
-    // chessboard cb(true);
     cb.init();
-    
-
 }
 
 void Display::setup()
@@ -102,7 +98,11 @@ void Display::relay_receive()
 
 void Display::mouseReleaseEvent(QMouseEvent *qMouse)
 {
-    
+    if(!cb.game_running)
+    {
+        std::cout << "Game Over!" << std::endl;
+        return;
+    }
     QPoint pt = qMouse->pos(); //鼠标点位置
     int row, col;
     
@@ -126,7 +126,7 @@ void Display::mouseReleaseEvent(QMouseEvent *qMouse)
         }
     }
     update();//highlight selected color
-    while (!color2player[cb.color]->isHuman)
+    while (!color2player[cb.color]->isHuman && cb.game_running)
     {
         color2player[cb.color]->think();
         // cb.show();

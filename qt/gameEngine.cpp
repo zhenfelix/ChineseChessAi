@@ -37,6 +37,10 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
             {
                 // delete c[aimx][aimy]; //吃子
                 capturedStones.insert(std::pair<int, Stone *>(records.size(), c[aimx][aimy]));
+                if (std::abs(c[aimx][aimy]->get()) == 7)
+                {
+                    game_running = false;//game over once general captured
+                }
             }
         c[aimx][aimy] = c[startx][starty];
         c[aimx][aimy]->setPos(aimx,aimy);
@@ -78,6 +82,10 @@ void chessboard::undo()
     {
         c[aimx][aimy] = capturedStones[records.size()];
         capturedStones.erase(records.size());
+        if (std::abs(c[aimx][aimy]->get()) == 7)
+        {
+            game_running = true; //restore game
+        }
     }
     show();
 }

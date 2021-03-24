@@ -40,10 +40,9 @@ private:
     void drawStones(QPainter &painter);
     bool move(int, int, int, int);
     void setup();
-    // /* 返回象棋棋盘行列对应的像素坐标 */
-    QPoint center(int row, int col);
-    // QPoint center(int id);
-    bool getRowCol(QPoint pt, int &row, int &col);
+
+    QPoint center(int row, int col); // /* 返回象棋棋盘行列对应的像素坐标 */
+    bool getRowCol(QPoint pt, int &row, int &col); // QPoint center(int id);
 
 private:
     std::queue<std::pair<int, int>> message;
