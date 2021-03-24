@@ -7,14 +7,9 @@
 
 using namespace std;
 
-char chessboard::chessword[15][4] = {"帥", "相", "炮", "仕", "俥", "傌", "兵", "", "卒", "馬", "車", "士", "砲", "象", "将"}; //名字
-int chessboard::stonevalue[15] = {-10000,-4,-9,-4,-18,-8,-2,0,2,8,18,4,9,4,10000};//stone value
-// bool chessboard::end = true;
-// int chessboard::color = -1;    //initialize first hand color
-// int chessboard::vertical = -1; //initialize first hand vertical position
+const char chessboard::chessword[15][4] = {"帥", "相", "炮", "仕", "俥", "傌", "兵", "", "卒", "馬", "車", "士", "砲", "象", "将"}; //名字
+const int chessboard::stonevalue[15] = {-10000,-4,-9,-4,-18,-8,-2,0,2,8,18,4,9,4,10000};//stone value
 
-// chessboard::chessboard() { memset(c, NULL, sizeof(c)); srand( (unsigned)time(NULL) ); }; //把指针初始化为零指针
-// // chessboard::chessboard() { memset(c, 0, sizeof(c)); }; //把指针初始化为零指针
 
 chessboard::chessboard(bool is_show_=true)
     : is_show(is_show_)
@@ -33,6 +28,14 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
     if (startx >= 0 && startx < 10 && starty >= 0 && starty < 9 //初步判断传入的点是否符合规则
         && aimx >= 0 && aimx < 10 && aimy >= 0 && aimy < 9 && getid(startx, starty) && getid(startx, starty) * color > 0 && c[startx][starty]->judge_move(*this, startx, starty, aimx, aimy))
     {
+        // std::string board_hash = boardHash();
+        // board_hash += (char)('0' + startx);
+        // board_hash += (char)('0' + starty);
+        // board_hash += (char)('0' + aimx);
+        // board_hash += (char)('0' + aimy);
+        // if (seen.find(board_hash) != seen.end()) return false;
+        // seen.insert(board_hash); //to avoid cyclic moves //bug implementation
+
         if (c[aimx][aimy] != NULL)
             {
                 // delete c[aimx][aimy]; //吃子
@@ -50,6 +53,7 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
         records.push({start_xy, aim_xy});
         color *= -1;
         vertical *= -1;
+        
         show();
         return true;
     }
@@ -67,9 +71,6 @@ void chessboard::undo()
     }
     color *= -1;
     vertical *= -1;
-    // int aimx, aimy, startx, starty;
-    // std::pair<int, int> start_xy, aim_xy;
-    // start_xy = records.top().first, aim_xy = records.top().second;
     auto &[start_xy, aim_xy] = records.top();
     records.pop();
     auto &[startx, starty] = start_xy;
@@ -87,6 +88,12 @@ void chessboard::undo()
             game_running = true; //restore game
         }
     }
+    // std::string board_hash = boardHash();
+    // board_hash += (char)('0' + startx);
+    // board_hash += (char)('0' + starty);
+    // board_hash += (char)('0' + aimx);
+    // board_hash += (char)('0' + aimy);
+    // seen.erase(board_hash); //to avoid cyclic moves
     show();
 }
 
@@ -94,8 +101,6 @@ void chessboard::undo()
 
 void chessboard::dummy_move()
 {
-    
-    
     std::cout << "dummy move in chessboard!" << std::endl;
     color *= -1;
     vertical *= -1;
@@ -150,6 +155,29 @@ int chessboard::boardEval(int maximizer_color) //color of maximizer player
     }
 
     return score;
+}
+
+std::string chessboard::boardHash()
+{
+    std::string res;
+    if(color == -1)res += 'r';
+    else res += 'b';
+    std::vector<Stone *> st = getStones();
+    for (auto s : st)
+    {
+        if (!s)
+            continue;
+        int id = s->get();
+        int row, col;
+        char ch;
+        s->getPos(row,col);
+        res += chessboard::chessword[id + 7];
+        ch = '0' + row;
+        res += ch;
+        ch = '0' + col;
+        res += ch;
+    }
+    return res;
 }
 
 chessboard ::~chessboard()
@@ -223,6 +251,10 @@ std::vector<Stone*> chessboard::getStones()
         }
         
     }
+    // std::sort(res.begin(), res.end(), [](Stone *a, Stone *b) { return abs(chessboard::stonevalue[a->get() + 7]) > abs(chessboard::stonevalue[b->get() + 7]); });
+    //priotize stones with larger value, however not improving performance
+    // for(auto s: res)std::cout << chessboard::chessword[s->get()+7] << " ";
+    // std::cout << std::endl;
     return res;
 }
 
@@ -251,7 +283,7 @@ std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> chessboard::get
     return candidates;
 }
 
-    void chessboard ::show()
+void chessboard ::show()
 {
     if (!is_show)
         return;
@@ -274,7 +306,9 @@ std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> chessboard::get
         }
         cout << endl;
     }
-    std::cout << boardEval(-1) << std::endl;
+    std::cout << "current board score (maximizer color" << MAXIMIZER_COLOR << ") is " << boardEval(MAXIMIZER_COLOR) << std::endl; //default maximizer color is -1
+    std::cout << boardHash() << std::endl;
+    getStones();
     emit update();//update qt gui signal
 }
 

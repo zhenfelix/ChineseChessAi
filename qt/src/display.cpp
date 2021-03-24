@@ -9,6 +9,13 @@ Display::Display(QWidget *parent)
 
 void Display::setup()
 {
+    player_a = new Player(true, cb);//configure players
+    // player_b = new Player(true,cb);
+    player_b = new Minimax(false, cb, 5);
+
+    color2player[-1] = player_a;
+    color2player[1] = player_b;
+
     radius = 30;
     this->resize(25 * radius, 22 * radius);
     this->setStyleSheet("background-color: rgb(235, 187, 83)");
@@ -26,15 +33,6 @@ void Display::setup()
     flip_button->setText(tr("Flip"));
     connect(flip_button, SIGNAL(clicked()),&cb, SLOT(flip()));
     connect(&cb, SIGNAL(update()), this, SLOT(repaint()));
-
-    player_a = new Player(true,this);
-//     player_b = new Player(true,this);
-    // player_b = new Player(false, this);
-    player_b = new Minimax(false,this,-1);
-
-    // player_b = new Minimax(false, this);
-    color2player[-1] = player_a;
-    color2player[1] = player_b;
 }
 
 void Display::paintEvent(QPaintEvent *)
@@ -79,22 +77,6 @@ void Display::paintEvent(QPaintEvent *)
 
 }
 
-bool Display::move(int startx, int starty, int aimx, int aimy)
-{
-    bool flag = cb.move(startx, starty, aimx, aimy);
-    cb.show();
-    // update();
-    return flag;
-}
-void Display::relay_receive()
-{
-    std::cout << "click in display!" << std::endl;
-    emit relay_send();
-    std::cout << "after send click info" << std::endl;
-
-}
-
-
 
 void Display::mouseReleaseEvent(QMouseEvent *qMouse)
 {
@@ -117,8 +99,9 @@ void Display::mouseReleaseEvent(QMouseEvent *qMouse)
             auto from = message.front();
             auto to = message.back();
             // std::cout << from.first << ", " << from.second << ", " << to.first << ", " << to.second << std::endl;
-            if (move(from.first, from.second, to.first, to.second))
+            if (cb.move(from.first, from.second, to.first, to.second))
             {
+                // cb.show();
                 message.pop();
                 if(selectStone)selectStone = nullptr;
             } 

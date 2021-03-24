@@ -26,18 +26,22 @@ CONFIG += c++11
 QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += \
-    display.cpp \
     main.cpp \
-    stone.cpp \
-    gameEngine.cpp \
-    player.cpp \
-    minimax.cpp
+    src/display.cpp \
+    src/stone.cpp \
+    src/gameEngine.cpp \
+    src/player.cpp \
+    src/minimax.cpp
+
+INCLUDEPATH += $$PWD/headers
+
+
 HEADERS += \
-    display.h \
-    stone.h \
-    gameEngine.h \
-    player.h \
-    minimax.h
+    headers/display.h \
+    headers/stone.h \
+    headers/gameEngine.h \
+    headers/player.h \
+    headers/minimax.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
