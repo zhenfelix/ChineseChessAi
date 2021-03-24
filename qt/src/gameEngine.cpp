@@ -280,6 +280,24 @@ std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> chessboard::get
         }
         
     }
+    std::sort(candidates.begin(), candidates.end(), [&](std::pair<std::pair<int, int>, std::pair<int, int>> &a, std::pair<std::pair<int, int>, std::pair<int, int>> &b) {
+        auto &[a_start_xy, a_aim_xy] = a;
+        auto &[b_start_xy, b_aim_xy] = b;
+        auto &[a_x, a_y] = a_aim_xy;
+        auto &[b_x, b_y] = b_aim_xy;
+        int va = 0, vb = 0;
+        if (c[a_x][a_y])
+            va = abs(chessboard::stonevalue[c[a_x][a_y]->get()+7]);
+        if (c[b_x][b_y])
+            vb = abs(chessboard::stonevalue[c[b_x][b_y]->get() + 7]);
+        return va > vb;
+    });//reordering movements improve alpha beta ~30x
+    // for(auto &[start_xy, aim_xy]: candidates)
+    // {
+    //     auto &[x,y] = aim_xy;
+    //     std::cout << chessboard::chessword[c[x][y]->get()+7] << " ";
+    // }
+    // std::cout << std::endl;
     return candidates;
 }
 

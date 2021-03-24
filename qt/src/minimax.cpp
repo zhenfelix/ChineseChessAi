@@ -29,7 +29,7 @@ void Minimax::think()
      }
      else
      {
-         std::cout << "computer with color: " << cb.color << " is not a maximizer" << std::endl;
+         std::cout << "computer with color: " << cb.color << " is a minimizer" << std::endl;
      }
      
      std::cout << "computer with color: " << cb.color << " see best score: " << best_score << std::endl;
@@ -52,6 +52,7 @@ void Minimax::dfs(int depth, int alpha, int beta, int &best_score, std::pair<std
     if (cb.color == MAXIMIZER_COLOR) best_score = INT_MIN;
     else best_score = INT_MAX;
      auto candidates = cb.getMoves();
+     
      for (auto &[start_xy, aim_xy] : candidates)
 //     for (auto &candidate: candidates)
      {

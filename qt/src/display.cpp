@@ -10,8 +10,9 @@ Display::Display(QWidget *parent)
 void Display::setup()
 {
     player_a = new Player(true, cb);//configure players
+    // player_a = new Player(false, cb); //configure players
     // player_b = new Player(true,cb);
-    player_b = new Minimax(false, cb, 5);
+    player_b = new Minimax(false, cb, 6);
 
     color2player[-1] = player_a;
     color2player[1] = player_b;
