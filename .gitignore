@@ -1,3 +1,10 @@
+*Makefile
+*.qmake.stash
+*.vscode
+build/
+*moc_*
+*.pro.user
+
 # Prerequisites
 *.d
 
