@@ -10,7 +10,8 @@ Display::Display(QWidget *parent)
 void Display::setup()
 {
     player_a = new Player(true, cb);//configure players
-    // player_a = new Player(false, cb); //configure players
+    // player_a = new Player(false, cb); //random move player to debug, test reproducibility
+    // player_a = new Minimax(false, cb, 5); //weaker minimax player to debug
     // player_b = new Player(true,cb);
     player_b = new Minimax(false, cb, 6);
 
@@ -81,6 +82,11 @@ void Display::paintEvent(QPaintEvent *)
 
 void Display::mouseReleaseEvent(QMouseEvent *qMouse)
 {
+    std::clock_t start;
+    double duration;
+    start = std::clock();//test two computer player self-play time duration
+
+
     if(!cb.game_running)
     {
         std::cout << "Game Over!" << std::endl;
@@ -112,13 +118,19 @@ void Display::mouseReleaseEvent(QMouseEvent *qMouse)
     update();//highlight selected color
     while (!color2player[cb.color]->isHuman && cb.game_running)
     {
-        color2player[cb.color]->think();
+        Player *player_x = color2player[cb.color];
+        player_x->think();
         // cb.show();
         // repaint();
         // usleep(1000000); 
         //The difference between QT update and repaint
+        // duration = (std::clock() - start) / (double)CLOCKS_PER_SEC; //test two computer player self-play time duration
+        // std::cout << "\n\n\nself-play took " << duration << " seconds for now\n\n\n";
 
     } // to support human vs computer and computer vs computer
+
+    duration = (std::clock() - start) / (double)CLOCKS_PER_SEC; //test two computer player self-play time duration
+    std::cout << "\n\n\nself-play took " << duration << " seconds in total\n\n\n";
 }
 
 void Display::drawStones(QPainter &painter)

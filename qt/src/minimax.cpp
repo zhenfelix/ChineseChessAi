@@ -2,6 +2,8 @@
 #define INF 0x3f3f3f3f
 #define NINF ~INF
 
+
+
 Minimax::Minimax(bool isHuman_, chessboard &cb_, int d_ = 5) //depth setting
     : Player(isHuman_, cb_), d(d_)
 {}
@@ -20,19 +22,26 @@ void Minimax::think()
      cb.setShow(false);//silence board show while computer thinking
 
     //  negmax(d, INT_MIN, INT_MAX, best_score, best_move);//dangerous bug!!! -INT_MIN still INT_MIN!!! overflow!!!
-     negmax(d, NINF, INF, best_score, best_move);
+
+
+    //  negmax(d, NINF, INF, best_score, best_move);
+     negmax_memo(d, NINF, INF, best_score, best_move);
      std::cout << "computer with color: " << cb.color << " see its best score: " << best_score << std::endl;
 
-     // dfs(d,NINF,INF,best_score,best_move);
-     // if (cb.color == MAXIMIZER_COLOR)
-     // {
-     //     std::cout << "computer with color: " << cb.color << " is a maximizer" << std::endl;
-     // }
-     // else
-     // {
-     //     std::cout << "computer with color: " << cb.color << " is a minimizer" << std::endl;
-     // }
-     // std::cout << "computer with color: " << cb.color << " see best score: " << best_score << std::endl;
+     //unsolved bug, negmax_memo and negmax have different behavior while playing with a weaker self??? should be the same?? but the same while playing with a random move player
+     //bug fixed, 2 bugs, 1.map insert vs [] operator difference; 2. tt_entry should also memorize best_move apart from best_score!
+     //new bug, cannot see upcoming checkmate
+     
+    //  dfs(d,NINF,INF,best_score,best_move);
+    //  if (cb.color == MAXIMIZER_COLOR)
+    //  {
+    //      std::cout << "computer with color: " << cb.color << " is a maximizer" << std::endl;
+    //  }
+    //  else
+    //  {
+    //      std::cout << "computer with color: " << cb.color << " is a minimizer" << std::endl;
+    //  }
+    //  std::cout << "computer with color: " << cb.color << " see best score: " << best_score << std::endl;
 
      cb.setShow(true);
      duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
@@ -42,6 +51,7 @@ void Minimax::think()
      auto &[startx, starty] = start_xy;
      auto &[aimx, aimy] = aim_xy;
      cb.move(startx, starty, aimx, aimy);
+     
 }
 
 void Minimax::dfs(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move)
@@ -52,11 +62,13 @@ void Minimax::dfs(int depth, int alpha, int beta, int &best_score, std::pair<pos
     //todo avoid cyclic check
     {
         best_score = cb.boardEval(MAXIMIZER_COLOR);
+        if (d - depth <= 2)
+            best_score *= 2; //you have to handle immediate check
         return;
     }
     
-    if (cb.color == MAXIMIZER_COLOR) best_score = INT_MIN;
-    else best_score = INT_MAX;
+    if (cb.color == MAXIMIZER_COLOR) best_score = NINF;
+    else best_score = INF;
     auto candidates = cb.getMoves();
     cb.sortMoves(candidates);
      
@@ -107,10 +119,12 @@ void Minimax::negmax(int depth, int alpha, int beta, int &best_score, std::pair<
     if (depth == 0 || !cb.game_running) 
     {
         best_score = cb.boardEvalNegMax();
+        if (d - depth <= 2)
+            best_score *= 2; //you have to handle immediate check
         return;
     }
 
-    best_score = INT_MIN;
+    best_score = NINF;
 
     auto candidates = cb.getMoves();
     cb.sortMoves(candidates);
@@ -135,5 +149,93 @@ void Minimax::negmax(int depth, int alpha, int beta, int &best_score, std::pair<
         if (alpha >= beta) // bug in negmax with alpha-beta, solved -INT_MIN overflow
             break;
     }
+    return;
+}
+
+void Minimax::negmax_memo(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move)
+{
+    std::string board_hash = cb.boardHash();
+    int alphaOrig = alpha;
+    if(visited.find(board_hash) != visited.end())
+    {
+        tt_entry tte = visited[board_hash];
+        if (tte.depth >= depth)//important !!!
+        {
+            if (tte.flag == EXACT)
+            {
+                best_score = tte.value;
+                best_move = tte.best_move;//important !!! fix bug !!!
+                return;
+            }
+            else if (tte.flag == LOWERBOUND)
+            {
+                alpha = std::max(alpha, tte.value);
+            }
+            else if (tte.flag == UPPERBOUND)
+            {
+                beta = std::min(beta, tte.value);
+            }
+            if (alpha >= beta)
+            {
+                best_score = tte.value;
+                best_move = tte.best_move; //important !!! fix bug !!!
+                return;
+            }
+        }
+        
+    }
+
+    if (depth == 0 || !cb.game_running)
+    {
+        best_score = cb.boardEvalNegMax();
+        if (d - depth <= 2)
+            best_score *= 2; //you have to handle immediate check
+        return;
+    }
+
+    best_score = NINF;
+
+    auto candidates = cb.getMoves();
+    cb.sortMoves(candidates);
+
+    for (auto &[start_xy, aim_xy] : candidates)
+    {
+        int current_score;
+        std::pair<pos_type, pos_type> current_move;
+        auto &[startx, starty] = start_xy;
+        auto &[aimx, aimy] = aim_xy;
+
+        cb.move(startx, starty, aimx, aimy);
+        negmax_memo(depth - 1, -beta, -alpha, current_score, current_move);
+        cb.undo();
+        current_score = -current_score;
+        if (current_score > best_score)
+        {
+            best_score = current_score;
+            best_move = {start_xy, aim_xy};
+        }
+        alpha = std::max(alpha, best_score);
+        if (alpha >= beta) 
+            break;
+    }
+    tt_entry tte;
+    tte.depth = depth;
+    tte.value = best_score;
+    tte.best_move = best_move; //important !!! fix bug !!!
+    if (best_score <= alphaOrig)
+    {
+        tte.flag = UPPERBOUND;
+    }
+    else if(best_score >= beta)
+    {
+        tte.flag = LOWERBOUND;
+    }
+    else
+    {
+        tte.flag = EXACT;
+    }
+    
+    // visited.insert({board_hash,tte});//Because std::map does not allow for duplicates if there is an existing element it will not insert anything.
+    visited[board_hash] = tte;
     return;
 }

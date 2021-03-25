@@ -15,7 +15,8 @@ chessboard::chessboard(bool is_show_=true)
     : is_show(is_show_)
 {
     memset(c, NULL, sizeof(c));
-    srand((unsigned)time(NULL));
+    // srand((unsigned)time(NULL));
+    srand((unsigned) 2021);
     color = -1;
     game_running = true;
     vertical = -1;

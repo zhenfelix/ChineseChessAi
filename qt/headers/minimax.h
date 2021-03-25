@@ -4,6 +4,21 @@
 #include "player.h"
 #include <QObject>
 
+enum tt_state
+{
+    EXACT,
+    LOWERBOUND,
+    UPPERBOUND
+};
+
+struct tt_entry
+{
+    tt_state flag;
+    int depth;
+    int value;
+    std::pair<pos_type, pos_type> best_move;
+};
+
 
 class Minimax : public Player
 {
@@ -17,18 +32,21 @@ public:
     int d;//search depth
 
 private:
-    std::unordered_map<std::string,int> visited;
+    // std::unordered_map<std::string,tt_entry> visited;
+    std::unordered_map<std::string, tt_entry> visited;
+
+private:
     void dfs(int depth, int alpha, int beta, int &best_score, std::pair<pos_type,pos_type> &best_move);
-    //alpha beta pruning improves performance approximately 30x
-    void dfs(int depth, int &best_score, std::pair<pos_type, pos_type> &best_move);
-    void dfs_memo(int depth, int &best_score, std::pair<pos_type, pos_type> &best_move);
-    //memo improves performance only less than 2x
+    //alpha beta pruning improves performance ~30x, compared to bruteforce
     void negmax(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move);
+    //negmax implementation has similar performance as minimax
+    void negmax_memo(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move);
+    //memorization only improves performance ~2x
 
-// public slots:
+    // public slots:
 
-// signals:
-//     void send();
+    // signals:
+    //     void send();
 };
 
 #endif // MINIMAX_H
