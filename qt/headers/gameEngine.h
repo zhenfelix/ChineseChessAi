@@ -20,6 +20,7 @@ public:
     int getVertical() { return vertical; }
     std::vector<Stone *> getStones();
     std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> getMoves();
+    void sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> &);
     int getid(int x, int y)
     {
         if (c[x][y] != NULL)
@@ -35,10 +36,12 @@ public:
     void dummy_move();
     void random_move();
     int boardEval(int);
+    int boardEvalNegMax();
     std::string boardHash();
     ~chessboard(); //析构函数
 
 public:
+
     static const char chessword[15][4];
     static const int stonevalue[15];
     int color;         //current player color, red: -1, black: 1

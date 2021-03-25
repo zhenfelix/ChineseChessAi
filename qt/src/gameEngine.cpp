@@ -48,8 +48,8 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
         c[aimx][aimy] = c[startx][starty];
         c[aimx][aimy]->setPos(aimx,aimy);
         c[startx][starty] = NULL;
-        std::pair<int, int> start_xy = {startx, starty};
-        std::pair<int, int> aim_xy = {aimx, aimy};
+        pos_type start_xy = {startx, starty};
+        pos_type aim_xy = {aimx, aimy};
         records.push({start_xy, aim_xy});
         color *= -1;
         vertical *= -1;
@@ -157,6 +157,21 @@ int chessboard::boardEval(int maximizer_color) //color of maximizer player
     return score;
 }
 
+int chessboard::boardEvalNegMax() //negmax board eval
+{
+    int score = 0;
+    std::vector<Stone *> st = getStones();
+    for (auto s : st)
+    {
+        if (!s)
+            continue;
+        int id = s->get();
+        score += color * chessboard::stonevalue[id + 7];
+    }
+
+    return score;
+}
+
 std::string chessboard::boardHash()
 {
     std::string res;
@@ -195,41 +210,41 @@ void chessboard::placeStone(int color_, int vertical_)
 {
     if(vertical_ == -1)
     {
-        c[6][8] = new soldier(color_+1,6,8);
-        c[6][0] = new soldier(color_+1,6,0);
-        c[6][2] = new soldier(color_+1,6,2);
-        c[6][4] = new soldier(color_+1,6,4);
-        c[6][6] = new soldier(color_+1,6,6);
-        c[7][1] = new cannon(color_+1,7,1);
-        c[7][7] = new cannon(color_+1,7,7);
-        c[9][4] = new general(color_+1,9,4);
-        c[9][3] = new guard(color_+1,9,3);
-        c[9][5] = new guard(color_+1,9,5);
-        c[9][2] = new elephant(color_+1,9,2);
-        c[9][6] = new elephant(color_+1,9,6);
-        c[9][1] = new horse(color_+1,9,1);
-        c[9][7] = new horse(color_+1,9,7);
-        c[9][0] = new rook(color_+1,9,0);
-        c[9][8] = new rook(color_+1,9,8);
+        c[6][8] = new soldier(color_+1,6,8,vertical_);
+        c[6][0] = new soldier(color_+1,6,0,vertical_);
+        c[6][2] = new soldier(color_+1,6,2,vertical_);
+        c[6][4] = new soldier(color_+1,6,4,vertical_);
+        c[6][6] = new soldier(color_+1,6,6,vertical_);
+        c[7][1] = new cannon(color_+1,7,1,vertical_);
+        c[7][7] = new cannon(color_+1,7,7,vertical_);
+        c[9][4] = new general(color_+1,9,4,vertical_);
+        c[9][3] = new guard(color_+1,9,3,vertical_);
+        c[9][5] = new guard(color_+1,9,5,vertical_);
+        c[9][2] = new elephant(color_+1,9,2,vertical_);
+        c[9][6] = new elephant(color_+1,9,6,vertical_);
+        c[9][1] = new horse(color_+1,9,1,vertical_);
+        c[9][7] = new horse(color_+1,9,7,vertical_);
+        c[9][0] = new rook(color_+1,9,0,vertical_);
+        c[9][8] = new rook(color_+1,9,8,vertical_);
     }
     else
     {
-        c[3][8] = new soldier(color_ + 1, 3,8);
-        c[3][0] = new soldier(color_ + 1, 3,0);
-        c[3][2] = new soldier(color_ + 1, 3,2);
-        c[3][4] = new soldier(color_ + 1, 3,4);
-        c[3][6] = new soldier(color_ + 1, 3,6);
-        c[2][1] = new cannon(color_ + 1, 2,1);
-        c[2][7] = new cannon(color_ + 1, 2,7);
-        c[0][4] = new general(color_ + 1, 0,4);
-        c[0][3] = new guard(color_ + 1, 0, 3);
-        c[0][5] = new guard(color_ + 1, 0, 5);
-        c[0][2] = new elephant(color_ + 1, 0, 2);
-        c[0][6] = new elephant(color_ + 1, 0, 6);
-        c[0][1] = new horse(color_ + 1, 0, 1);
-        c[0][7] = new horse(color_ + 1, 0, 7);
-        c[0][0] = new rook(color_ + 1, 0, 0);
-        c[0][8] = new rook(color_ + 1, 0, 8);
+        c[3][8] = new soldier(color_ + 1, 3,8, vertical_);
+        c[3][0] = new soldier(color_ + 1, 3,0, vertical_);
+        c[3][2] = new soldier(color_ + 1, 3,2, vertical_);
+        c[3][4] = new soldier(color_ + 1, 3,4, vertical_);
+        c[3][6] = new soldier(color_ + 1, 3,6, vertical_);
+        c[2][1] = new cannon(color_ + 1, 2,1, vertical_);
+        c[2][7] = new cannon(color_ + 1, 2,7, vertical_);
+        c[0][4] = new general(color_ + 1, 0,4, vertical_);
+        c[0][3] = new guard(color_ + 1, 0, 3, vertical_);
+        c[0][5] = new guard(color_ + 1, 0, 5, vertical_);
+        c[0][2] = new elephant(color_ + 1, 0, 2, vertical_);
+        c[0][6] = new elephant(color_ + 1, 0, 6, vertical_);
+        c[0][1] = new horse(color_ + 1, 0, 1, vertical_);
+        c[0][7] = new horse(color_ + 1, 0, 7, vertical_);
+        c[0][0] = new rook(color_ + 1, 0, 0, vertical_);
+        c[0][8] = new rook(color_ + 1, 0, 8, vertical_);
     }
     
 }
@@ -258,9 +273,9 @@ std::vector<Stone*> chessboard::getStones()
     return res;
 }
 
-std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> chessboard::getMoves()
+std::vector<std::pair<pos_type, pos_type>> chessboard::getMoves()
 {
-    std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> candidates;
+    std::vector<std::pair<pos_type, pos_type>> candidates;
     std::vector<Stone*> candidate_stones = getStones();
     for(auto s: candidate_stones)
     {
@@ -280,28 +295,37 @@ std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> chessboard::get
         }
         
     }
-    std::sort(candidates.begin(), candidates.end(), [&](std::pair<std::pair<int, int>, std::pair<int, int>> &a, std::pair<std::pair<int, int>, std::pair<int, int>> &b) {
+    
+
+    return candidates;
+}
+
+void chessboard::sortMoves(std::vector<std::pair<pos_type, pos_type>> &candidates)
+{
+    std::sort(candidates.begin(), candidates.end(), [&](std::pair<pos_type, pos_type> &a, std::pair<pos_type, pos_type> &b) {
         auto &[a_start_xy, a_aim_xy] = a;
         auto &[b_start_xy, b_aim_xy] = b;
         auto &[a_x, a_y] = a_aim_xy;
         auto &[b_x, b_y] = b_aim_xy;
         int va = 0, vb = 0;
         if (c[a_x][a_y])
-            va = abs(chessboard::stonevalue[c[a_x][a_y]->get()+7]);
+            va = abs(chessboard::stonevalue[c[a_x][a_y]->get() + 7]);
         if (c[b_x][b_y])
             vb = abs(chessboard::stonevalue[c[b_x][b_y]->get() + 7]);
         return va > vb;
-    });//reordering movements improve alpha beta ~30x
+    }); //reordering movements to improve alpha beta performance up to ~30x
+
     // for(auto &[start_xy, aim_xy]: candidates)
     // {
     //     auto &[x,y] = aim_xy;
     //     std::cout << chessboard::chessword[c[x][y]->get()+7] << " ";
     // }
     // std::cout << std::endl;
-    return candidates;
+
+    return;
 }
 
-void chessboard ::show()
+    void chessboard ::show()
 {
     if (!is_show)
         return;
@@ -325,8 +349,7 @@ void chessboard ::show()
         cout << endl;
     }
     std::cout << "current board score (maximizer color" << MAXIMIZER_COLOR << ") is " << boardEval(MAXIMIZER_COLOR) << std::endl; //default maximizer color is -1
-    std::cout << boardHash() << std::endl;
-    getStones();
+    // std::cout << boardHash() << std::endl;
     emit update();//update qt gui signal
 }
 

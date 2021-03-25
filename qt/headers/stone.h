@@ -25,6 +25,8 @@
 
 // #include "gameEngine.h"
 
+typedef std::pair<int,int> pos_type;
+
 
 //存储结构：chess类是基类，派生类是各种棋子，在chessboard类中用chess的指针调用各个棋子
 class chessboard;
@@ -33,11 +35,13 @@ class Stone
 private:
     int id; //等级
     int row, col;
+    int vertical;//stone's host vertical position
 public:
     Stone(int i) : id(i) {}
-    Stone(int i, int r, int c): id(i), row(r), col(c) {}
+    Stone(int i, int r, int c, int v): id(i), row(r), col(c), vertical(v) {}
     int get() { return id; }
     void getPos(int &r, int &c){ r=row; c=col; return;}
+    int getVer(){ return vertical; }
     void setPos(int r, int c){ row=r; col=c; return;}
     virtual bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy) = 0;
     virtual ~Stone(){}; //虚析构
@@ -46,49 +50,49 @@ public:
 class horse : public Stone
 {
 public:
-    horse(int,int,int);
+    horse(int,int,int,int);
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
 class soldier : public Stone
 {
 public:
-    soldier(int,int,int);
+    soldier(int,int,int,int);
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
 class general : public Stone
 {
 public:
-    general(int,int,int);
+    general(int,int,int,int);
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
 class elephant : public Stone
 {
 public:
-    elephant(int,int,int);
+    elephant(int,int,int,int);
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
 class cannon : public Stone
 {
 public:
-    cannon(int,int,int);
+    cannon(int,int,int,int);
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
 class guard : public Stone
 {
 public:
-    guard(int,int,int);
+    guard(int,int,int,int);
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
 class rook : public Stone
 {
 public:
-    rook(int,int,int);
+    rook(int,int,int,int);
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 

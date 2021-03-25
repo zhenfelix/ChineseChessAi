@@ -1,7 +1,7 @@
 #include "stone.h"
 #include "gameEngine.h"
 
-horse::horse(int i, int color_, int vertical_) : Stone((i == 0 ? -2 : 2), color_,  vertical_) {}
+horse::horse(int i, int row_, int col_, int vertical_) : Stone((i == 0 ? -2 : 2), row_, col_, vertical_) {}
 bool horse::judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy)
     {
         int tempx = aimx - startx, tempy = aimy - starty;
@@ -12,7 +12,7 @@ bool horse::judge_move(chessboard &cb, int startx, int starty, int aimx, int aim
     }
 
 
-soldier::soldier(int c, int color_, int vertical_) : Stone((c == 0 ? -1 : 1), color_,  vertical_) {}
+soldier::soldier(int c, int row_, int col_, int vertical_) : Stone((c == 0 ? -1 : 1), row_, col_, vertical_) {}
 bool soldier::judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy)
     {
         int tempx = aimx - startx, tempy = aimy - starty;
@@ -31,7 +31,7 @@ bool soldier::judge_move(chessboard &cb, int startx, int starty, int aimx, int a
     }
     
 
-general::general(int c, int color_, int vertical_) : Stone((c == 0 ? -7 : 7), color_,  vertical_) {}
+general::general(int c, int row_, int col_, int vertical_) : Stone((c == 0 ? -7 : 7), row_, col_, vertical_) {}
 bool general::judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy)
     {
         int tempx = aimx - startx, tempy = aimy - starty;
@@ -49,7 +49,7 @@ bool general::judge_move(chessboard &cb, int startx, int starty, int aimx, int a
         return false;
     }
 
-elephant::elephant(int c, int color_, int vertical_) : Stone((c == 0 ? -6 : 6), color_,  vertical_) {}
+elephant::elephant(int c, int row_, int col_, int vertical_) : Stone((c == 0 ? -6 : 6), row_, col_, vertical_) {}
 bool elephant::judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy)
     {
         int tempx = aimx - startx, tempy = aimy - starty;
@@ -59,7 +59,7 @@ bool elephant::judge_move(chessboard &cb, int startx, int starty, int aimx, int 
         return false;
     }
 
-cannon::cannon(int c, int color_, int vertical_) : Stone((c == 0 ? -5 : 5), color_,  vertical_) {}
+cannon::cannon(int c, int row_, int col_, int vertical_) : Stone((c == 0 ? -5 : 5), row_, col_, vertical_) {}
 bool cannon::judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy)
     {
         int tempx = aimx - startx, tempy = aimy - starty;
@@ -95,7 +95,7 @@ bool cannon::judge_move(chessboard &cb, int startx, int starty, int aimx, int ai
         return false;
     }
 
-guard::guard(int c, int color_, int vertical_) : Stone((c == 0 ? -4 : 4), color_,  vertical_) {}
+guard::guard(int c, int row_, int col_, int vertical_) : Stone((c == 0 ? -4 : 4), row_, col_, vertical_) {}
 bool guard::judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy)
     {
         int tempx = aimx - startx, tempy = aimy - starty;
@@ -105,7 +105,7 @@ bool guard::judge_move(chessboard &cb, int startx, int starty, int aimx, int aim
         return false;
     }
 
-rook::rook(int c, int color_, int vertical_) : Stone((c == 0 ? -3 : 3), color_,  vertical_) {}
+rook::rook(int c, int row_, int col_, int vertical_) : Stone((c == 0 ? -3 : 3), row_, col_, vertical_) {}
 bool rook::judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy)
 {
     int tempx = aimx - startx, tempy = aimy - starty;
