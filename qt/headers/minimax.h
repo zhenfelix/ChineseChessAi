@@ -41,7 +41,7 @@ private:
     void negmax(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move);
     //negmax implementation has similar performance as minimax
     void negmax_memo(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move);
-    //memorization only improves performance ~2x
+    //memorization only improves performance ~1x, neligible
 
     // public slots:
 

@@ -24,8 +24,8 @@ void Minimax::think()
     //  negmax(d, INT_MIN, INT_MAX, best_score, best_move);//dangerous bug!!! -INT_MIN still INT_MIN!!! overflow!!!
 
 
-    //  negmax(d, NINF, INF, best_score, best_move);
-     negmax_memo(d, NINF, INF, best_score, best_move);
+     negmax(d, NINF, INF, best_score, best_move);
+    //  negmax_memo(d, NINF, INF, best_score, best_move);
      std::cout << "computer with color: " << cb.color << " see its best score: " << best_score << std::endl;
 
      //unsolved bug, negmax_memo and negmax have different behavior while playing with a weaker self??? should be the same?? but the same while playing with a random move player
@@ -118,7 +118,8 @@ void Minimax::negmax(int depth, int alpha, int beta, int &best_score, std::pair<
 
     if (depth == 0 || !cb.game_running) 
     {
-        best_score = cb.boardEvalNegMax();
+        // best_score = cb.boardEvalNegMax();
+        best_score = cb.boardPosEval();
         if (d - depth <= 2)
             best_score *= 2; //you have to handle immediate check
         return;
@@ -187,7 +188,8 @@ void Minimax::negmax_memo(int depth, int alpha, int beta, int &best_score, std::
 
     if (depth == 0 || !cb.game_running)
     {
-        best_score = cb.boardEvalNegMax();
+        // best_score = cb.boardEvalNegMax();
+        best_score = cb.boardPosEval();
         if (d - depth <= 2)
             best_score *= 2; //you have to handle immediate check
         return;

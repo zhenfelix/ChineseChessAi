@@ -4,12 +4,16 @@
 
 #include "stone.h"
 #include "gameEngine.h"
+#include <fstream>
+#include <string>
 
 using namespace std;
 
-const char chessboard::chessword[15][4] = {"帥", "相", "炮", "仕", "俥", "傌", "兵", "", "卒", "馬", "車", "士", "砲", "象", "将"}; //名字
-const int chessboard::stonevalue[15] = {-10000,-4,-9,-4,-18,-8,-2,0,2,8,18,4,9,4,10000};//stone value
+// const char chessboard::chessword[15][4] = {"帥", "相", "炮", "仕", "俥", "傌", "兵", "", "卒", "馬", "車", "士", "砲", "象", "将"}; //名字
+// const int chessboard::stonevalue[15] = {-10000,-4,-9,-4,-18,-8,-2,0,2,8,18,4,9,4,10000};//stone value
 
+const char chessboard::chessword[15][4] = {"兵", "相", "仕", "炮", "傌", "俥", "帥", "", "将", "車", "馬", "砲", "士", "象", "卒"}; //名字
+const int chessboard::stonevalue[15] = {-2, -4, -4, -8, -9, -18, -10000, 0, 10000, 18, 9, 8, 4, 4, 2};                              //stone value
 
 chessboard::chessboard(bool is_show_=true)
     : is_show(is_show_)
@@ -29,19 +33,12 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
     if (startx >= 0 && startx < 10 && starty >= 0 && starty < 9 //初步判断传入的点是否符合规则
         && aimx >= 0 && aimx < 10 && aimy >= 0 && aimy < 9 && getid(startx, starty) && getid(startx, starty) * color > 0 && c[startx][starty]->judge_move(*this, startx, starty, aimx, aimy))
     {
-        // std::string board_hash = boardHash();
-        // board_hash += (char)('0' + startx);
-        // board_hash += (char)('0' + starty);
-        // board_hash += (char)('0' + aimx);
-        // board_hash += (char)('0' + aimy);
-        // if (seen.find(board_hash) != seen.end()) return false;
-        // seen.insert(board_hash); //to avoid cyclic moves //bug implementation
-
+        
         if (c[aimx][aimy] != NULL)
             {
                 // delete c[aimx][aimy]; //吃子
                 capturedStones.insert(std::pair<int, Stone *>(records.size(), c[aimx][aimy]));
-                if (std::abs(c[aimx][aimy]->get()) == 7)
+                if (std::abs(c[aimx][aimy]->get()) == 1)
                 {
                     game_running = false;//game over once general captured
                 }
@@ -54,11 +51,25 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
         records.push({start_xy, aim_xy});
         color *= -1;
         vertical *= -1;
-        
+        if (checkCycle(startx, starty, aimx, aimy))
+        {
+            undo();
+            return false;
+        }
         show();
         return true;
     }
     // cout << "走法错误，不符合规则" << endl;
+    return false;
+}
+
+bool chessboard::checkCycle(int startx, int starty, int aimx, int aimy)
+{
+    std::string board_hash = boardHash();
+    seen.insert(board_hash); //to avoid cyclic moves
+    if (abs(getid(startx, starty)) == 1)return false;
+    if (seen.count(board_hash) > 1)
+        return true;
     return false;
 }
 
@@ -70,6 +81,10 @@ void chessboard::undo()
         std::cout << "already the first step!" << std::endl;
         return;
     }
+
+    std::string board_hash = boardHash();
+    seen.erase(seen.find(board_hash)); //buggy!!! multiset erase usages!!! erase only one element
+
     color *= -1;
     vertical *= -1;
     auto &[start_xy, aim_xy] = records.top();
@@ -84,17 +99,11 @@ void chessboard::undo()
     {
         c[aimx][aimy] = capturedStones[records.size()];
         capturedStones.erase(records.size());
-        if (std::abs(c[aimx][aimy]->get()) == 7)
+        if (std::abs(c[aimx][aimy]->get()) == 1)
         {
             game_running = true; //restore game
         }
     }
-    // std::string board_hash = boardHash();
-    // board_hash += (char)('0' + startx);
-    // board_hash += (char)('0' + starty);
-    // board_hash += (char)('0' + aimx);
-    // board_hash += (char)('0' + aimy);
-    // seen.erase(board_hash); //to avoid cyclic moves
     show();
 }
 
@@ -173,11 +182,31 @@ int chessboard::boardEvalNegMax() //negmax board eval
     return score;
 }
 
+int chessboard::boardPosEval()
+{
+    int score = 0;
+    std::vector<Stone *> st = getStones();
+    for (auto s : st)
+    {
+        if (!s)
+            continue;
+        int id = s->get();
+        int vertical_ = s->getVer();
+        int row, col;
+        s->getPos(row,col);
+        if (id * color > 0)
+            score += stone2val[abs(id) * vertical_][row][col];
+        else
+            score -= stone2val[abs(id) * vertical_][row][col];
+    }
+
+    return score;
+}
+
 std::string chessboard::boardHash()
 {
-    std::string res;
-    if(color == -1)res += 'r';
-    else res += 'b';
+    std::string res = color == -1 ? "r" : "b";
+
     std::vector<Stone *> st = getStones();
     for (auto s : st)
     {
@@ -207,53 +236,88 @@ chessboard ::~chessboard()
             }
 }
 
-void chessboard::placeStone(int color_, int vertical_)
+void chessboard::flipMat(std::vector<std::vector<int>> &mat)
 {
-    if(vertical_ == -1)
+    int n = mat.size();
+    int m = mat[0].size();
+    for (int i = 0; i < n/2; i++)
     {
-        c[6][8] = new soldier(color_+1,6,8,vertical_);
-        c[6][0] = new soldier(color_+1,6,0,vertical_);
-        c[6][2] = new soldier(color_+1,6,2,vertical_);
-        c[6][4] = new soldier(color_+1,6,4,vertical_);
-        c[6][6] = new soldier(color_+1,6,6,vertical_);
-        c[7][1] = new cannon(color_+1,7,1,vertical_);
-        c[7][7] = new cannon(color_+1,7,7,vertical_);
-        c[9][4] = new general(color_+1,9,4,vertical_);
-        c[9][3] = new guard(color_+1,9,3,vertical_);
-        c[9][5] = new guard(color_+1,9,5,vertical_);
-        c[9][2] = new elephant(color_+1,9,2,vertical_);
-        c[9][6] = new elephant(color_+1,9,6,vertical_);
-        c[9][1] = new horse(color_+1,9,1,vertical_);
-        c[9][7] = new horse(color_+1,9,7,vertical_);
-        c[9][0] = new rook(color_+1,9,0,vertical_);
-        c[9][8] = new rook(color_+1,9,8,vertical_);
-    }
-    else
-    {
-        c[3][8] = new soldier(color_ + 1, 3,8, vertical_);
-        c[3][0] = new soldier(color_ + 1, 3,0, vertical_);
-        c[3][2] = new soldier(color_ + 1, 3,2, vertical_);
-        c[3][4] = new soldier(color_ + 1, 3,4, vertical_);
-        c[3][6] = new soldier(color_ + 1, 3,6, vertical_);
-        c[2][1] = new cannon(color_ + 1, 2,1, vertical_);
-        c[2][7] = new cannon(color_ + 1, 2,7, vertical_);
-        c[0][4] = new general(color_ + 1, 0,4, vertical_);
-        c[0][3] = new guard(color_ + 1, 0, 3, vertical_);
-        c[0][5] = new guard(color_ + 1, 0, 5, vertical_);
-        c[0][2] = new elephant(color_ + 1, 0, 2, vertical_);
-        c[0][6] = new elephant(color_ + 1, 0, 6, vertical_);
-        c[0][1] = new horse(color_ + 1, 0, 1, vertical_);
-        c[0][7] = new horse(color_ + 1, 0, 7, vertical_);
-        c[0][0] = new rook(color_ + 1, 0, 0, vertical_);
-        c[0][8] = new rook(color_ + 1, 0, 8, vertical_);
+        for (int j = 0; j < m; j++)
+        {
+            int tmp = mat[i][j];
+            mat[i][j] = mat[n-1-i][m-1-j];
+            mat[n-1-i][m-1-j] = tmp;
+        }
+        
     }
     
 }
 
+void chessboard::readPosVal()
+{
+    std::ifstream infile("pos_value.txt");
+    int tmp;
+    for (int idx = 1; idx <= 7; idx++)
+    {
+        std::vector<std::vector<int>> val_mat;
+        for (int row = 0; row < 10; row++)
+        {
+            std::vector<int> row_val;
+            for (int col = 0; col < 9; col++)
+            {
+                infile >> tmp;
+                row_val.push_back(tmp);
+            }
+            val_mat.push_back(row_val);
+        }
+        stone2val.insert({idx,val_mat});
+        // stone2val[idx] = val_mat;
+        flipMat(val_mat);
+        stone2val.insert({-idx,val_mat});
+        // stone2val[-idx] = val_mat;
+    }
+    
+}
+
+void chessboard::readBoard()
+{
+    std::ifstream infile("init.txt");
+    int tmp, vertical_, color_;
+    for (int row = 0; row < 10; row++)
+    {
+        for (int col = 0; col < 9; col++)
+        {
+            infile >> tmp;
+            if(tmp == 0)continue;
+            if(tmp < 0)color_ = -1;
+            else color_ = 1;
+            if(row < 5)vertical_ = 1;
+            else vertical_ = -1;
+            if(abs(tmp) == 1)
+                c[row][col] = new general(color_ + 1, row, col, vertical_);
+            else if(abs(tmp) == 2)
+                c[row][col] = new rook(color_ + 1, row, col, vertical_);
+            else if(abs(tmp) == 3)
+                c[row][col] = new horse(color_ + 1, row, col, vertical_);
+            else if(abs(tmp) == 4)
+                c[row][col] = new cannon(color_ + 1, row, col, vertical_);
+            else if(abs(tmp) == 5)
+                c[row][col] = new guard(color_ + 1, row, col, vertical_);
+            else if(abs(tmp) == 6)
+                c[row][col] = new elephant(color_ + 1, row, col, vertical_);
+            else
+                c[row][col] = new soldier(color_ + 1, row, col, vertical_);
+        }
+        
+    }
+    
+}
+
+
 void chessboard ::init()
 { //初始化，棋子的生成
-    placeStone(color,vertical);
-    placeStone(-color,-vertical);
+    readBoard();
+    readPosVal();
 }
 
 std::vector<Stone*> chessboard::getStones()
@@ -349,7 +413,8 @@ void chessboard::sortMoves(std::vector<std::pair<pos_type, pos_type>> &candidate
         }
         cout << endl;
     }
-    std::cout << "current board score (maximizer color" << MAXIMIZER_COLOR << ") is " << boardEval(MAXIMIZER_COLOR) << std::endl; //default maximizer color is -1
+    std::cout << "current board score from current player perspective is " << boardPosEval() << std::endl;
+    // std::cout << "current board score (maximizer color" << MAXIMIZER_COLOR << ") is " << boardEval(MAXIMIZER_COLOR) << std::endl; //default maximizer color is -1
     // std::cout << boardHash() << std::endl;
     emit update();//update qt gui signal
 }

@@ -37,6 +37,7 @@ public:
     void random_move();
     int boardEval(int);
     int boardEvalNegMax();
+    int boardPosEval();
     std::string boardHash();
     ~chessboard(); //析构函数
 
@@ -54,11 +55,15 @@ private:
     Stone *c[10][9];//用指针调用各个棋子，实现多态
     std::stack<std::pair<std::pair<int, int>, std::pair<int, int>>> records;
     std::map<int, Stone *> capturedStones;
-    std::unordered_set<std::string> seen;
+    std::multiset<std::string> seen;
+    std::unordered_map<int,std::vector<std::vector<int>>> stone2val;
 
 private:
     //utility methods
-    
+    bool checkCycle(int,int,int,int);
+    void readBoard();
+    void readPosVal();
+    void flipMat(std::vector<std::vector<int>>&);
     void placeStone(int color_, int vertical_);
 
 signals:
