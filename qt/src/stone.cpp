@@ -38,7 +38,7 @@ bool general::judge_move(chessboard &cb, int startx, int starty, int aimx, int a
         int sid = cb.getid(startx, starty), aid = cb.getid(aimx, aimy);
         if (sid * aid <= 0 && tempy * tempy + tempx * tempx == 1 && aimx % 7 >= 0 && aimx % 7 <= 2 && aimy >= 3 && aimy <= 5)
             return true;
-        if (sid * aid == -49 && tempy == 0)
+        if (sid * aid == -1 && tempy == 0)
         {
             int sign = tempx > 0 ? 1 : -1;
             for (int i = 1; i < abs(tempx); i++)

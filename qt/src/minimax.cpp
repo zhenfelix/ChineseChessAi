@@ -23,9 +23,9 @@ void Minimax::think()
 
     //  negmax(d, INT_MIN, INT_MAX, best_score, best_move);//dangerous bug!!! -INT_MIN still INT_MIN!!! overflow!!!
 
-
-     negmax(d, NINF, INF, best_score, best_move);
-    //  negmax_memo(d, NINF, INF, best_score, best_move);
+     quiesceneSearch(false, d, NINF, INF, best_score, best_move);
+     //  negmax(d, NINF, INF, best_score, best_move);
+     //  negmax_memo(d, NINF, INF, best_score, best_move);
      std::cout << "computer with color: " << cb.color << " see its best score: " << best_score << std::endl;
 
      //unsolved bug, negmax_memo and negmax have different behavior while playing with a weaker self??? should be the same?? but the same while playing with a random move player
@@ -239,5 +239,58 @@ void Minimax::negmax_memo(int depth, int alpha, int beta, int &best_score, std::
     
     // visited.insert({board_hash,tte});//Because std::map does not allow for duplicates if there is an existing element it will not insert anything.
     visited[board_hash] = tte;
+    return;
+}
+
+void Minimax::quiesceneSearch(bool is_quiescene, int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move)
+{
+    // std::string board_hash = cb.boardHash();
+
+    if (is_quiescene || depth == 0 || !cb.game_running)
+    {
+        // best_score = cb.boardEvalNegMax();
+        best_score = cb.boardPosEval();
+        if (!is_quiescene && d - depth <= 2)
+            best_score *= 2; //you have to handle immediate check
+        if (!cb.game_running)
+            return;
+        if (is_quiescene)
+        {
+            if (!cb.isVolatile() || depth == 0) return;
+        }
+        else
+        {
+            if(!cb.isVolatile()) return;
+            quiesceneSearch(true,5,alpha,beta,best_score,best_move);//quiescene search depth!
+            return;
+        }
+        
+    }
+
+    best_score = NINF;
+
+    auto candidates = cb.getMoves();
+    cb.sortMoves(candidates);
+
+    for (auto &[start_xy, aim_xy] : candidates)
+    {
+        int current_score;
+        std::pair<pos_type, pos_type> current_move;
+        auto &[startx, starty] = start_xy;
+        auto &[aimx, aimy] = aim_xy;
+
+        cb.move(startx, starty, aimx, aimy);
+        quiesceneSearch(is_quiescene, depth - 1, -beta, -alpha, current_score, current_move);
+        cb.undo();
+        current_score = -current_score;
+        if (current_score > best_score)
+        {
+            best_score = current_score;
+            best_move = {start_xy, aim_xy};
+        }
+        alpha = std::max(alpha, best_score);
+        if (alpha >= beta) // bug in negmax with alpha-beta, solved -INT_MIN overflow
+            break;
+    }
     return;
 }

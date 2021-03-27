@@ -38,6 +38,7 @@ public:
     int boardEval(int);
     int boardEvalNegMax();
     int boardPosEval();
+    bool isVolatile(){ return capturedStones.find(records.size()-1) != capturedStones.end(); }
     std::string boardHash();
     ~chessboard(); //析构函数
 

@@ -281,7 +281,8 @@ void chessboard::readPosVal()
 
 void chessboard::readBoard()
 {
-    std::ifstream infile("init.txt");
+    // std::ifstream infile("init.txt");
+    std::ifstream infile("bug_pos.txt");
     int tmp, vertical_, color_;
     for (int row = 0; row < 10; row++)
     {
