@@ -11,7 +11,7 @@ void Display::setup()
 {
     player_a = new Player(true, cb);//configure players
     // player_a = new Player(false, cb); //random move player to debug, test reproducibility
-    // player_a = new Minimax(false, cb, 4); //weaker minimax player to debug
+    // player_a = new Minimax(false, cb, 5); //weaker minimax player to debug
     // player_b = new Player(true,cb);
     player_b = new Minimax(false, cb, 5);
 

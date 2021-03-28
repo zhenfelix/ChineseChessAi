@@ -45,6 +45,8 @@ private:
 
     void quiesceneSearch(bool is_quiescene, int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move);
 
+    void pvs(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move);
+
     // public slots:
 
     // signals:

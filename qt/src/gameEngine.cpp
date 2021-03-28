@@ -67,7 +67,7 @@ bool chessboard::checkCycle(int startx, int starty, int aimx, int aimy)
 {
     std::string board_hash = boardHash();
     seen.insert(board_hash); //to avoid cyclic moves
-    if (abs(getid(startx, starty)) == 1)return false;
+    if (abs(getid(aimx, aimy)) == 1)return false;//buggy, general has already moved!
     if (seen.count(board_hash) > 1)
         return true;
     return false;
@@ -282,7 +282,8 @@ void chessboard::readPosVal()
 void chessboard::readBoard()
 {
     // std::ifstream infile("init.txt");
-    std::ifstream infile("bug_pos.txt");
+    // std::ifstream infile("bug_pos.txt");
+    std::ifstream infile("bug_check_cycle.txt");
     int tmp, vertical_, color_;
     for (int row = 0; row < 10; row++)
     {

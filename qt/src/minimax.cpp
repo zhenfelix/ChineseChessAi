@@ -23,8 +23,9 @@ void Minimax::think()
 
     //  negmax(d, INT_MIN, INT_MAX, best_score, best_move);//dangerous bug!!! -INT_MIN still INT_MIN!!! overflow!!!
 
-     quiesceneSearch(false, d, NINF, INF, best_score, best_move);
-     //  negmax(d, NINF, INF, best_score, best_move);
+    //  pvs(d, NINF, INF, best_score, best_move);
+    //   quiesceneSearch(false, d, NINF, INF, best_score, best_move);
+      negmax(d, NINF, INF, best_score, best_move);
      //  negmax_memo(d, NINF, INF, best_score, best_move);
      std::cout << "computer with color: " << cb.color << " see its best score: " << best_score << std::endl;
 
@@ -261,7 +262,7 @@ void Minimax::quiesceneSearch(bool is_quiescene, int depth, int alpha, int beta,
         else
         {
             if(!cb.isVolatile()) return;
-            quiesceneSearch(true,5,alpha,beta,best_score,best_move);//quiescene search depth!
+            quiesceneSearch(true,4,alpha,beta,best_score,best_move);//quiescene search depth!
             return;
         }
         
@@ -283,6 +284,69 @@ void Minimax::quiesceneSearch(bool is_quiescene, int depth, int alpha, int beta,
         quiesceneSearch(is_quiescene, depth - 1, -beta, -alpha, current_score, current_move);
         cb.undo();
         current_score = -current_score;
+        if (current_score > best_score)
+        {
+            best_score = current_score;
+            best_move = {start_xy, aim_xy};
+        }
+        alpha = std::max(alpha, best_score);
+        if (alpha >= beta) // bug in negmax with alpha-beta, solved -INT_MIN overflow
+            break;
+    }
+    return;
+}
+
+void Minimax::pvs(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move)
+{
+    // std::string board_hash = cb.boardHash();
+
+    if (depth == 0 || !cb.game_running)
+    {
+        // best_score = cb.boardEvalNegMax();
+        best_score = cb.boardPosEval();
+        if (d - depth <= 2)
+            best_score *= 2; //you have to handle immediate check
+        return;
+    }
+
+    best_score = NINF;
+
+    auto candidates = cb.getMoves();
+    cb.sortMoves(candidates);
+    bool first_move = true;
+    for (auto &[start_xy, aim_xy] : candidates)
+    {
+        int current_score;
+        std::pair<pos_type, pos_type> current_move;
+        auto &[startx, starty] = start_xy;
+        auto &[aimx, aimy] = aim_xy;
+
+        
+        if(first_move)
+        {
+            cb.move(startx, starty, aimx, aimy);
+            pvs(depth - 1, -beta, -alpha, current_score, current_move);
+            cb.undo();
+            current_score = -current_score;
+            first_move = false;
+        }
+        else
+        {
+            cb.move(startx, starty, aimx, aimy);
+            pvs(depth - 1, -alpha-1, -alpha, current_score, current_move);
+            cb.undo();
+            current_score = -current_score;
+            if (alpha < current_score && current_score < beta)
+            {
+                cb.move(startx, starty, aimx, aimy);
+                pvs(depth - 1, -beta, -current_score, current_score, current_move);
+                cb.undo();
+                current_score = -current_score;
+            }
+        }
+        
+        
+        
         if (current_score > best_score)
         {
             best_score = current_score;
