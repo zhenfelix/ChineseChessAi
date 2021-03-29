@@ -12,13 +12,13 @@ class chessboard : public QObject
 public:
     // chessboard();
     chessboard(bool);
-    // chessboard(chessboard&);
+    chessboard(const chessboard&);
     void init();
 
 
     Stone *get(int x, int y) { return c[x][y]; }
     int getVertical() { return vertical; }
-    std::vector<Stone *> getStones();
+    std::vector<Stone *> getStones() const;
     std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> getMoves();
     void sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> &);
     int getid(int x, int y)
@@ -46,6 +46,7 @@ public:
 
     static const char chessword[15][4];
     static const int stonevalue[15];
+    static const unsigned int random_seed;
     int color;         //current player color, red: -1, black: 1
     int vertical;      // first hand vertical position, -1: down, 1: up
     bool game_running; //判断结束

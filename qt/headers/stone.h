@@ -40,11 +40,14 @@ private:
 public:
     Stone(int i) : id(i) {}
     Stone(int i, int r, int c, int v): id(i), row(r), col(c), vertical(v) {}
+    Stone(const Stone &stone) : id(stone.id), row(stone.row), col(stone.col), vertical(stone.vertical) {}
+    virtual Stone* Clone() = 0;
     int get() { return id; }
     void getPos(int &r, int &c){ r=row; c=col; return;}
     int getVer(){ return vertical; }
     void setPos(int r, int c){ row=r; col=c; return;}
     virtual bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy) = 0;
+    // virtual bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy){}
     virtual ~Stone(){}; //虚析构
 };
 
@@ -52,6 +55,8 @@ class horse : public Stone
 {
 public:
     horse(int,int,int,int);
+    horse(const horse& derived): Stone(derived){}
+    horse* Clone(){ return new horse(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
@@ -59,6 +64,8 @@ class soldier : public Stone
 {
 public:
     soldier(int,int,int,int);
+    soldier(const soldier &derived) : Stone(derived) {}
+    soldier *Clone() { return new soldier(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
@@ -66,6 +73,8 @@ class general : public Stone
 {
 public:
     general(int,int,int,int);
+    general(const general &derived) : Stone(derived) {}
+    general *Clone() { return new general(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
@@ -73,6 +82,8 @@ class elephant : public Stone
 {
 public:
     elephant(int,int,int,int);
+    elephant(const elephant &derived) : Stone(derived) {}
+    elephant *Clone() { return new elephant(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
@@ -80,6 +91,8 @@ class cannon : public Stone
 {
 public:
     cannon(int,int,int,int);
+    cannon(const cannon &derived) : Stone(derived) {}
+    cannon *Clone() { return new cannon(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
@@ -87,6 +100,8 @@ class guard : public Stone
 {
 public:
     guard(int,int,int,int);
+    guard(const guard &derived) : Stone(derived) {}
+    guard *Clone() { return new guard(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 
@@ -94,6 +109,8 @@ class rook : public Stone
 {
 public:
     rook(int,int,int,int);
+    rook(const rook &derived) : Stone(derived) {}
+    rook *Clone() { return new rook(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
 };
 

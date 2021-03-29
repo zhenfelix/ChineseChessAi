@@ -31,7 +31,8 @@ SOURCES += \
     src/stone.cpp \
     src/gameEngine.cpp \
     src/player.cpp \
-    src/minimax.cpp
+    src/minimax.cpp \
+    src/mcts.cpp
 
 INCLUDEPATH += $$PWD/headers
 
@@ -41,7 +42,8 @@ HEADERS += \
     headers/stone.h \
     headers/gameEngine.h \
     headers/player.h \
-    headers/minimax.h
+    headers/minimax.h \
+    headers/mcts.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -5,6 +5,7 @@
 #include "gameEngine.h"
 #include "player.h"
 #include "minimax.h"
+#include "mcts.h"
 #include <QLabel>
 
 class Display : public QWidget

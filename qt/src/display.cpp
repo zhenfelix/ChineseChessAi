@@ -1,5 +1,7 @@
 #include "display.h"
 
+// #define TIME_SELF
+
 Display::Display(QWidget *parent) 
     : QWidget(parent), cb(true)
 {
@@ -13,7 +15,8 @@ void Display::setup()
     // player_a = new Player(false, cb); //random move player to debug, test reproducibility
     // player_a = new Minimax(false, cb, 5); //weaker minimax player to debug
     // player_b = new Player(true,cb);
-    player_b = new Minimax(false, cb, 5);
+    // player_b = new Minimax(false, cb, 5);
+    player_b = new Mcts(false, cb, 1000);
 
     color2player[-1] = player_a;
     color2player[1] = player_b;
@@ -82,9 +85,11 @@ void Display::paintEvent(QPaintEvent *)
 
 void Display::mouseReleaseEvent(QMouseEvent *qMouse)
 {
+    #ifdef TIME_SELF
     std::clock_t start;
     double duration;
     start = std::clock();//test two computer player self-play time duration
+    #endif
 
 
     if(!cb.game_running)
@@ -129,8 +134,10 @@ void Display::mouseReleaseEvent(QMouseEvent *qMouse)
 
     } // to support human vs computer and computer vs computer
 
+    #ifdef TIME_SELF
     duration = (std::clock() - start) / (double)CLOCKS_PER_SEC; //test two computer player self-play time duration
     std::cout << "\n\n\nself-play took " << duration << " seconds in total\n\n\n";
+    #endif
 }
 
 void Display::drawStones(QPainter &painter)

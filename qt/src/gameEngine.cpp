@@ -14,18 +14,36 @@ using namespace std;
 
 const char chessboard::chessword[15][4] = {"兵", "相", "仕", "炮", "傌", "俥", "帥", "", "将", "車", "馬", "砲", "士", "象", "卒"}; //名字
 const int chessboard::stonevalue[15] = {-2, -4, -4, -8, -9, -18, -10000, 0, 10000, 18, 9, 8, 4, 4, 2};                              //stone value
+const unsigned int chessboard::random_seed = 2021;
 
 chessboard::chessboard(bool is_show_=true)
     : is_show(is_show_)
 {
     memset(c, NULL, sizeof(c));
     // srand((unsigned)time(NULL));
-    srand((unsigned) 2021);
+    srand((unsigned) chessboard::random_seed);
     color = -1;
     game_running = true;
     vertical = -1;
 }; //把指针初始化为零指针
 // chessboard::chessboard() { memset(c, 0, sizeof(c)); }; //把指针初始化为零指针
+
+chessboard::chessboard(const chessboard &cb)
+    : color(cb.color), vertical(cb.vertical), game_running(cb.game_running), is_show(cb.is_show),
+    records(cb.records), capturedStones(cb.capturedStones), seen(cb.seen), stone2val(cb.stone2val)
+    
+{
+    memset(c, NULL, sizeof(c));
+    std::vector<Stone *> stones = cb.getStones();
+    for(auto s: stones)
+    {
+        int row, col;
+        s->getPos(row,col);
+        c[row][col] = s->Clone();
+    }
+    srand((unsigned)chessboard::random_seed);
+    return;
+}
 
 
 bool chessboard::move(int startx, int starty, int aimx, int aimy)
@@ -57,6 +75,7 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
             return false;
         }
         show();
+        // std::cout << "from " << startx << ", " << starty << " to " << aimx << ", " << aimy << '\n';
         return true;
     }
     // cout << "走法错误，不符合规则" << endl;
@@ -322,7 +341,7 @@ void chessboard ::init()
     readPosVal();
 }
 
-std::vector<Stone*> chessboard::getStones()
+std::vector<Stone*> chessboard::getStones() const
 {
     std::vector<Stone *> res;
     for (int row = 0; row < 10; row++)
