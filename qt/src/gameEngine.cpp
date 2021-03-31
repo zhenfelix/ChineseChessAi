@@ -45,6 +45,36 @@ chessboard::chessboard(const chessboard &cb)
     return;
 }
 
+chessboard& chessboard::operator=(const chessboard &cb)
+    
+{
+    color = cb.color;
+    vertical = cb.vertical;
+    game_running = cb.game_running;
+    // is_show = cb.is_show;
+    records = cb.records;
+    capturedStones = cb.capturedStones;
+    seen = cb.seen;
+    stone2val = cb.stone2val;
+    memset(c, NULL, sizeof(c));
+    std::vector<Stone *> stones = cb.getStones();
+    for (auto s : stones)
+    {
+        int row, col;
+        s->getPos(row, col);
+        c[row][col] = s->Clone();
+    }
+    srand((unsigned)chessboard::random_seed);
+    return *this;
+}
+
+bool chessboard::move(std::pair<pos_type,pos_type> candidate_move)
+{
+    auto &[start_xy, aim_xy] = candidate_move;
+    auto &[start_x, start_y] = start_xy;
+    auto &[aim_x,aim_y] = aim_xy;
+    return move(start_x,start_y,aim_x,aim_y);
+}
 
 bool chessboard::move(int startx, int starty, int aimx, int aimy)
 {
@@ -137,16 +167,25 @@ void chessboard::dummy_move()
 
 void chessboard::random_move()
 {
-    int row_start, col_start, row_aim, col_aim;
-    do
+    // int row_start, col_start, row_aim, col_aim;
+    // do
+    // {
+    //     row_start = rand()%10;
+    //     col_start = rand()%9;
+    //     row_aim = rand() % 10;
+    //     col_aim = rand() % 9;
+    // } while (!move(row_start,col_start,row_aim,col_aim));
+    std::vector<std::pair<pos_type, pos_type>> possible_moves = getMoves();
+    int sz = possible_moves.size();
+    if(sz == 0)
     {
-        row_start = rand()%10;
-        col_start = rand()%9;
-        row_aim = rand() % 10;
-        col_aim = rand() % 9;
-    } while (!move(row_start,col_start,row_aim,col_aim));
-    
-    std::cout << "random move in chessboard!" << std::endl;
+        std::cout << "No more available moves!\n";
+        game_running = false;
+        return;
+    }
+    move(possible_moves[rand() % sz]);
+
+    //    std::cout << "random move in chessboard!" << std::endl;
     
 }
 

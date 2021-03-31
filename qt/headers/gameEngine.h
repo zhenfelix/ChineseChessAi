@@ -13,14 +13,15 @@ public:
     // chessboard();
     chessboard(bool);
     chessboard(const chessboard&);
+    chessboard& operator=(const chessboard&);
     void init();
 
 
     Stone *get(int x, int y) { return c[x][y]; }
     int getVertical() { return vertical; }
     std::vector<Stone *> getStones() const;
-    std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> getMoves();
-    void sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int>>> &);
+    std::vector<std::pair<pos_type, pos_type>> getMoves();
+    void sortMoves(std::vector<std::pair<pos_type, pos_type>> &);
     int getid(int x, int y)
     {
         if (c[x][y] != NULL)
@@ -32,6 +33,7 @@ public:
 
     void show();
     void play();
+    bool move(std::pair<pos_type,pos_type> candidate_move);
     bool move(int startx, int starty, int aimx, int aimy);
     void dummy_move();
     void random_move();
@@ -55,7 +57,7 @@ public:
 
 private:
     Stone *c[10][9];//用指针调用各个棋子，实现多态
-    std::stack<std::pair<std::pair<int, int>, std::pair<int, int>>> records;
+    std::stack<std::pair<pos_type, pos_type>> records;
     std::map<int, Stone *> capturedStones;
     std::multiset<std::string> seen;
     std::unordered_map<int,std::vector<std::vector<int>>> stone2val;
