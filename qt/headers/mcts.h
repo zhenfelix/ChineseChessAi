@@ -38,7 +38,7 @@ class Mcts : public Player
     Q_OBJECT
 
 public:
-    Mcts(bool isHuman_, chessboard &cb_, int sim_cnt_);//set simlulation count
+    Mcts(bool isHuman_, chessboard &cb_, int sim_cnt_=10000); //set simlulation count
     void think();
     
 

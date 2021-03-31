@@ -4,7 +4,7 @@
 
 #define C_UCB 1.4
 
-Mcts::Mcts(bool isHuman_, chessboard &cb_, int sim_cnt_ = 10000) //similation
+Mcts::Mcts(bool isHuman_, chessboard &cb_, int sim_cnt_/*=10000*/) //similation
     : Player(isHuman_, cb_), sim_cnt(sim_cnt_), cb_my(false)
 {}
 
