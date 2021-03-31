@@ -49,7 +49,7 @@ public:
 private:
     int sim_cnt; //simlulation count
     MctsNode *root;
-    chessboard cb_my;
+    chessboard *cb_ptr;
 
 private:
     std::pair<pos_type,pos_type> calcMcts();

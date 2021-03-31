@@ -285,6 +285,7 @@ std::string chessboard::boardHash()
 
 chessboard ::~chessboard()
 {
+    // std::cout << "chessboard deconstructor called!\n";
     for (int i = 0; i < 10; i++)
         for (int j = 0; j < 9; j++)
             if (c[i][j] != NULL)

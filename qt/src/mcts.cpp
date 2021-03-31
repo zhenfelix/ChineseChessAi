@@ -5,7 +5,7 @@
 #define C_UCB 1.4
 
 Mcts::Mcts(bool isHuman_, chessboard &cb_, int sim_cnt_/*=10000*/) //similation
-    : Player(isHuman_, cb_), sim_cnt(sim_cnt_), cb_my(false)
+    : Player(isHuman_, cb_), sim_cnt(sim_cnt_)
 {}
 
 // void Mcts::think()
@@ -43,12 +43,14 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
     cb.setShow(true);
     for (int i = 0; i < sim_cnt; i++)
     {
-        cb_my = cb;
+        cb_ptr = new chessboard(cb);
+        cb_ptr->setShow(false);
         MctsNode* cur = select();
         int win_color = rollout();
 //        if(cb_my.game_running)continue;
         backpropagate(cur,win_color);
         if(i%100 == 0)std::cout << i <<" similations finished\n";
+        delete cb_ptr;
     }
     MctsNode* child = chooseChild(root);
     return child->pmove;
@@ -57,19 +59,19 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
 MctsNode* Mcts::select()
 {
     MctsNode* cur = root;
-    while (cb_my.game_running)
+    while (cb_ptr->game_running)
     {
         if(cur->possible_moves.empty())
         {
             cur = ucb(cur,C_UCB);
-            cb_my.move(cur->pmove);
+            cb_ptr->move(cur->pmove);
         }
         else
         {
             std::pair<pos_type,pos_type> nxt_move = cur->possible_moves.back();
             cur->possible_moves.pop_back();
-            cb_my.move(nxt_move);
-            MctsNode* child = new MctsNode(cb_my.color,cur,nxt_move,cb_my.getMoves());
+            cb_ptr->move(nxt_move);
+            MctsNode* child = new MctsNode(cb_ptr->color,cur,nxt_move,cb_ptr->getMoves());
             cur->children.push_back(child);
             cur = child;
             break;
@@ -120,13 +122,13 @@ int Mcts::rollout()
 {
     for (int i = 0; i < MAXSTEP; i++)
     {
-        if(!cb_my.game_running)break;
-        cb_my.random_move();
+        if(!cb_ptr->game_running)break;
+        cb_ptr->random_move();
         // if(i > 0 && i%200 == 0)std::cout << i << "round rollout\n";
     }
-    if(!cb_my.game_running)return -cb_my.color;
-    if(cb_my.boardPosEval() > 0)return cb_my.color;
-    return -cb_my.color;
+    if(!cb_ptr->game_running)return -cb_ptr->color;
+    if(cb_ptr->boardPosEval() > 0)return cb_ptr->color;
+    return -cb_ptr->color;
 }
 
 void Mcts::backpropagate(MctsNode* cur, int win_color)
