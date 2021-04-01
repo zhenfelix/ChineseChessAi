@@ -10,12 +10,13 @@ Minimax::Minimax(bool isHuman_, chessboard &cb_, int d_ = 5) //depth setting
 
 void Minimax::think()
 {
+    Timer timer("it took computer minimax ");
     // std::cout << "dummy move in player!" << std::endl;
     // cb.dummy_move();
-    std::clock_t start;
-    double duration;
-    start = std::clock();
-    std::cout << "minimax move in minimax! wait for computer to think..." << std::endl;
+    // std::clock_t start;
+    // double duration;
+    // start = std::clock();
+    // std::cout << "minimax move in minimax! wait for computer to think..." << std::endl;
 
      int best_score;
      std::pair<pos_type, pos_type> best_move;
@@ -45,8 +46,8 @@ void Minimax::think()
     //  std::cout << "computer with color: " << cb.color << " see best score: " << best_score << std::endl;
 
      cb.setShow(true);
-     duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
-     std::cout << "it took computer " << duration << " seconds to think\n\n\n";
+    //  duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+    //  std::cout << "it took computer " << duration << " seconds to think\n\n\n";
 
      auto &[start_xy, aim_xy] = best_move;
      auto &[startx, starty] = start_xy;

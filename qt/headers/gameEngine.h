@@ -11,7 +11,7 @@ class chessboard : public QObject
 
 public:
     // chessboard();
-    chessboard(bool);
+    chessboard(bool is_show_=true);
     chessboard(const chessboard&);
     chessboard& operator=(const chessboard&);
     void init();

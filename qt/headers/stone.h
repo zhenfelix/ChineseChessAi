@@ -23,11 +23,30 @@
 #include <unistd.h>
 #include <ctime>
 #include <algorithm>
+#include <string>
 
 // #include "gameEngine.h"
 
 typedef std::pair<int,int> pos_type;
 
+struct Timer
+{
+    clock_t start, end;
+    double duration;
+    std::string msg;
+
+    Timer(std::string msg_="Timer took ")
+        :msg(msg_)
+    {
+        start = clock();
+    }
+    ~Timer()
+    {
+        end = clock();
+        duration = (end - start) / (double)CLOCKS_PER_SEC;
+        std::cout << msg << duration << "s" << std::endl;
+    }
+};
 
 //存储结构：chess类是基类，派生类是各种棋子，在chessboard类中用chess的指针调用各个棋子
 class chessboard;

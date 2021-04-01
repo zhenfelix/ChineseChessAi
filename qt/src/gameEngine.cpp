@@ -16,7 +16,7 @@ const char chessboard::chessword[15][4] = {"兵", "相", "仕", "炮", "傌", "�
 const int chessboard::stonevalue[15] = {-2, -4, -4, -8, -9, -18, -10000, 0, 10000, 18, 9, 8, 4, 4, 2};                              //stone value
 const unsigned int chessboard::random_seed = 2021;
 
-chessboard::chessboard(bool is_show_=true)
+chessboard::chessboard(bool is_show_/*=true*/)
     : is_show(is_show_)
 {
     memset(c, NULL, sizeof(c));
