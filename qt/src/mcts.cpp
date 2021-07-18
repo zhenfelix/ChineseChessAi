@@ -123,7 +123,10 @@ int Mcts::rollout()
     for (int i = 0; i < MAXSTEP; i++)
     {
         if(!cb_ptr->game_running)break;
-        cb_ptr->random_move();
+        // cb_ptr->random_move();
+        auto candidates = cb_ptr->getMoves();
+        cb_ptr->sortMoves(candidates);
+        cb_ptr->move(candidates[0]);
         // if(i > 0 && i%200 == 0)std::cout << i << "round rollout\n";
     }
     if(!cb_ptr->game_running)return -cb_ptr->color;

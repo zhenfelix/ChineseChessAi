@@ -340,9 +340,9 @@ void chessboard::readPosVal()
 
 void chessboard::readBoard()
 {
-    // std::ifstream infile("init.txt");
-    // std::ifstream infile("bug_pos.txt");
-    std::ifstream infile("bug_check_cycle.txt");
+     std::ifstream infile("init.txt");
+//    std::ifstream infile("bug_pos.txt");
+    // std::ifstream infile("bug_check_cycle.txt");
     int tmp, vertical_, color_;
     for (int row = 0; row < 10; row++)
     {
@@ -352,7 +352,7 @@ void chessboard::readBoard()
             if(tmp == 0)continue;
             if(tmp < 0)color_ = -1;
             else color_ = 1;
-            if(row < 5)vertical_ = 1;
+            if(row < 5)vertical_ = 1;//bug for random opening positions ?
             else vertical_ = -1;
             if(abs(tmp) == 1)
                 c[row][col] = new general(color_ + 1, row, col, vertical_);
