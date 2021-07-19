@@ -68,12 +68,54 @@ chessboard& chessboard::operator=(const chessboard &cb)
     return *this;
 }
 
-bool chessboard::move(std::pair<pos_type,pos_type> candidate_move)
+bool chessboard::judge(std::pair<pos_type,pos_type> candidate_move)
 {
     auto &[start_xy, aim_xy] = candidate_move;
     auto &[start_x, start_y] = start_xy;
-    auto &[aim_x,aim_y] = aim_xy;
-    return move(start_x,start_y,aim_x,aim_y);
+    auto &[aim_x, aim_y] = aim_xy;
+    return judge(start_x, start_y, aim_x, aim_y);
+}
+
+bool chessboard::judge(int startx, int starty, int aimx, int aimy)
+{
+    return (startx >= 0 && startx < 10 && starty >= 0 && starty < 9 //初步判断传入的点是否符合规则
+            && aimx >= 0 && aimx < 10 && aimy >= 0 && aimy < 9 && getid(startx, starty) && getid(startx, starty) * color > 0 && c[startx][starty]->judge_move(*this, startx, starty, aimx, aimy));
+}
+
+
+void chessboard::move_quick(std::pair<pos_type, pos_type> candidate_move)
+{
+    auto &[start_xy, aim_xy] = candidate_move;
+    auto &[start_x, start_y] = start_xy;
+    auto &[aim_x, aim_y] = aim_xy;
+    move(start_x, start_y, aim_x, aim_y);
+    return;
+}
+
+void chessboard::move_quick(int startx, int starty, int aimx, int aimy)
+{
+    if (c[aimx][aimy] != NULL)
+    {
+        delete c[aimx][aimy]; //吃子//avoid memory leak in mcts simulation
+        if (std::abs(c[aimx][aimy]->get()) == 1)
+        {
+            game_running = false; //game over once general captured
+        }
+    }
+    c[aimx][aimy] = c[startx][starty];
+    c[aimx][aimy]->setPos(aimx, aimy);
+    c[startx][starty] = NULL;
+    color *= -1;
+    vertical *= -1;
+    return;
+}
+
+bool chessboard::move(std::pair<pos_type, pos_type> candidate_move)
+{
+    auto &[start_xy, aim_xy] = candidate_move;
+    auto &[start_x, start_y] = start_xy;
+    auto &[aim_x, aim_y] = aim_xy;
+    return move(start_x, start_y, aim_x, aim_y);
 }
 
 bool chessboard::move(int startx, int starty, int aimx, int aimy)
@@ -399,6 +441,29 @@ std::vector<Stone*> chessboard::getStones() const
     return res;
 }
 
+std::vector<std::pair<pos_type, pos_type>> chessboard::getMoves_quick()
+{
+    std::vector<std::pair<pos_type, pos_type>> candidates;
+    std::vector<Stone *> candidate_stones = getStones();
+    for (auto s : candidate_stones)
+    {
+        int start_row, start_col;
+        s->getPos(start_row, start_col);
+        for (int aim_row = 0; aim_row < 10; aim_row++)
+        {
+            for (int aim_col = 0; aim_col < 9; aim_col++)
+            {
+                if (judge(start_row, start_col, aim_row, aim_col))
+                {
+                    candidates.push_back({{start_row, start_col}, {aim_row, aim_col}});
+                }
+            }
+        }
+    }
+
+    return candidates;
+}
+
 std::vector<std::pair<pos_type, pos_type>> chessboard::getMoves()
 {
     std::vector<std::pair<pos_type, pos_type>> candidates;
@@ -424,6 +489,25 @@ std::vector<std::pair<pos_type, pos_type>> chessboard::getMoves()
     
 
     return candidates;
+}
+
+std::pair<pos_type, pos_type> chessboard::greedyMove(std::vector<std::pair<pos_type, pos_type>> &candidates)
+{
+    auto it = std::max_element(candidates.begin(), candidates.end(), [&](std::pair<pos_type, pos_type> &a, std::pair<pos_type, pos_type> &b)
+              {
+                  auto &[a_start_xy, a_aim_xy] = a;
+                  auto &[b_start_xy, b_aim_xy] = b;
+                  auto &[a_x, a_y] = a_aim_xy;
+                  auto &[b_x, b_y] = b_aim_xy;
+                  int va = 0, vb = 0;
+                  if (c[a_x][a_y])
+                      va = abs(chessboard::stonevalue[c[a_x][a_y]->get() + 7]);
+                  if (c[b_x][b_y])
+                      vb = abs(chessboard::stonevalue[c[b_x][b_y]->get() + 7]);
+                  return va < vb;
+              }); 
+
+    return *it;
 }
 
 void chessboard::sortMoves(std::vector<std::pair<pos_type, pos_type>> &candidates)

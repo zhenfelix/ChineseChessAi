@@ -30,6 +30,12 @@ struct MctsNode
 //        }
         
     }
+
+    ~MctsNode(){
+        for(auto it = children.begin(); it != children.end(); it++){
+            delete (*it);
+        }
+    }
 };
 
 
@@ -54,6 +60,7 @@ private:
 private:
     std::pair<pos_type,pos_type> calcMcts();
     MctsNode* moveRoot();
+    int count(MctsNode*);
     MctsNode *select();
     MctsNode *ucb(MctsNode*,double);
     MctsNode *chooseChild(MctsNode *);

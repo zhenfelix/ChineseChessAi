@@ -30,7 +30,20 @@ void Mcts::think()
 {
     Timer timer("it took computer mcts ");
     cb.move(calcMcts());
+    std::cout << "total nodes from current root: " << count(root) << std::endl;
+    std::cout << "total size of nodes from current root: " << count(root) * sizeof(MctsNode) << std::endl;
     root = moveRoot();
+}
+
+int Mcts::count(MctsNode* cur){
+    if (!cur)
+        return 0;
+    int cnt = 1;
+    for (auto it = cur->children.begin(); it != cur->children.end(); it++){
+        auto nxt = *it;
+        cnt += count(nxt);
+    }
+    return cnt;
 }
 
 std::pair<pos_type,pos_type> Mcts::calcMcts()
@@ -44,7 +57,7 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
         root = moveRoot();
     }
     if (!root){
-        std::vector<std::pair<pos_type, pos_type>> possbile_moves = cb.getMoves();
+        std::vector<std::pair<pos_type, pos_type>> possbile_moves = cb.getMoves_quick();
         root = new MctsNode(color, nullptr, null_move, possbile_moves);
     }
     
@@ -67,20 +80,22 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
 MctsNode* Mcts::moveRoot(){
     auto last_move = cb.getLastMove();
     MctsNode* candidate = nullptr;
-    for (auto it = root->children.begin(); it != root->children.end(); it++){
-        MctsNode* child = *it;
-        if (child->pmove == last_move){
-            std::cout << "reused monte carl0 tree!\n";
-            candidate = child;
-        }
-        else{
-            delete child;
-        }
-    }
-    if (candidate){
-        delete candidate->parent;
-        candidate->parent = nullptr;
-    }
+    // std::vector<MctsNode*> tmp_children;
+    // for (auto it = root->children.begin(); it != root->children.end(); it++){
+    //     MctsNode* child = *it;
+    //     if (child->pmove == last_move){
+    //         std::cout << "reused monte carlo tree! find the next round root!\n";
+    //         candidate = child;
+    //     }
+    //     else{
+    //         tmp_children.push_back(child);
+    //     }
+    // }
+    // if (candidate){
+    //     candidate->parent = nullptr;
+    //     std::swap(root->children, tmp_children);
+    // }
+    delete root;
     return candidate;
 }
 
@@ -93,14 +108,14 @@ MctsNode* Mcts::select()
         if(cur->possible_moves.empty())
         {
             cur = ucb(cur,C_UCB);
-            cb_ptr->move(cur->pmove);
+            cb_ptr->move_quick(cur->pmove);
         }
         else
         {
             std::pair<pos_type,pos_type> nxt_move = cur->possible_moves.back();
             cur->possible_moves.pop_back();
-            cb_ptr->move(nxt_move);
-            MctsNode* child = new MctsNode(cb_ptr->color,cur,nxt_move,cb_ptr->getMoves());
+            cb_ptr->move_quick(nxt_move);
+            MctsNode* child = new MctsNode(cb_ptr->color,cur,nxt_move,cb_ptr->getMoves_quick());
             cur->children.push_back(child);
             cur = child;
             break;
@@ -153,9 +168,10 @@ int Mcts::rollout()
     {
         if(!cb_ptr->game_running)break;
         // cb_ptr->random_move();
-        auto candidates = cb_ptr->getMoves();
-        cb_ptr->sortMoves(candidates);
-        cb_ptr->move(candidates[0]);
+        auto candidates = cb_ptr->getMoves_quick();
+        // cb_ptr->sortMoves(candidates);
+        // cb_ptr->move_quick(candidates[0]);
+        cb_ptr->move_quick(cb_ptr->greedyMove(candidates));
         // if(i > 0 && i%200 == 0)std::cout << i << "round rollout\n";
     }
     if(!cb_ptr->game_running)return -cb_ptr->color;

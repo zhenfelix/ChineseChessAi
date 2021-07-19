@@ -20,7 +20,9 @@ public:
     Stone *get(int x, int y) { return c[x][y]; }
     int getVertical() { return vertical; }
     std::vector<Stone *> getStones() const;
+    std::vector<std::pair<pos_type, pos_type>> getMoves_quick();
     std::vector<std::pair<pos_type, pos_type>> getMoves();
+    std::pair<pos_type, pos_type> greedyMove(std::vector<std::pair<pos_type, pos_type>> &);
     void sortMoves(std::vector<std::pair<pos_type, pos_type>> &);
     int getid(int x, int y)
     {
@@ -39,6 +41,10 @@ public:
 
     void show();
     void play();
+    bool judge(std::pair<pos_type, pos_type> candidate_move);
+    bool judge(int startx, int starty, int aimx, int aimy);
+    void move_quick(std::pair<pos_type, pos_type> candidate_move);
+    void move_quick(int startx, int starty, int aimx, int aimy);
     bool move(std::pair<pos_type,pos_type> candidate_move);
     bool move(int startx, int starty, int aimx, int aimy);
     void dummy_move();
