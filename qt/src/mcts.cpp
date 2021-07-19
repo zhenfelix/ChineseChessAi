@@ -5,7 +5,7 @@
 #define C_UCB 1.4
 
 Mcts::Mcts(bool isHuman_, chessboard &cb_, int sim_cnt_/*=10000*/) //similation
-    : Player(isHuman_, cb_), sim_cnt(sim_cnt_)
+    : Player(isHuman_, cb_), sim_cnt(sim_cnt_), root(nullptr)
 {}
 
 // void Mcts::think()
@@ -28,7 +28,9 @@ Mcts::Mcts(bool isHuman_, chessboard &cb_, int sim_cnt_/*=10000*/) //similation
 
 void Mcts::think()
 {
+    Timer timer("it took computer mcts ");
     cb.move(calcMcts());
+    root = moveRoot();
 }
 
 std::pair<pos_type,pos_type> Mcts::calcMcts()
@@ -37,9 +39,15 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
     int color = cb.color;
     std::pair<pos_type,pos_type> null_move;
     cb.setShow(false);
-    std::vector<std::pair<pos_type,pos_type>> possbile_moves = cb.getMoves();
 //    std::vector<std::pair<pos_type,pos_type>> tmp = possbile_moves;
-    root = new MctsNode(color, nullptr, null_move, possbile_moves);
+    if (root){
+        root = moveRoot();
+    }
+    if (!root){
+        std::vector<std::pair<pos_type, pos_type>> possbile_moves = cb.getMoves();
+        root = new MctsNode(color, nullptr, null_move, possbile_moves);
+    }
+    
     cb.setShow(true);
     for (int i = 0; i < sim_cnt; i++)
     {
@@ -55,6 +63,27 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
     MctsNode* child = chooseChild(root);
     return child->pmove;
 }
+
+MctsNode* Mcts::moveRoot(){
+    auto last_move = cb.getLastMove();
+    MctsNode* candidate = nullptr;
+    for (auto it = root->children.begin(); it != root->children.end(); it++){
+        MctsNode* child = *it;
+        if (child->pmove == last_move){
+            std::cout << "reused monte carl0 tree!\n";
+            candidate = child;
+        }
+        else{
+            delete child;
+        }
+    }
+    if (candidate){
+        delete candidate->parent;
+        candidate->parent = nullptr;
+    }
+    return candidate;
+}
+
 
 MctsNode* Mcts::select()
 {

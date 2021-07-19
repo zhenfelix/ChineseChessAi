@@ -28,6 +28,12 @@ public:
             return c[x][y]->get();
         return 0;
     }
+    std::pair<pos_type, pos_type> getLastMove(){
+        if (!records.empty()){
+            return records.top();
+        }
+        return {{-1,-1},{-1,-1}};
+    }
     void setShow(bool is_show_) { is_show = is_show_; }
 
 

@@ -53,6 +53,7 @@ private:
 
 private:
     std::pair<pos_type,pos_type> calcMcts();
+    MctsNode* moveRoot();
     MctsNode *select();
     MctsNode *ucb(MctsNode*,double);
     MctsNode *chooseChild(MctsNode *);
