@@ -147,6 +147,8 @@ bool chessboard::move(int startx, int starty, int aimx, int aimy)
         vertical *= -1;
         if (checkCycle(startx, starty, aimx, aimy))
         {
+            if (is_show)
+                std::cout << "cycle undo, " << startx << ", " << starty << ", " << aimx << ", " << aimy << std::endl;
             undo();
             return false;
         }

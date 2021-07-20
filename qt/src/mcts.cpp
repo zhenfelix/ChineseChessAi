@@ -30,8 +30,8 @@ void Mcts::think()
 {
     Timer timer("it took computer mcts ");
     cb.move(calcMcts());
-    std::cout << "total nodes from current root: " << count(root) << std::endl;
-    std::cout << "total size of nodes from current root: " << count(root) * sizeof(MctsNode) << std::endl;
+    // std::cout << "total nodes from current root: " << count(root) << std::endl;
+    // std::cout << "total size of nodes from current root: " << count(root) * sizeof(MctsNode) << std::endl;
     root = moveRoot();
 }
 
@@ -70,10 +70,11 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
         int win_color = rollout();
 //        if(cb_my.game_running)continue;
         backpropagate(cur,win_color);
-        if(i%100 == 0)std::cout << i <<" similations finished\n";
+        if(i%5000 == 0)std::cout << i <<" similations finished\n";
         delete cb_ptr;
     }
     MctsNode* child = chooseChild(root);
+    std::cout << "mcts choose move: " << child->pmove.first.first << ", " << child->pmove.first.second << ", " << child->pmove.second.first << ", " << child->pmove.second.second << std::endl;
     return child->pmove;
 }
 

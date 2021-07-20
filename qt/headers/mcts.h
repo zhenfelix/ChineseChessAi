@@ -4,7 +4,7 @@
 #include "player.h"
 #include <QObject>
 
-#define MAXSTEP 10
+#define MAXSTEP 20
 
 
 struct MctsNode
