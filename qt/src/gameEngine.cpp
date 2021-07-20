@@ -91,23 +91,24 @@ void chessboard::move_quick(std::pair<pos_type, pos_type> candidate_move)
     auto &[start_xy, aim_xy] = candidate_move;
     auto &[start_x, start_y] = start_xy;
     auto &[aim_x, aim_y] = aim_xy;
-    move(start_x, start_y, aim_x, aim_y);
+    move_quick(start_x, start_y, aim_x, aim_y);
     return;
 }
 
 void chessboard::move_quick(int startx, int starty, int aimx, int aimy)
 {
-    if (c[aimx][aimy] != NULL)
+    if (c[aimx][aimy] != nullptr)
     {
-        delete c[aimx][aimy]; //吃子//avoid memory leak in mcts simulation
         if (std::abs(c[aimx][aimy]->get()) == 1)
         {
             game_running = false; //game over once general captured
         }
+        delete c[aimx][aimy]; //吃子//avoid memory leak in mcts simulation
+        c[aimx][aimy] = nullptr;
     }
     c[aimx][aimy] = c[startx][starty];
     c[aimx][aimy]->setPos(aimx, aimy);
-    c[startx][starty] = NULL;
+    c[startx][starty] = nullptr;
     color *= -1;
     vertical *= -1;
     return;
@@ -334,13 +335,12 @@ chessboard ::~chessboard()
     for (int i = 0; i < 10; i++)
         {
             for (int j = 0; j < 9; j++)
-                if (c[i][j] != NULL)
+                if (c[i][j] != nullptr)
                 {
                     delete c[i][j];
-                    c[i][j] = NULL;
+                    c[i][j] = nullptr;
                 }
         }
-    // c = nullptr;
 }
 
 void chessboard::flipMat(std::vector<std::vector<int>> &mat)

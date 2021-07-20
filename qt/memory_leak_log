@@ -664,3 +664,685 @@ Game Over!
 ==4420== 
 ==4420== For lists of detected and suppressed errors, rerun with: -s
 ==4420== ERROR SUMMARY: 49 errors from 49 contexts (suppressed: 0 from 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+700 similations finished
+800 similations finished
+900 similations finished
+吴  零一二三四五六七八
+
+零  車馬象士将士象十車
+一  十十十十米十十十十
+二  砲十十十十十馬十十
+三  卒十十十卒十卒十卒
+四  十十卒十十十十十十
+    ——楚 河 汉 界———
+五  十十十十十十十十十
+六  兵十兵十兵十兵十兵
+七  十炮十十炮十傌俥十
+八  十十十十米十十十十
+九  俥傌相仕帥仕相十十
+current board score from current player perspective is 540
+total nodes from current root: 1001
+total size of nodes from current root: 88088
+it took computer mcts 3.31859s
+==22384== 
+==22384== HEAP SUMMARY:
+==22384==     in use at exit: 2,368,849 bytes in 48,742 blocks
+==22384==   total heap usage: 2,317,542 allocs, 2,268,800 frees, 2,173,998,231 bytes allocated
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,353 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F22FE: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7530: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D53BE: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF277: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,354 of 6,694
+==22384==    at 0x4C32F3B: malloc (vg_replace_malloc.c:379)
+==22384==    by 0x4C37E61: realloc (vg_replace_malloc.c:1192)
+==22384==    by 0x8AC6C8F: g_realloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F21D8: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7530: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D53BE: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF277: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,355 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F22FE: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7530: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D5421: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF277: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,356 of 6,694
+==22384==    at 0x4C32F3B: malloc (vg_replace_malloc.c:379)
+==22384==    by 0x4C37E61: realloc (vg_replace_malloc.c:1192)
+==22384==    by 0x8AC6C8F: g_realloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F21D8: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7530: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D5421: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF277: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,357 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F22FE: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7530: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DF1BB: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF281: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,358 of 6,694
+==22384==    at 0x4C32F3B: malloc (vg_replace_malloc.c:379)
+==22384==    by 0x4C37E61: realloc (vg_replace_malloc.c:1192)
+==22384==    by 0x8AC6C8F: g_realloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F21D8: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7530: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DF1BB: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF281: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,359 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F22FE: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7530: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D9FBB: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF286: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,360 of 6,694
+==22384==    at 0x4C32F3B: malloc (vg_replace_malloc.c:379)
+==22384==    by 0x4C37E61: realloc (vg_replace_malloc.c:1192)
+==22384==    by 0x8AC6C8F: g_realloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F21D8: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7530: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D9FBB: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF286: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,361 of 6,694
+==22384==    at 0x4C3301F: malloc (vg_replace_malloc.c:380)
+==22384==    by 0x8AC6BD8: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x8ADEA85: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133CF3EA: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF495: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F131B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F15D4: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F49D5: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F8ED4: g_type_add_interface_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x126A67D2: gtk_button_get_type (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x1289FC2B: gtk_toggle_button_get_type (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x194F406F: gtk_module_init (in /usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,362 of 6,694
+==22384==    at 0x4C3301F: malloc (vg_replace_malloc.c:380)
+==22384==    by 0x8AC6BD8: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x8ADEA85: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133CF3EA: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF495: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F131B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F16E3: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F49D5: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F8ED4: g_type_add_interface_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x1277B881: gtk_icon_view_get_type (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x194F4112: gtk_module_init (in /usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so)
+==22384==    by 0x127D0986: ??? (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384== 
+==22384== 16 bytes in 1 blocks are possibly lost in loss record 1,363 of 6,694
+==22384==    at 0x4C3301F: malloc (vg_replace_malloc.c:380)
+==22384==    by 0x8AC6BD8: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x8ADEA85: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133CF3EA: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF495: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F131B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F15D4: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F49D5: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F8ED4: g_type_add_interface_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x1277B8E0: gtk_icon_view_get_type (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x194F4112: gtk_module_init (in /usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so)
+==22384==    by 0x127D0986: ??? (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384== 
+==22384== 24 bytes in 1 blocks are possibly lost in loss record 1,929 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F594C: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F5774: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133E37C7: g_param_spec_flags (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x12EAFF72: ??? (in /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30)
+==22384==    by 0x133F5438: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F5774: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DB727: g_object_new_valist (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DB8E8: g_object_new (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x12EDB93C: ??? (in /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30)
+==22384==    by 0x12EDE1B1: ??? (in /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30)
+==22384== 
+==22384== 24 bytes in 1 blocks are possibly lost in loss record 1,930 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x11041D: rook::Clone() (stone.h:132)
+==22384==    by 0x112C18: chessboard::chessboard(chessboard const&) (gameEngine.cpp:42)
+==22384==    by 0x11AE7B: Mcts::calcMcts() (mcts.cpp:67)
+==22384==    by 0x11B1A9: Mcts::think() (mcts.cpp:32)
+==22384==    by 0x10EFD4: Display::mouseReleaseEvent(QMouseEvent*) (display.cpp:128)
+==22384==    by 0x4FD7047: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4F9883B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FA065E: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x607E8D7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x4F9F631: QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FF216A: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384== 
+==22384== 24 bytes in 1 blocks are definitely lost in loss record 1,935 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x11190C: chessboard::readBoard() (gameEngine.cpp:411)
+==22384==    by 0x114368: chessboard::init() (gameEngine.cpp:427)
+==22384==    by 0x10F618: Display::Display(QWidget*) (display.cpp:9)
+==22384==    by 0x10D4E1: main (main.cpp:10)
+==22384== 
+==22384== 24 bytes in 1 blocks are definitely lost in loss record 1,936 of 6,694
+==22384==    at 0x4C3301F: malloc (vg_replace_malloc.c:380)
+==22384==    by 0xFECEF4D: XextCreateExtension (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==22384==    by 0x1B4098C0: ???
+==22384==    by 0x1B403C9D: ???
+==22384==    by 0x8D8F650: glXChooseFBConfig (in /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0)
+==22384==    by 0x11EFF0D7: ??? (in /usr/lib/x86_64-linux-gnu/qt5/plugins/xcbglintegrations/libqxcb-glx-integration.so)
+==22384== 
+==22384== 32 bytes in 1 blocks are possibly lost in loss record 3,053 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F594C: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F5774: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133E36D7: g_param_spec_enum (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x12EBEEF4: ??? (in /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30)
+==22384==    by 0x133F5438: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F5774: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DB727: g_object_new_valist (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DB8E8: g_object_new (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x12EF0D89: ??? (in /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30)
+==22384==    by 0x12EF1C9D: ??? (in /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30)
+==22384== 
+==22384== 48 bytes in 3 blocks are possibly lost in loss record 3,841 of 6,694
+==22384==    at 0x4C3301F: malloc (vg_replace_malloc.c:380)
+==22384==    by 0x8AC6BD8: g_malloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x8ADEA85: g_slice_alloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133CF3EA: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF495: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F131B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F16E3: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F49D5: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F8ED4: g_type_add_interface_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x126A67A1: gtk_button_get_type (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x1289FC2B: gtk_toggle_button_get_type (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x194F406F: gtk_module_init (in /usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so)
+==22384== 
+==22384== 64 bytes in 1 blocks are possibly lost in loss record 4,345 of 6,694
+==22384==    at 0x4C37E03: realloc (vg_replace_malloc.c:1192)
+==22384==    by 0x8AC6C8F: g_realloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F1840: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7A91: g_type_register_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D55D7: g_flags_register_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x1280208A: ??? (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x1270F194: ??? (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x133F5438: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DB727: g_object_new_valist (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DB8E8: g_object_new (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x12710A3C: ??? (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x12710DF2: ??? (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384== 
+==22384== 80 bytes in 1 blocks are possibly lost in loss record 4,751 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F594C: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F5774: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F88B8: g_type_create_instance (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DF782: g_param_spec_internal (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133E3CF1: g_param_spec_object (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x12EB6921: ??? (in /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30)
+==22384==    by 0x133F5438: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DAEA7: g_object_new_with_properties (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DB910: g_object_new (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x12EB6A14: gdk_display_manager_get (in /usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30)
+==22384== 
+==22384== 96 bytes in 1 blocks are possibly lost in loss record 5,769 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F18C1: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F1A5A: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF19A: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x6FE527E: _dl_catch_error (dl-error-skeleton.c:215)
+==22384== 
+==22384== 96 bytes in 1 blocks are possibly lost in loss record 5,770 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F18C1: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F1A5A: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7522: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D53BE: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF277: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384== 
+==22384== 96 bytes in 1 blocks are possibly lost in loss record 5,771 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F18C1: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F1A5A: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7522: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D5421: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF277: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384== 
+==22384== 96 bytes in 1 blocks are possibly lost in loss record 5,772 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F18C1: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F1A5A: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7522: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DF1BB: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF281: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384== 
+==22384== 96 bytes in 1 blocks are possibly lost in loss record 5,773 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F18C1: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F1A5A: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7522: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D9FBB: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF286: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384== 
+==22384== 132 bytes in 1 blocks are possibly lost in loss record 6,047 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F28EF: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7580: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D53BE: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF277: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384== 
+==22384== 132 bytes in 1 blocks are possibly lost in loss record 6,048 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F28EF: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7580: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D5421: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF277: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384== 
+==22384== 144 (32 direct, 112 indirect) bytes in 1 blocks are definitely lost in loss record 6,093 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x10E95E: Display::setup() (display.cpp:14)
+==22384==    by 0x10F610: Display::Display(QWidget*) (display.cpp:8)
+==22384==    by 0x10D4E1: main (main.cpp:10)
+==22384== 
+==22384== 148 bytes in 1 blocks are possibly lost in loss record 6,094 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F2708: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7580: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133DF1BB: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF281: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384== 
+==22384== 148 bytes in 1 blocks are possibly lost in loss record 6,095 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x8AC6C30: g_malloc0 (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F2708: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7580: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D9FBB: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF286: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384== 
+==22384== 168 (56 direct, 112 indirect) bytes in 1 blocks are definitely lost in loss record 6,130 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x10E982: Display::setup() (display.cpp:19)
+==22384==    by 0x10F610: Display::Display(QWidget*) (display.cpp:8)
+==22384==    by 0x10D4E1: main (main.cpp:10)
+==22384== 
+==22384== 184 bytes in 1 blocks are possibly lost in loss record 6,158 of 6,694
+==22384==    at 0x4C37E03: realloc (vg_replace_malloc.c:1192)
+==22384==    by 0x8AC6C8F: g_realloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F1840: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7A91: g_type_register_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133E0E5B: g_param_type_register_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133E317A: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133CF28B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x40108D2: call_init (dl-init.c:72)
+==22384==    by 0x40108D2: _dl_init (dl-init.c:119)
+==22384==    by 0x401539E: dl_open_worker (dl-open.c:522)
+==22384==    by 0x6FE51EE: _dl_catch_exception (dl-error-skeleton.c:196)
+==22384==    by 0x4014969: _dl_open (dl-open.c:605)
+==22384==    by 0x8871F95: dlopen_doit (dlopen.c:66)
+==22384== 
+==22384== 360 bytes in 1 blocks are possibly lost in loss record 6,339 of 6,694
+==22384==    at 0x4C37E03: realloc (vg_replace_malloc.c:1192)
+==22384==    by 0x8AC6C8F: g_realloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F1840: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7A91: g_type_register_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D54E7: g_enum_register_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x128EB2CA: gtk_orientation_get_type (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x1277A74F: ??? (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x133F5438: g_type_class_ref (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x194F21F7: ??? (in /usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so)
+==22384==    by 0x194F4128: gtk_module_init (in /usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so)
+==22384==    by 0x127D0986: ??? (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384==    by 0x127D0C17: ??? (in /usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30)
+==22384== 
+==22384== 416 bytes in 1 blocks are possibly lost in loss record 6,371 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x4013646: allocate_dtv (dl-tls.c:286)
+==22384==    by 0x4013646: _dl_allocate_tls (dl-tls.c:530)
+==22384==    by 0x7277227: allocate_stack (allocatestack.c:627)
+==22384==    by 0x7277227: pthread_create@@GLIBC_2.2.5 (pthread_create.c:644)
+==22384==    by 0x8B0761F: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x8AE95AE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x8AE9657: g_thread_new (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x8AC25F3: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x14B6E566: g_task_get_type (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4)
+==22384==    by 0x14BB1170: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4)
+==22384==    by 0x14BA5070: g_bus_get_sync (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4)
+==22384==    by 0x17099E3A: ??? (in /usr/lib/x86_64-linux-gnu/gio/modules/libgvfsdbus.so)
+==22384==    by 0x133F89E4: g_type_create_instance (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384== 
+==22384== 416 bytes in 1 blocks are possibly lost in loss record 6,372 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0x4013646: allocate_dtv (dl-tls.c:286)
+==22384==    by 0x4013646: _dl_allocate_tls (dl-tls.c:530)
+==22384==    by 0x7277227: allocate_stack (allocatestack.c:627)
+==22384==    by 0x7277227: pthread_create@@GLIBC_2.2.5 (pthread_create.c:644)
+==22384==    by 0x8B0761F: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x8AE95AE: ??? (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x8AE9657: g_thread_new (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x14BB0D13: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4)
+==22384==    by 0x14BA4A4C: ??? (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4)
+==22384==    by 0x14BA50C2: g_bus_get_sync (in /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4)
+==22384==    by 0x17099E3A: ??? (in /usr/lib/x86_64-linux-gnu/gio/modules/libgvfsdbus.so)
+==22384==    by 0x133F89E4: g_type_create_instance (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133D96F7: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384== 
+==22384== 576 bytes in 1 blocks are possibly lost in loss record 6,432 of 6,694
+==22384==    at 0x4C37E03: realloc (vg_replace_malloc.c:1192)
+==22384==    by 0x8AC6C8F: g_realloc (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384==    by 0x133F1840: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7A91: g_type_register_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x133F7D64: g_type_register_static_simple (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4)
+==22384==    by 0x1318ADD3: pango_font_face_get_type (in /usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4000.14)
+==22384==    by 0x1233673F: ??? (in /usr/lib/x86_64-linux-gnu/qt5/plugins/platformthemes/libqgtk3.so)
+==22384==    by 0x12330B49: ??? (in /usr/lib/x86_64-linux-gnu/qt5/plugins/platformthemes/libqgtk3.so)
+==22384==    by 0x5777799: QPlatformThemeFactory::create(QString const&, QString const&) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.9.5)
+==22384==    by 0x5785A1F: QGuiApplicationPrivate::createPlatformIntegration() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.9.5)
+==22384==    by 0x578645C: QGuiApplicationPrivate::createEventDispatcher() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.9.5)
+==22384==    by 0x6085794: QCoreApplicationPrivate::init() (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384== 
+==22384== 6,737 (232 direct, 6,505 indirect) bytes in 1 blocks are definitely lost in loss record 6,645 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0xFC9FBDF: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xFCAA3FE: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xFCAA6A4: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xFC9DF6F: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xFC88194: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xFC83AF3: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xD2F1C87: ??? (in /usr/lib/x86_64-linux-gnu/libQt5DBus.so.5.9.5)
+==22384==    by 0x60AE0C1: QObject::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x607E8C0: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x608104C: QCoreApplicationPrivate::sendPostedEvents(QObject*, int, QThreadData*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x60D8262: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384== 
+==22384== 6,774 (232 direct, 6,542 indirect) bytes in 1 blocks are definitely lost in loss record 6,646 of 6,694
+==22384==    at 0x4C37BCF: calloc (vg_replace_malloc.c:1117)
+==22384==    by 0xFC9FBDF: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xFCAA3FE: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xFCAA88C: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xFC9DF6F: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xFC88194: ??? (in /lib/x86_64-linux-gnu/libdbus-1.so.3.19.4)
+==22384==    by 0xD2F1AF6: ??? (in /usr/lib/x86_64-linux-gnu/libQt5DBus.so.5.9.5)
+==22384==    by 0x60AE0C1: QObject::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x607E8C0: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x608104C: QCoreApplicationPrivate::sendPostedEvents(QObject*, int, QThreadData*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x60D8262: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x8AC1536: g_main_context_dispatch (in /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4)
+==22384== 
+==22384== 8,232 bytes in 343 blocks are definitely lost in loss record 6,662 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x1103DD: guard::Clone() (stone.h:123)
+==22384==    by 0x112C18: chessboard::chessboard(chessboard const&) (gameEngine.cpp:42)
+==22384==    by 0x11AE7B: Mcts::calcMcts() (mcts.cpp:67)
+==22384==    by 0x11B1A9: Mcts::think() (mcts.cpp:32)
+==22384==    by 0x10EFD4: Display::mouseReleaseEvent(QMouseEvent*) (display.cpp:128)
+==22384==    by 0x4FD7047: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4F9883B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FA065E: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x607E8D7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x4F9F631: QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FF216A: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384== 
+==22384== 9,353 (6,912 direct, 2,441 indirect) bytes in 27 blocks are definitely lost in loss record 6,668 of 6,694
+==22384==    at 0x4C3301F: malloc (vg_replace_malloc.c:380)
+==22384==    by 0xD0B28ED: ??? (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1)
+==22384==    by 0xD0B3096: ??? (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1)
+==22384==    by 0xD0B4377: ??? (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1)
+==22384==    by 0xD0B99C3: ??? (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1)
+==22384==    by 0xFA4DE27: ??? (in /lib/x86_64-linux-gnu/libexpat.so.1.6.7)
+==22384==    by 0xFA4EBFB: ??? (in /lib/x86_64-linux-gnu/libexpat.so.1.6.7)
+==22384==    by 0xFA4C822: ??? (in /lib/x86_64-linux-gnu/libexpat.so.1.6.7)
+==22384==    by 0xFA4D50A: ??? (in /lib/x86_64-linux-gnu/libexpat.so.1.6.7)
+==22384==    by 0xFA510EC: XML_ParseBuffer (in /lib/x86_64-linux-gnu/libexpat.so.1.6.7)
+==22384==    by 0xD0B8B42: ??? (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1)
+==22384==    by 0xD0B8F75: FcConfigParseAndLoad (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1)
+==22384== 
+==22384== 12,744 bytes in 531 blocks are definitely lost in loss record 6,673 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x11035D: elephant::Clone() (stone.h:105)
+==22384==    by 0x112C18: chessboard::chessboard(chessboard const&) (gameEngine.cpp:42)
+==22384==    by 0x11AE7B: Mcts::calcMcts() (mcts.cpp:67)
+==22384==    by 0x11B1A9: Mcts::think() (mcts.cpp:32)
+==22384==    by 0x10EFD4: Display::mouseReleaseEvent(QMouseEvent*) (display.cpp:128)
+==22384==    by 0x4FD7047: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4F9883B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FA065E: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x607E8D7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x4F9F631: QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FF216A: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384== 
+==22384== 14,448 bytes in 602 blocks are definitely lost in loss record 6,676 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x11031D: general::Clone() (stone.h:96)
+==22384==    by 0x112C18: chessboard::chessboard(chessboard const&) (gameEngine.cpp:42)
+==22384==    by 0x11AE7B: Mcts::calcMcts() (mcts.cpp:67)
+==22384==    by 0x11B1A9: Mcts::think() (mcts.cpp:32)
+==22384==    by 0x10EFD4: Display::mouseReleaseEvent(QMouseEvent*) (display.cpp:128)
+==22384==    by 0x4FD7047: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4F9883B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FA065E: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x607E8D7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x4F9F631: QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FF216A: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384== 
+==22384== 62,832 bytes in 2,618 blocks are definitely lost in loss record 6,688 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x11029D: horse::Clone() (stone.h:78)
+==22384==    by 0x112C18: chessboard::chessboard(chessboard const&) (gameEngine.cpp:42)
+==22384==    by 0x11AE7B: Mcts::calcMcts() (mcts.cpp:67)
+==22384==    by 0x11B1A9: Mcts::think() (mcts.cpp:32)
+==22384==    by 0x10EFD4: Display::mouseReleaseEvent(QMouseEvent*) (display.cpp:128)
+==22384==    by 0x4FD7047: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4F9883B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FA065E: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x607E8D7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x4F9F631: QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FF216A: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384== 
+==22384== 76,152 bytes in 3,173 blocks are definitely lost in loss record 6,689 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x11041D: rook::Clone() (stone.h:132)
+==22384==    by 0x112C18: chessboard::chessboard(chessboard const&) (gameEngine.cpp:42)
+==22384==    by 0x11AE7B: Mcts::calcMcts() (mcts.cpp:67)
+==22384==    by 0x11B1A9: Mcts::think() (mcts.cpp:32)
+==22384==    by 0x10EFD4: Display::mouseReleaseEvent(QMouseEvent*) (display.cpp:128)
+==22384==    by 0x4FD7047: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4F9883B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FA065E: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x607E8D7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x4F9F631: QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FF216A: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384== 
+==22384== 174,960 bytes in 7,290 blocks are definitely lost in loss record 6,693 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x11039D: cannon::Clone() (stone.h:114)
+==22384==    by 0x112C18: chessboard::chessboard(chessboard const&) (gameEngine.cpp:42)
+==22384==    by 0x11AE7B: Mcts::calcMcts() (mcts.cpp:67)
+==22384==    by 0x11B1A9: Mcts::think() (mcts.cpp:32)
+==22384==    by 0x10EFD4: Display::mouseReleaseEvent(QMouseEvent*) (display.cpp:128)
+==22384==    by 0x4FD7047: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4F9883B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FA065E: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x607E8D7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x4F9F631: QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FF216A: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384== 
+==22384== 254,232 bytes in 10,593 blocks are definitely lost in loss record 6,694 of 6,694
+==22384==    at 0x4C3378B: operator new(unsigned long) (vg_replace_malloc.c:417)
+==22384==    by 0x1102DD: soldier::Clone() (stone.h:87)
+==22384==    by 0x112C18: chessboard::chessboard(chessboard const&) (gameEngine.cpp:42)
+==22384==    by 0x11AE7B: Mcts::calcMcts() (mcts.cpp:67)
+==22384==    by 0x11B1A9: Mcts::think() (mcts.cpp:32)
+==22384==    by 0x10EFD4: Display::mouseReleaseEvent(QMouseEvent*) (display.cpp:128)
+==22384==    by 0x4FD7047: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4F9883B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FA065E: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x607E8D7: QCoreApplication::notifyInternal2(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5)
+==22384==    by 0x4F9F631: QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384==    by 0x4FF216A: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.9.5)
+==22384== 
+==22384== LEAK SUMMARY:
+==22384==    definitely lost: 611,112 bytes in 25,183 blocks
+==22384==    indirectly lost: 15,712 bytes in 192 blocks
+==22384==      possibly lost: 3,440 bytes in 33 blocks
+==22384==    still reachable: 1,655,921 bytes in 22,660 blocks
+==22384==                       of which reachable via heuristic:
+==22384==                         length64           : 4,832 bytes in 80 blocks
+==22384==                         newarray           : 2,096 bytes in 51 blocks
+==22384==         suppressed: 0 bytes in 0 blocks
+==22384== Reachable blocks (those to which a pointer was found) are not shown.
+==22384== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==22384== 
+==22384== For lists of detected and suppressed errors, rerun with: -s
+==22384== ERROR SUMMARY: 45 errors from 45 contexts (suppressed: 0 from 0)

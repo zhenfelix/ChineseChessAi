@@ -85,7 +85,12 @@ public:
     soldier(int,int,int,int);
     soldier(const soldier &derived) : Stone(derived) {}
     soldier *Clone() { return new soldier(*this); }
+    // soldier *Clone() {
+    //     std::cout << "soldier created!\n";
+    //     return new soldier(*this); 
+    //     }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
+    // ~soldier(){std::cout << "soldier cleaned!\n";}
 };
 
 class general : public Stone
