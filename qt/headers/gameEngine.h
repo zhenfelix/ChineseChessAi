@@ -68,7 +68,9 @@ public:
 
 
 private:
-    Stone *c[10][9];//用指针调用各个棋子，实现多态
+    // Stone *c[10][9];//用指针调用各个棋子，实现多态
+    // std::vector<std::vector<Stone*>> c(10, std::vector<Stone*>(9,nullptr));
+    std::vector<std::vector<Stone *>> c;
     std::stack<std::pair<pos_type, pos_type>> records;
     std::map<int, Stone *> capturedStones;
     std::multiset<std::string> seen;

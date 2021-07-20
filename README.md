@@ -10,7 +10,9 @@ Features:
 - player subclass are implemented with different AI algorithms, the bruteforce minimax can be optimized with alpha-beta pruning (~30x speed-up), increasing search depth from 4 to 5 in ~1s, furthermore, with ordered movements optimization, we can achieve another ~20x speed-up, making 6-level search in ~1s possible.
 - position evaluation function, Quiescence search(heuristic search)
 - with transipositon table, only ~2x improvements, not too significant. Add principal variational search, neither significant. 
-- TODO:  MCTS
+- key issue solved with MCTS, using greedy rollout strategy for evaluation
+- MCTS tree reuse(only achieved 1/10 speedup since only 1/10 nodes in previous iteratin remains) and remove unused nodes recursively(prevent memory leak), get possible moves optimizatioin(), chessboard optimization(light and heavy version), achieved 5x speedup
+- TODO: chessboard copy constructor light version/shared static variables between different chessboards , get possible moves optimizatioin(stone generate valid moves), position value instead of win/loss,  next try alpha-beta search evaluation and parallelization;  test module
 
 
 ref:
@@ -31,4 +33,7 @@ ref:
 - [AI Agent for Chinese Chess](http://stanford.edu/~dengl11/resource/doc/221-Report.pdf)
 - [Chinese Chess AI](https://zhiyingy.github.io/)
 - [How do I choose the best algorithm for a board game like checkers?](https://ai.stackexchange.com/questions/7159/how-do-i-choose-the-best-algorithm-for-a-board-game-like-checkers)
+- [Are iterative deepening, principal variation search or quiescence search extensions of alpha-beta pruning?](https://ai.stackexchange.com/questions/7231/are-iterative-deepening-principal-variation-search-or-quiescence-search-extensi?rq=1)
 - [AI agents for ultimate tic-tac-toe](http://stanford.edu/~jdoan21/cs221poster.pdf)
+- [Monte Carlo Tree Search Improvements](https://stackoverflow.com/questions/46006885/monte-carlo-tree-search-improvements)
+- [Techniques to Parallelize Chess](http://ww2.cs.fsu.edu/~guidry/parallel_chess.pdf)

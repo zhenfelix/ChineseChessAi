@@ -17,9 +17,9 @@ const int chessboard::stonevalue[15] = {-2, -4, -4, -8, -9, -18, -10000, 0, 1000
 const unsigned int chessboard::random_seed = 2021;
 
 chessboard::chessboard(bool is_show_/*=true*/)
-    : is_show(is_show_)
+    : is_show(is_show_), c(10, std::vector<Stone*>(9,nullptr))
 {
-    memset(c, NULL, sizeof(c));
+    // memset(c, NULL, sizeof(c));
     // srand((unsigned)time(NULL));
     srand((unsigned) chessboard::random_seed);
     color = -1;
@@ -30,10 +30,10 @@ chessboard::chessboard(bool is_show_/*=true*/)
 
 chessboard::chessboard(const chessboard &cb)
     : color(cb.color), vertical(cb.vertical), game_running(cb.game_running), is_show(cb.is_show),
-    records(cb.records), capturedStones(cb.capturedStones), seen(cb.seen), stone2val(cb.stone2val)
+    records(cb.records), capturedStones(cb.capturedStones), seen(cb.seen), stone2val(cb.stone2val), c(10, std::vector<Stone*>(9,nullptr))
     
 {
-    memset(c, NULL, sizeof(c));
+    // memset(c, NULL, sizeof(c));
     std::vector<Stone *> stones = cb.getStones();
     for(auto s: stones)
     {
@@ -56,7 +56,10 @@ chessboard& chessboard::operator=(const chessboard &cb)
     capturedStones = cb.capturedStones;
     seen = cb.seen;
     stone2val = cb.stone2val;
-    memset(c, NULL, sizeof(c));
+    // memset(c, NULL, sizeof(c));
+    for(int i = 0; i < 10; i++)
+        for (int j = 0; j < 0; j++)
+            c[i][j] = nullptr;
     std::vector<Stone *> stones = cb.getStones();
     for (auto s : stones)
     {
@@ -329,12 +332,15 @@ chessboard ::~chessboard()
 {
     // std::cout << "chessboard deconstructor called!\n";
     for (int i = 0; i < 10; i++)
-        for (int j = 0; j < 9; j++)
-            if (c[i][j] != NULL)
-            {
-                delete c[i][j];
-                c[i][j] = NULL;
-            }
+        {
+            for (int j = 0; j < 9; j++)
+                if (c[i][j] != NULL)
+                {
+                    delete c[i][j];
+                    c[i][j] = NULL;
+                }
+        }
+    // c = nullptr;
 }
 
 void chessboard::flipMat(std::vector<std::vector<int>> &mat)
