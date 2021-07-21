@@ -13,6 +13,7 @@ public:
     // chessboard();
     chessboard(bool is_show_=true);
     chessboard(const chessboard&);
+    chessboard(const chessboard &, bool);
     chessboard& operator=(const chessboard&);
     void init();
 
@@ -61,6 +62,7 @@ public:
     static const char chessword[15][4];
     static const int stonevalue[15];
     static const unsigned int random_seed;
+    static std::unordered_map<int, std::vector<std::vector<int>>> stone2val;
     int color;         //current player color, red: -1, black: 1
     int vertical;      // first hand vertical position, -1: down, 1: up
     bool game_running; //判断结束
@@ -74,7 +76,7 @@ private:
     std::stack<std::pair<pos_type, pos_type>> records;
     std::map<int, Stone *> capturedStones;
     std::multiset<std::string> seen;
-    std::unordered_map<int,std::vector<std::vector<int>>> stone2val;
+    
 
 private:
     //utility methods

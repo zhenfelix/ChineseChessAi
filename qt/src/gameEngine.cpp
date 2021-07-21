@@ -15,25 +15,18 @@ using namespace std;
 const char chessboard::chessword[15][4] = {"兵", "相", "仕", "炮", "傌", "俥", "帥", "", "将", "車", "馬", "砲", "士", "象", "卒"}; //名字
 const int chessboard::stonevalue[15] = {-2, -4, -4, -8, -9, -18, -10000, 0, 10000, 18, 9, 8, 4, 4, 2};                              //stone value
 const unsigned int chessboard::random_seed = 2021;
+std::unordered_map<int, std::vector<std::vector<int>>> chessboard::stone2val;
 
-chessboard::chessboard(bool is_show_/*=true*/)
-    : is_show(is_show_), c(10, std::vector<Stone*>(9,nullptr))
+chessboard::chessboard(bool is_show_ /*=true*/)
+    : color(-1), vertical(-1), game_running(true), is_show(is_show_), c(10, std::vector<Stone *>(9, nullptr))
 {
-    // memset(c, NULL, sizeof(c));
-    // srand((unsigned)time(NULL));
-    srand((unsigned) chessboard::random_seed);
-    color = -1;
-    game_running = true;
-    vertical = -1;
-}; //把指针初始化为零指针
-// chessboard::chessboard() { memset(c, 0, sizeof(c)); }; //把指针初始化为零指针
+}; 
 
 chessboard::chessboard(const chessboard &cb)
     : color(cb.color), vertical(cb.vertical), game_running(cb.game_running), is_show(cb.is_show),
-    records(cb.records), capturedStones(cb.capturedStones), seen(cb.seen), stone2val(cb.stone2val), c(10, std::vector<Stone*>(9,nullptr))
+    records(cb.records), capturedStones(cb.capturedStones), seen(cb.seen), c(10, std::vector<Stone*>(9,nullptr))
     
 {
-    // memset(c, NULL, sizeof(c));
     std::vector<Stone *> stones = cb.getStones();
     for(auto s: stones)
     {
@@ -41,7 +34,20 @@ chessboard::chessboard(const chessboard &cb)
         s->getPos(row,col);
         c[row][col] = s->Clone();
     }
-    srand((unsigned)chessboard::random_seed);
+    return;
+}
+
+chessboard::chessboard(const chessboard &cb, bool dummy)
+    : color(cb.color), vertical(cb.vertical), game_running(cb.game_running), is_show(cb.is_show), c(10, std::vector<Stone *>(9, nullptr))
+
+{
+    std::vector<Stone *> stones = cb.getStones();
+    for (auto s : stones)
+    {
+        int row, col;
+        s->getPos(row, col);
+        c[row][col] = s->Clone();
+    }
     return;
 }
 
@@ -55,7 +61,6 @@ chessboard& chessboard::operator=(const chessboard &cb)
     records = cb.records;
     capturedStones = cb.capturedStones;
     seen = cb.seen;
-    stone2val = cb.stone2val;
     // memset(c, NULL, sizeof(c));
     for(int i = 0; i < 10; i++)
         for (int j = 0; j < 0; j++)
@@ -67,7 +72,6 @@ chessboard& chessboard::operator=(const chessboard &cb)
         s->getPos(row, col);
         c[row][col] = s->Clone();
     }
-    srand((unsigned)chessboard::random_seed);
     return *this;
 }
 
@@ -301,9 +305,9 @@ int chessboard::boardPosEval()
         int row, col;
         s->getPos(row,col);
         if (id * color > 0)
-            score += stone2val[abs(id) * vertical_][row][col];
+            score += chessboard::stone2val[abs(id) * vertical_][row][col];
         else
-            score -= stone2val[abs(id) * vertical_][row][col];
+            score -= chessboard::stone2val[abs(id) * vertical_][row][col];
     }
 
     return score;
@@ -379,10 +383,10 @@ void chessboard::readPosVal()
             }
             val_mat.push_back(row_val);
         }
-        stone2val.insert({idx,val_mat});
+        chessboard::stone2val.insert({idx, val_mat});
         // stone2val[idx] = val_mat;
         flipMat(val_mat);
-        stone2val.insert({-idx,val_mat});
+        chessboard::stone2val.insert({-idx, val_mat});
         // stone2val[-idx] = val_mat;
     }
     

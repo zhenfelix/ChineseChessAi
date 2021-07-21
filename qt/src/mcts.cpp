@@ -64,7 +64,7 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
     cb.setShow(true);
     for (int i = 0; i < sim_cnt; i++)
     {
-        cb_ptr = new chessboard(cb);
+        cb_ptr = new chessboard(cb, true);
         cb_ptr->setShow(false);
         MctsNode* cur = select();
         int win_color = rollout();
