@@ -71,7 +71,7 @@ public:
     void setPos(int r, int c){ row=r; col=c; return;}
     virtual bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy) = 0;
     // virtual bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy){}
-    virtual void generate_move(chessboard &, std::vector<std::pair<pos_type, pos_type>>&) = 0;
+    virtual void generate_move(chessboard &, std::vector<move_type>&) = 0;
     virtual ~Stone(){}; //虚析构
 };
 
@@ -82,7 +82,7 @@ public:
     horse(const horse& derived): Stone(derived){}
     horse* Clone(){ return new horse(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
-    void generate_move(chessboard &, std::vector<std::pair<pos_type, pos_type>> &);
+    void generate_move(chessboard &, std::vector<move_type> &);
 };
 
 class soldier : public Stone
@@ -96,7 +96,7 @@ public:
     //     return new soldier(*this); 
     //     }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
-    void generate_move(chessboard &, std::vector<std::pair<pos_type, pos_type>> &);
+    void generate_move(chessboard &, std::vector<move_type> &);
     // ~soldier(){std::cout << "soldier cleaned!\n";}
 };
 
@@ -107,7 +107,7 @@ public:
     general(const general &derived) : Stone(derived) {}
     general *Clone() { return new general(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
-    void generate_move(chessboard &, std::vector<std::pair<pos_type, pos_type>> &);
+    void generate_move(chessboard &, std::vector<move_type> &);
 };
 
 class elephant : public Stone
@@ -117,7 +117,7 @@ public:
     elephant(const elephant &derived) : Stone(derived) {}
     elephant *Clone() { return new elephant(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
-    void generate_move(chessboard &, std::vector<std::pair<pos_type, pos_type>> &);
+    void generate_move(chessboard &, std::vector<move_type> &);
 };
 
 class cannon : public Stone
@@ -127,7 +127,7 @@ public:
     cannon(const cannon &derived) : Stone(derived) {}
     cannon *Clone() { return new cannon(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
-    void generate_move(chessboard &, std::vector<std::pair<pos_type, pos_type>> &);
+    void generate_move(chessboard &, std::vector<move_type> &);
 };
 
 class guard : public Stone
@@ -137,7 +137,7 @@ public:
     guard(const guard &derived) : Stone(derived) {}
     guard *Clone() { return new guard(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
-    void generate_move(chessboard &, std::vector<std::pair<pos_type, pos_type>> &);
+    void generate_move(chessboard &, std::vector<move_type> &);
 };
 
 class rook : public Stone
@@ -147,7 +147,7 @@ public:
     rook(const rook &derived) : Stone(derived) {}
     rook *Clone() { return new rook(*this); }
     bool judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy);
-    void generate_move(chessboard &, std::vector<std::pair<pos_type, pos_type>> &);
+    void generate_move(chessboard &, std::vector<move_type> &);
 };
 
 #endif // STONE_H

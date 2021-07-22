@@ -4,7 +4,7 @@
 #include "player.h"
 #include <QObject>
 
-#define MAXSTEP 2
+#define MAXSTEP 10
 
 
 struct MctsNode
@@ -13,18 +13,18 @@ struct MctsNode
     int wins;
     int color;
     MctsNode *parent;
-    std::pair<pos_type,pos_type> pmove;
+    move_type pmove;
     std::vector<MctsNode*> children;
-    std::vector<std::pair<pos_type,pos_type>> possible_moves;
+    std::vector<move_type> possible_moves;
 
-    MctsNode(int color_, MctsNode *parent_, std::pair<pos_type,pos_type> pmove_, std::vector<std::pair<pos_type,pos_type>> possible_moves_)
+    MctsNode(int color_, MctsNode *parent_, move_type pmove_, std::vector<move_type> possible_moves_)
         : n(0), wins(0), color(color_), parent(parent_), pmove(pmove_), possible_moves(possible_moves_)
     {
 //        int sz = possible_moves.size();//random permutation of possible moves
 //        for (int i = sz; i > 0; i--)
 //        {
 //            int idx = rand()%i;
-//            std::pair<pos_type,pos_type> tmp = possible_moves[i];
+//            move_type tmp = possible_moves[i];
 //            possible_moves[i] = possible_moves[idx];
 //            possible_moves[idx] = tmp;
 //        }
@@ -68,7 +68,7 @@ private:
     chessboard *cb_ptr;
 
 private:
-    std::pair<pos_type,pos_type> calcMcts();
+    move_type calcMcts();
     MctsNode* moveRoot();
     int count(MctsNode*);
     MctsNode *select();

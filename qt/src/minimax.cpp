@@ -19,7 +19,7 @@ void Minimax::think()
     // std::cout << "minimax move in minimax! wait for computer to think..." << std::endl;
 
      int best_score;
-     std::pair<pos_type, pos_type> best_move;
+     move_type best_move;
      cb.setShow(false);//silence board show while computer thinking
 
     //  negmax(d, INT_MIN, INT_MAX, best_score, best_move);//dangerous bug!!! -INT_MIN still INT_MIN!!! overflow!!!
@@ -56,7 +56,7 @@ void Minimax::think()
      
 }
 
-void Minimax::dfs(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move)
+void Minimax::dfs(int depth, int alpha, int beta, int &best_score, move_type &best_move)
 {
     // std::string board_hash = cb.boardHash();
 
@@ -78,7 +78,7 @@ void Minimax::dfs(int depth, int alpha, int beta, int &best_score, std::pair<pos
 //     for (auto &candidate: candidates)
      {
          int current_score;
-         std::pair<pos_type, pos_type> current_move;
+         move_type current_move;
 //         auto [start_xy, aim_xy] = candidate;
          auto &[startx, starty] = start_xy;
          auto &[aimx, aimy] = aim_xy;
@@ -114,7 +114,7 @@ void Minimax::dfs(int depth, int alpha, int beta, int &best_score, std::pair<pos
 
 
 
-void Minimax::negmax(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move)
+void Minimax::negmax(int depth, int alpha, int beta, int &best_score, move_type &best_move)
 {
     // std::string board_hash = cb.boardHash();
 
@@ -135,7 +135,7 @@ void Minimax::negmax(int depth, int alpha, int beta, int &best_score, std::pair<
     for (auto &[start_xy, aim_xy] : candidates)
     {
         int current_score;
-        std::pair<pos_type, pos_type> current_move;
+        move_type current_move;
         auto &[startx, starty] = start_xy;
         auto &[aimx, aimy] = aim_xy;
 
@@ -155,7 +155,7 @@ void Minimax::negmax(int depth, int alpha, int beta, int &best_score, std::pair<
     return;
 }
 
-void Minimax::negmax_memo(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move)
+void Minimax::negmax_memo(int depth, int alpha, int beta, int &best_score, move_type &best_move)
 {
     std::string board_hash = cb.boardHash();
     int alphaOrig = alpha;
@@ -205,7 +205,7 @@ void Minimax::negmax_memo(int depth, int alpha, int beta, int &best_score, std::
     for (auto &[start_xy, aim_xy] : candidates)
     {
         int current_score;
-        std::pair<pos_type, pos_type> current_move;
+        move_type current_move;
         auto &[startx, starty] = start_xy;
         auto &[aimx, aimy] = aim_xy;
 
@@ -244,7 +244,7 @@ void Minimax::negmax_memo(int depth, int alpha, int beta, int &best_score, std::
     return;
 }
 
-void Minimax::quiesceneSearch(bool is_quiescene, int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move)
+void Minimax::quiesceneSearch(bool is_quiescene, int depth, int alpha, int beta, int &best_score, move_type &best_move)
 {
     // std::string board_hash = cb.boardHash();
 
@@ -277,7 +277,7 @@ void Minimax::quiesceneSearch(bool is_quiescene, int depth, int alpha, int beta,
     for (auto &[start_xy, aim_xy] : candidates)
     {
         int current_score;
-        std::pair<pos_type, pos_type> current_move;
+        move_type current_move;
         auto &[startx, starty] = start_xy;
         auto &[aimx, aimy] = aim_xy;
 
@@ -297,7 +297,7 @@ void Minimax::quiesceneSearch(bool is_quiescene, int depth, int alpha, int beta,
     return;
 }
 
-void Minimax::pvs(int depth, int alpha, int beta, int &best_score, std::pair<pos_type, pos_type> &best_move)
+void Minimax::pvs(int depth, int alpha, int beta, int &best_score, move_type &best_move)
 {
     // std::string board_hash = cb.boardHash();
 
@@ -318,7 +318,7 @@ void Minimax::pvs(int depth, int alpha, int beta, int &best_score, std::pair<pos
     for (auto &[start_xy, aim_xy] : candidates)
     {
         int current_score;
-        std::pair<pos_type, pos_type> current_move;
+        move_type current_move;
         auto &[startx, starty] = start_xy;
         auto &[aimx, aimy] = aim_xy;
 

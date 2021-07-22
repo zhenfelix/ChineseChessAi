@@ -21,17 +21,17 @@ public:
     Stone *get(int x, int y) { return c[x][y]; }
     int getVertical() { return vertical; }
     std::vector<Stone *> getStones() const;
-    std::vector<std::pair<pos_type, pos_type>> getMoves_quick();
-    std::vector<std::pair<pos_type, pos_type>> getMoves();
-    std::pair<pos_type, pos_type> greedyMove(std::vector<std::pair<pos_type, pos_type>> &);
-    void sortMoves(std::vector<std::pair<pos_type, pos_type>> &);
+    std::vector<move_type> getMoves_quick();
+    std::vector<move_type> getMoves();
+    move_type greedyMove(std::vector<move_type> &);
+    void sortMoves(std::vector<move_type> &);
     int getid(int x, int y)
     {
         if (c[x][y] != NULL)
             return c[x][y]->get();
         return 0;
     }
-    std::pair<pos_type, pos_type> getLastMove(){
+    move_type getLastMove(){
         if (!records.empty()){
             return records.top();
         }
@@ -42,11 +42,11 @@ public:
 
     void show();
     void play();
-    bool judge(std::pair<pos_type, pos_type> candidate_move);
+    bool judge(move_type candidate_move);
     bool judge(int startx, int starty, int aimx, int aimy);
-    void move_quick(std::pair<pos_type, pos_type> candidate_move);
+    void move_quick(move_type candidate_move);
     void move_quick(int startx, int starty, int aimx, int aimy);
-    bool move(std::pair<pos_type,pos_type> candidate_move);
+    bool move(move_type candidate_move);
     bool move(int startx, int starty, int aimx, int aimy);
     void dummy_move();
     void random_move();
@@ -73,7 +73,7 @@ private:
     // Stone *c[10][9];//用指针调用各个棋子，实现多态
     // std::vector<std::vector<Stone*>> c(10, std::vector<Stone*>(9,nullptr));
     std::vector<std::vector<Stone *>> c;
-    std::stack<std::pair<pos_type, pos_type>> records;
+    std::stack<move_type> records;
     std::map<int, Stone *> capturedStones;
     std::multiset<std::string> seen;
     

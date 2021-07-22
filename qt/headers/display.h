@@ -35,7 +35,7 @@ private:
     bool getRowCol(QPoint pt, int &row, int &col); // QPoint center(int id);
 
 private:
-    std::queue<std::pair<int, int>> message;//queued click messages
+    std::queue<pos_type> message;//queued click messages
     int radius; /* 棋子的半径 */
     Stone *selectStone = nullptr;
 

@@ -75,7 +75,7 @@ chessboard& chessboard::operator=(const chessboard &cb)
     return *this;
 }
 
-bool chessboard::judge(std::pair<pos_type,pos_type> candidate_move)
+bool chessboard::judge(move_type candidate_move)
 {
     auto &[start_xy, aim_xy] = candidate_move;
     auto &[start_x, start_y] = start_xy;
@@ -90,7 +90,7 @@ bool chessboard::judge(int startx, int starty, int aimx, int aimy)
 }
 
 
-void chessboard::move_quick(std::pair<pos_type, pos_type> candidate_move)
+void chessboard::move_quick(move_type candidate_move)
 {
     auto &[start_xy, aim_xy] = candidate_move;
     auto &[start_x, start_y] = start_xy;
@@ -118,7 +118,7 @@ void chessboard::move_quick(int startx, int starty, int aimx, int aimy)
     return;
 }
 
-bool chessboard::move(std::pair<pos_type, pos_type> candidate_move)
+bool chessboard::move(move_type candidate_move)
 {
     auto &[start_xy, aim_xy] = candidate_move;
     auto &[start_x, start_y] = start_xy;
@@ -227,7 +227,7 @@ void chessboard::random_move()
     //     row_aim = rand() % 10;
     //     col_aim = rand() % 9;
     // } while (!move(row_start,col_start,row_aim,col_aim));
-    std::vector<std::pair<pos_type, pos_type>> possible_moves = getMoves();
+    std::vector<move_type> possible_moves = getMoves_quick();
     int sz = possible_moves.size();
     if(sz == 0)
     {
@@ -453,9 +453,9 @@ std::vector<Stone*> chessboard::getStones() const
     return res;
 }
 
-std::vector<std::pair<pos_type, pos_type>> chessboard::getMoves_quick()
+std::vector<move_type> chessboard::getMoves_quick()
 {
-    std::vector<std::pair<pos_type, pos_type>> candidates;
+    std::vector<move_type> candidates;
     std::vector<Stone *> candidate_stones = getStones();
     for (auto s : candidate_stones)
     {
@@ -465,9 +465,9 @@ std::vector<std::pair<pos_type, pos_type>> chessboard::getMoves_quick()
     return candidates;
 }
 
-std::vector<std::pair<pos_type, pos_type>> chessboard::getMoves()
+std::vector<move_type> chessboard::getMoves()
 {
-    std::vector<std::pair<pos_type, pos_type>> candidates;
+    std::vector<move_type> candidates;
     std::vector<Stone*> candidate_stones = getStones();
     for(auto s: candidate_stones)
     {
@@ -492,9 +492,9 @@ std::vector<std::pair<pos_type, pos_type>> chessboard::getMoves()
     return candidates;
 }
 
-std::pair<pos_type, pos_type> chessboard::greedyMove(std::vector<std::pair<pos_type, pos_type>> &candidates)
+move_type chessboard::greedyMove(std::vector<move_type> &candidates)
 {
-    auto it = std::max_element(candidates.begin(), candidates.end(), [&](std::pair<pos_type, pos_type> &a, std::pair<pos_type, pos_type> &b)
+    auto it = std::max_element(candidates.begin(), candidates.end(), [&](move_type &a, move_type &b)
               {
                   auto &[a_start_xy, a_aim_xy] = a;
                   auto &[b_start_xy, b_aim_xy] = b;
@@ -511,9 +511,9 @@ std::pair<pos_type, pos_type> chessboard::greedyMove(std::vector<std::pair<pos_t
     return *it;
 }
 
-void chessboard::sortMoves(std::vector<std::pair<pos_type, pos_type>> &candidates)
+void chessboard::sortMoves(std::vector<move_type> &candidates)
 {
-    std::sort(candidates.begin(), candidates.end(), [&](std::pair<pos_type, pos_type> &a, std::pair<pos_type, pos_type> &b) {
+    std::sort(candidates.begin(), candidates.end(), [&](move_type &a, move_type &b) {
         auto &[a_start_xy, a_aim_xy] = a;
         auto &[b_start_xy, b_aim_xy] = b;
         auto &[a_x, a_y] = a_aim_xy;

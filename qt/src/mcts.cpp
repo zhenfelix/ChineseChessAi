@@ -2,8 +2,8 @@
 #define INF 0x3f3f3f3f
 #define NINF ~INF
 
-// #define C_UCB 1.4
-#define C_UCB 2
+#define C_UCB 1.4
+// #define C_UCB 2
 
 Mcts::Mcts(bool isHuman_, chessboard &cb_, int sim_cnt_/*=10000*/) //similation
     : Player(isHuman_, cb_), sim_cnt(sim_cnt_), root(nullptr)
@@ -47,18 +47,18 @@ int Mcts::count(MctsNode* cur){
     return cnt;
 }
 
-std::pair<pos_type,pos_type> Mcts::calcMcts()
+move_type Mcts::calcMcts()
 {
 
     int color = cb.color;
-    std::pair<pos_type,pos_type> null_move;
+    move_type null_move;
     cb.setShow(false);
-//    std::vector<std::pair<pos_type,pos_type>> tmp = possbile_moves;
+//    std::vector<move_type> tmp = possbile_moves;
     if (root){
         root = moveRoot();
     }
     if (!root){
-        std::vector<std::pair<pos_type, pos_type>> possbile_moves = cb.getMoves_quick();
+        std::vector<move_type> possbile_moves = cb.getMoves_quick();
         // std::cout << "root generate moves\n";
         root = new MctsNode(color, nullptr, null_move, possbile_moves);
     }
@@ -117,7 +117,7 @@ MctsNode* Mcts::select()
         }
         else
         {
-            std::pair<pos_type,pos_type> nxt_move = cur->possible_moves.back();
+            move_type nxt_move = cur->possible_moves.back();
             cur->possible_moves.pop_back();
             cb_ptr->move_quick(nxt_move);
             MctsNode* child = new MctsNode(cb_ptr->color,cur,nxt_move,cb_ptr->getMoves_quick());
@@ -174,9 +174,11 @@ int Mcts::rollout()
     {
         if(!cb_ptr->game_running)break;
         // cb_ptr->random_move();
-        auto candidates = cb_ptr->getMoves_quick();
+
         // cb_ptr->sortMoves(candidates);
         // cb_ptr->move_quick(candidates[0]);
+
+        auto candidates = cb_ptr->getMoves_quick();
         cb_ptr->move_quick(cb_ptr->greedyMove(candidates));
         // if(i > 0 && i%200 == 0)std::cout << i << "round rollout\n";
     }

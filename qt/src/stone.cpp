@@ -22,7 +22,7 @@ bool horse::judge_move(chessboard &cb, int startx, int starty, int aimx, int aim
             return true;
         return false;
     }
-void horse::generate_move(chessboard &cb, std::vector<std::pair<pos_type, pos_type>> &candidates)
+void horse::generate_move(chessboard &cb, std::vector<move_type> &candidates)
 {
     std::vector<int> dr = {-2,-2,-1,-1,1,1,2,2};
     std::vector<int> dc = {-1,1,-2,2,-2,2,-1,1};
@@ -55,7 +55,7 @@ bool soldier::judge_move(chessboard &cb, int startx, int starty, int aimx, int a
         }
         return false;
     }
-void soldier::generate_move(chessboard &cb, std::vector<std::pair<pos_type, pos_type>> &candidates)
+void soldier::generate_move(chessboard &cb, std::vector<move_type> &candidates)
 {
     std::vector<int> dr = {-1,0,1,0};
     std::vector<int> dc = {0,-1,0,1};
@@ -88,7 +88,7 @@ bool general::judge_move(chessboard &cb, int startx, int starty, int aimx, int a
         return false;
     }
 
-void general::generate_move(chessboard &cb, std::vector<std::pair<pos_type, pos_type>> &candidates)
+void general::generate_move(chessboard &cb, std::vector<move_type> &candidates)
 {
     std::vector<int> dr = {0,0};
     std::vector<int> dc = {-1,1};
@@ -114,7 +114,7 @@ bool elephant::judge_move(chessboard &cb, int startx, int starty, int aimx, int 
             return true;
         return false;
     }
-void elephant::generate_move(chessboard &cb, std::vector<std::pair<pos_type, pos_type>> &candidates)
+void elephant::generate_move(chessboard &cb, std::vector<move_type> &candidates)
 {
     std::vector<int> dr = {-2,-2,2,2};
     std::vector<int> dc = {-2,2,-2,2};
@@ -163,7 +163,7 @@ bool cannon::judge_move(chessboard &cb, int startx, int starty, int aimx, int ai
         }
         return false;
     }
-void cannon::generate_move(chessboard &cb, std::vector<std::pair<pos_type, pos_type>> &candidates)
+void cannon::generate_move(chessboard &cb, std::vector<move_type> &candidates)
 {
     for (int aim_r = 0; aim_r < 10; aim_r++)
         if (cb.judge(row, col, aim_r, col))
@@ -190,7 +190,7 @@ bool guard::judge_move(chessboard &cb, int startx, int starty, int aimx, int aim
             return true;
         return false;
     }
-void guard::generate_move(chessboard &cb, std::vector<std::pair<pos_type, pos_type>> &candidates)
+void guard::generate_move(chessboard &cb, std::vector<move_type> &candidates)
 {
     std::vector<int> dr = {-1,-1,1,1};
     std::vector<int> dc = {-1,1,-1,1};
@@ -230,7 +230,7 @@ bool rook::judge_move(chessboard &cb, int startx, int starty, int aimx, int aimy
     return false;
 }
 
-void rook::generate_move(chessboard &cb, std::vector<std::pair<pos_type, pos_type>> &candidates)
+void rook::generate_move(chessboard &cb, std::vector<move_type> &candidates)
 {
     for (int aim_r = 0; aim_r < 10; aim_r++)
         if (cb.judge(row, col, aim_r, col))
