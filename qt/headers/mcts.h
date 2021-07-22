@@ -4,7 +4,7 @@
 #include "player.h"
 #include <QObject>
 
-#define MAXSTEP 20
+#define MAXSTEP 2
 
 
 struct MctsNode
@@ -29,6 +29,16 @@ struct MctsNode
 //            possible_moves[idx] = tmp;
 //        }
         
+    }
+    void show_children()
+    {
+        std::sort(children.begin(), children.end(), [&](MctsNode* a, MctsNode* b){
+            return a->n > b->n;
+        });
+        for (auto it = children.begin(); it != children.end(); it++)
+        {
+            std::cout << (*it)->pmove << " count: " << (*it)->n << " wins: " << (*it)->wins << std::endl;
+        }
     }
 
     ~MctsNode(){

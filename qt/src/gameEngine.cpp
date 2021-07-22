@@ -459,18 +459,7 @@ std::vector<std::pair<pos_type, pos_type>> chessboard::getMoves_quick()
     std::vector<Stone *> candidate_stones = getStones();
     for (auto s : candidate_stones)
     {
-        int start_row, start_col;
-        s->getPos(start_row, start_col);
-        for (int aim_row = 0; aim_row < 10; aim_row++)
-        {
-            for (int aim_col = 0; aim_col < 9; aim_col++)
-            {
-                if (judge(start_row, start_col, aim_row, aim_col))
-                {
-                    candidates.push_back({{start_row, start_col}, {aim_row, aim_col}});
-                }
-            }
-        }
+        s->generate_move(*this, candidates);
     }
 
     return candidates;

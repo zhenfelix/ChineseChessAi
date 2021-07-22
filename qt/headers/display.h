@@ -7,8 +7,7 @@
 #include "minimax.h"
 #include "mcts.h"
 #include <QLabel>
-
-
+#include <QApplication>
 
 class Display : public QWidget
 {

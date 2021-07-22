@@ -2,7 +2,8 @@
 #define INF 0x3f3f3f3f
 #define NINF ~INF
 
-#define C_UCB 1.4
+// #define C_UCB 1.4
+#define C_UCB 2
 
 Mcts::Mcts(bool isHuman_, chessboard &cb_, int sim_cnt_/*=10000*/) //similation
     : Player(isHuman_, cb_), sim_cnt(sim_cnt_), root(nullptr)
@@ -58,6 +59,7 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
     }
     if (!root){
         std::vector<std::pair<pos_type, pos_type>> possbile_moves = cb.getMoves_quick();
+        // std::cout << "root generate moves\n";
         root = new MctsNode(color, nullptr, null_move, possbile_moves);
     }
     
@@ -70,11 +72,13 @@ std::pair<pos_type,pos_type> Mcts::calcMcts()
         int win_color = rollout();
 //        if(cb_my.game_running)continue;
         backpropagate(cur,win_color);
-        if(i%5000 == 0)std::cout << i <<" similations finished\n";
+        // std::cout << i << " similations finished\n";
+        if(i%10000 == 0)std::cout << i <<" similations finished\n";
         delete cb_ptr;
     }
     MctsNode* child = chooseChild(root);
-    std::cout << "mcts choose move: " << child->pmove.first.first << ", " << child->pmove.first.second << ", " << child->pmove.second.first << ", " << child->pmove.second.second << std::endl;
+    std::cout << "mcts choose move: " << child->pmove << std::endl;
+    root->show_children();
     return child->pmove;
 }
 
@@ -117,6 +121,7 @@ MctsNode* Mcts::select()
             cur->possible_moves.pop_back();
             cb_ptr->move_quick(nxt_move);
             MctsNode* child = new MctsNode(cb_ptr->color,cur,nxt_move,cb_ptr->getMoves_quick());
+            // std::cout << "node generate moves\n";
             cur->children.push_back(child);
             cur = child;
             break;

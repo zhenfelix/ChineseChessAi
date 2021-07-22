@@ -10,9 +10,9 @@ Features:
 - player subclass are implemented with different AI algorithms, the bruteforce minimax can be optimized with alpha-beta pruning (~30x speed-up), increasing search depth from 4 to 5 in ~1s, furthermore, with ordered movements optimization, we can achieve another ~20x speed-up, making 6-level search in ~1s possible.
 - position evaluation function, Quiescence search(heuristic search)
 - with transipositon table, only ~2x improvements, not too significant. Add principal variational search, neither significant. 
-- key issue solved with MCTS, using greedy rollout strategy for evaluation
-- MCTS tree reuse(only achieved 1/10 speedup since only 1/10 nodes in previous iteratin remains) and remove unused nodes recursively(prevent memory leak), get possible moves optimizatioin(), chessboard optimization(light and heavy version), achieved 5x speedup
-- TODO: chessboard copy constructor light version/shared static variables between different chessboards , get possible moves optimizatioin(stone generate valid moves), position value instead of win/loss,  next try alpha-beta search evaluation and parallelization;  test module
+- key issue solved with MCTS, using greedy rollout strategy for evaluation (significant intelligence improvements)
+- MCTS tree reuse(only achieved 1/10 speedup since only 1/10 nodes in previous iteratin remains) and remove unused nodes recursively(prevent memory leak), get possible moves optimizatioin(), chessboard optimization(light and heavy version judge and move), achieved 5x speedup; chessboard copy constructor light version/shared static variables between different chessboards 
+- TODO: get possible moves optimizatioin(stone generate valid moves), position value instead of win/loss;  to do parallelization; competition result of mcst-50000 and a-b-4, winner a-b-4 ;bug to be fixed, mcts not considering cycles in simulations and could result in invalid cycling move in actual board move;  next try alpha-beta search evaluation;  test module
 
 
 ref:
