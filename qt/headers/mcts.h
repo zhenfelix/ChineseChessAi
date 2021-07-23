@@ -4,13 +4,14 @@
 #include "player.h"
 #include <QObject>
 
-#define MAXSTEP 10
+#define MAXSTEP 0
 
 
 struct MctsNode
 {
     int n;
     int wins;
+    int score;
     int color;
     MctsNode *parent;
     move_type pmove;
@@ -18,7 +19,7 @@ struct MctsNode
     std::vector<move_type> possible_moves;
 
     MctsNode(int color_, MctsNode *parent_, move_type pmove_, std::vector<move_type> possible_moves_)
-        : n(0), wins(0), color(color_), parent(parent_), pmove(pmove_), possible_moves(possible_moves_)
+        : n(0), wins(0), score(0), color(color_), parent(parent_), pmove(pmove_), possible_moves(possible_moves_)
     {
 //        int sz = possible_moves.size();//random permutation of possible moves
 //        for (int i = sz; i > 0; i--)
@@ -37,7 +38,7 @@ struct MctsNode
         });
         for (auto it = children.begin(); it != children.end(); it++)
         {
-            std::cout << (*it)->pmove << " count: " << (*it)->n << " wins: " << (*it)->wins << std::endl;
+            std::cout << (*it)->pmove << " count: " << (*it)->n << " wins: " << (*it)->wins << " score: " << (*it)->score << std::endl;
         }
     }
 
@@ -69,13 +70,18 @@ private:
 
 private:
     move_type calcMcts();
+    move_type calcMcts_score();
     MctsNode* moveRoot();
     int count(MctsNode*);
     MctsNode *select();
+    MctsNode *select_score();
     MctsNode *ucb(MctsNode*,double);
-    MctsNode *chooseChild(MctsNode *);
+    MctsNode *ucb_score(MctsNode *, double);
+    MctsNode *chooseChild();
     int rollout();
+    int rollout_score();
     void backpropagate(MctsNode *, int);
+    void backpropagate_score(MctsNode *, int);
 
     // public slots:
 
