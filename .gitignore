@@ -4,6 +4,7 @@
 build/
 *moc_*
 *.pro.user
+*.out
 
 # Prerequisites
 *.d

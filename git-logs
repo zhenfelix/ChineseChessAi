@@ -1,0 +1,180 @@
+commit 389f20cacd1e7c51fa6f9780782500f0fc950790
+Author: zhenfisher <>
+Date:   Fri Jul 23 11:00:36 2021 +0800
+
+    failed try of using position value as reward instead of win/loss; fix cycling move in mcts and memory leak issues with it
+
+commit 33e070851bf665508619219de059e6ac9c240009
+Author: zhenfisher <>
+Date:   Thu Jul 22 20:35:54 2021 +0800
+
+    move_type replacement
+
+commit 65832e1d5bbae35d87b3ea467ab10f8de32d31a9
+Author: zhenfisher <>
+Date:   Thu Jul 22 15:39:05 2021 +0800
+
+    performance bottleneck profiling with valgrind, optimize movements generation for mcts virtual thinking chessboard, achieved 5x speedup
+
+commit 6d1caf664f9c6d021f866acc50bf5fb0c9073634
+Author: zhenfisher <>
+Date:   Wed Jul 21 23:01:12 2021 +0800
+
+    optimize chessboard static variable and copy constructor for light version
+
+commit 750ad2b349c449afee09d584de5576ce12cd9bb5
+Author: zhenfisher <>
+Date:   Tue Jul 20 20:11:47 2021 +0800
+
+    find bug in mcts think(possible cycle move cause invalid board move); competition between mcts-5000 vs a-b-3, winner a-b-3
+
+commit 2a23c99a77f94f87009027ded0e714253876897c
+Author: zhenfisher <>
+Date:   Tue Jul 20 18:13:10 2021 +0800
+
+    fix memory leak bug in chessboard stone delete, misuse of move() instead of move_quick(), therefore captured stones are not recycled
+
+commit 1c0f81b40bc9dcf831d797c684596af62ab09cf2
+Author: zhenfisher <>
+Date:   Tue Jul 20 13:09:32 2021 +0800
+
+    change chessboard stone pointer 2d array to 2d vector to prevent memory leak in mcts, experiment valgrind mem-check
+
+commit 84c5d0ed145d39c93cb5a102c206d499f111e4b9
+Author: zhenfisher <>
+Date:   Mon Jul 19 23:57:56 2021 +0800
+
+    mcts node clean(prevent memory leak) and reuse, chessboad judge and move quick optimization
+
+commit 3812620c5a61f44da3536b0e0a8abcdf7ecb79b6
+Author: zhenfisher <>
+Date:   Mon Jul 19 17:21:29 2021 +0800
+
+    reuse monte carlo tree and clear unused nodes
+
+commit 046845fd688f799c47e1280b072b376cb412bf9e
+Author: zhenfisher <>
+Date:   Sun Jul 18 10:20:31 2021 +0800
+
+    reorder mcts moves, choose greedy move in rollout
+
+commit 8cfc43f0c149edace4face4d40b179c58967109b
+Author: zhenfisher <>
+Date:   Thu Apr 1 23:28:39 2021 +0800
+
+    add a timer with constructor and desctructor
+
+commit f9cf681055493352c81d7d53f298cc15cb92dac4
+Author: zhenfisher <>
+Date:   Wed Mar 31 22:18:05 2021 +0800
+
+    use chessboard pointer and deconstructor to prevent memory leak
+    todo: memory leak and reusage of mcst!
+
+commit 900da4094ae47d8cf20416e4ae38438d1eb3a345
+Author: zhenfisher <>
+Date:   Wed Mar 31 21:24:55 2021 +0800
+
+    constructor with default value in declaration!
+
+commit 9761c1ca88b7f969ea458ce3327d94c01de45629
+Author: zhenfisher <>
+Date:   Wed Mar 31 19:16:01 2021 +0800
+
+    mcts failure, probably of inefficient sampling rate, dummy ai only resonsive to check, not totally dummy
+
+commit ff8dc88741f892f922b2de1a2a002cc2efc10960
+Author: zhenfisher <>
+Date:   Mon Mar 29 16:15:38 2021 +0800
+
+    polymorphic copy constructor implementation
+
+commit 61721c8c822b529410dfec60d2e9e0398df0ca47
+Author: zhenfisher <>
+Date:   Sun Mar 28 20:13:16 2021 +0800
+
+    add pvs, but not very promising compared to negmax
+
+commit 2bc54f3ca2aadab775bc74fc320d48ab15d5e14c
+Author: zhenfisher <>
+Date:   Sun Mar 28 00:18:15 2021 +0800
+
+    add quiescene search
+    fix bug pos_val.txt general fly to eat adversial general
+    fix bug how multiset erase only one element!!!
+
+commit 38510a7fd7afbe794f887239b5c21b9b2a24a21d
+Author: zhenfisher <>
+Date:   Sat Mar 27 22:22:15 2021 +0800
+
+    add cycle detection/position value
+
+commit 87c3d3e14393c4197a7d4bee01f2b8221eb5eadc
+Author: zhenfisher <>
+Date:   Thu Mar 25 20:19:52 2021 +0800
+
+    add negmax + memo, fix bugs
+    2 bugs, 1.map insert vs [] operator difference; 2. tt_entry should also memorize best_move apart from best_score!
+
+commit eb20a0bd314b34ed3c14e669d7464dc0f25a3cba
+Author: zhenfisher <>
+Date:   Thu Mar 25 14:03:21 2021 +0800
+
+    add README refs
+
+commit ff74160c267fcc58a582497c62d2c2fa75885d25
+Author: zhenfisher <>
+Date:   Thu Mar 25 14:02:10 2021 +0800
+
+    add negmax, fix bug -INF_MIN overflow
+
+commit 8bb788f2549bf59ec347d02e4187fc70daa73c64
+Author: zhenfisher <>
+Date:   Wed Mar 24 19:39:05 2021 +0800
+
+    reordering movements improve alpha beta ~30x
+
+commit 57a3294ec8bb64a3e41ff78b1c72ec571300bd39
+Author: zhenfisher <>
+Date:   Wed Mar 24 15:34:34 2021 +0800
+
+    refactoring
+    - cyclic movements detector fail to work, and slows performance heavily
+    - priotize search order by stone value did not work
+
+commit 2a0a90452a4bd721d05606e3cf3968a37df30508
+Author: zhenfisher <>
+Date:   Wed Mar 24 09:05:40 2021 +0800
+
+    update
+
+commit 45911ea0937a4b69adf6bd15c2e7ea82f88d6de8
+Author: zhenfisher <>
+Date:   Wed Mar 24 08:59:52 2021 +0800
+
+    fix bug, ai should react to general in check
+
+commit 97dd58f39bffcf8010214bc13dd7fb67c84fd30f
+Author: zhenfisher <>
+Date:   Tue Mar 23 21:32:43 2021 +0800
+
+    add minimax-alpha-beta ai player
+
+commit 29d33381df8a980907ba8b419243b2d2258895fc
+Author: zhenfisher <>
+Date:   Tue Mar 23 12:39:37 2021 +0800
+
+    - add board evaluation to chessboard
+    - integrate board update logic to chessboard::show()
+
+commit 9ae5c19e75841f87a636f63cbd070cf5cbf86c56
+Author: zhenfisher <>
+Date:   Mon Mar 22 22:08:03 2021 +0800
+
+    qt gui board engine to do ai player
+
+commit e9c092bbf38af4230a9c7baf3e7ee3418126458c
+Author: zhenfisher <24976006+zhenfisher@users.noreply.github.com>
+Date:   Mon Mar 22 21:59:36 2021 +0800
+
+    Initial commit

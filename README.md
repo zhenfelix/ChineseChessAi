@@ -37,3 +37,5 @@ ref:
 - [AI agents for ultimate tic-tac-toe](http://stanford.edu/~jdoan21/cs221poster.pdf)
 - [Monte Carlo Tree Search Improvements](https://stackoverflow.com/questions/46006885/monte-carlo-tree-search-improvements)
 - [Techniques to Parallelize Chess](http://ww2.cs.fsu.edu/~guidry/parallel_chess.pdf)
+- [使用 Valgrind 检测 C++ 内存泄漏](http://senlinzhan.github.io/2017/12/31/valgrind/)
+- [C/C++性能测试工具 GNU gprof](https://fooyou.github.io/document/2015/07/22/performance-tools-for-linux-cplusplus.html)
