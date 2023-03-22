@@ -64,7 +64,7 @@ chessboard& chessboard::operator=(const chessboard &cb)
     // memset(c, NULL, sizeof(c));
     for(int i = 0; i < 10; i++)
         for (int j = 0; j < 0; j++)
-            c[i][j] = nullptr;
+            c[i][j] = nullptr;//to do delete previous stones, otherwise memory leak?
     std::vector<Stone *> stones = cb.getStones();
     for (auto s : stones)
     {
@@ -91,6 +91,7 @@ bool chessboard::judge(int startx, int starty, int aimx, int aimy)
 
 
 void chessboard::move_quick(move_type candidate_move)
+//no verificatioin of move
 {
     auto &[start_xy, aim_xy] = candidate_move;
     auto &[start_x, start_y] = start_xy;
@@ -304,8 +305,9 @@ int chessboard::boardPosEval()
         int vertical_ = s->getVer();
         int row, col;
         s->getPos(row,col);
-        if (id * color > 0)
+        if (id * color > 0)//positive score when stone color matches current player color
             score += chessboard::stone2val[abs(id) * vertical_][row][col];
+            //vertical position is used to determine the right stone2val mat
         else
             score -= chessboard::stone2val[abs(id) * vertical_][row][col];
     }

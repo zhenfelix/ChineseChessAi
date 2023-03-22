@@ -133,6 +133,7 @@ move_type Mcts::calcMcts_score()
 }
 
 MctsNode* Mcts::moveRoot(){
+    //dummy implementation, no reuse of tree nodes, to be implemented
     auto last_move = cb.getLastMove();
     MctsNode* candidate = nullptr;
     // std::vector<MctsNode*> tmp_children;
@@ -281,10 +282,12 @@ int Mcts::rollout()
 
         auto candidates = cb_ptr->getMoves_quick();
         cb_ptr->move_quick(cb_ptr->greedyMove(candidates));
+        //greedy rollout stratgy of choosing the move eating the most valuable stone of opponent
         // if(i > 0 && i%200 == 0)std::cout << i << "round rollout\n";
     }
-    if(!cb_ptr->game_running)return -cb_ptr->color;
-    if(cb_ptr->boardPosEval() > 0)return cb_ptr->color;
+    if(!cb_ptr->game_running)return -cb_ptr->color;//return winner color
+    if(cb_ptr->boardPosEval() > 0)
+        return cb_ptr->color; // positive boardPosEval score indicate current player winning
     return -cb_ptr->color;
 }
 
@@ -310,7 +313,8 @@ void Mcts::backpropagate(MctsNode* cur, int win_color)
     while (cur)
     {
         cur->n++;
-        if (win_color == -(cur->color)) cur->wins++;
+        if (win_color == -(cur->color)) 
+            cur->wins++;//current node's wins parameter is actually its parent' action winning rate
         cur = cur->parent;
     }
     
