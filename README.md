@@ -6,7 +6,11 @@ How to:
 Features:
 - 3 seperate parts, display, game engine(stones) and player;
 - qt based GUI interface, responsible for listening to click event and repaint chess board, and sinal and slot in qt is responsible for communication between frontend and backend (game engine);
+- signals and slot, observer pattern
 - game engine and stone classes, responsible for all kinds of legal board movements (including undo and flip) and board evaluation etc;
+- game engine, virtual Clone member function as a proxy to avoid virtual constructor, in implementing chessboard copy and its chess stone copy
+- negmax with alpha bete pruning
+- how to measure performance?
 - player subclass are implemented with different AI algorithms, the bruteforce minimax can be optimized with alpha-beta pruning (~30x speed-up), increasing search depth from 4 to 5 in ~1s, furthermore, with ordered movements optimization, we can achieve another ~20x speed-up, making 6-level search in ~1s possible.
 - position evaluation function, Quiescence search(heuristic search)
 - with transipositon table, only ~2x improvements, not too significant. Add principal variational search, neither significant. 
@@ -39,3 +43,24 @@ ref:
 - [Techniques to Parallelize Chess](http://ww2.cs.fsu.edu/~guidry/parallel_chess.pdf)
 - [使用 Valgrind 检测 C++ 内存泄漏](http://senlinzhan.github.io/2017/12/31/valgrind/)
 - [C/C++性能测试工具 GNU gprof](https://fooyou.github.io/document/2015/07/22/performance-tools-for-linux-cplusplus.html)
+
+
+
+
+
+
+
+
+
+## Questions
+
+##### what c++ tech is used in your projects?
+
+
+##### what challeges did you find in your projects?
+
+
+##### how did you improve performance in minimax and mcts?
+
+
+##### how did you debug and solve problems in your projects?
