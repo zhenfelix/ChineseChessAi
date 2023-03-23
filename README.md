@@ -16,6 +16,7 @@ Features:
 - with transipositon table, only ~2x improvements, not too significant. Add principal variational search, neither significant. 
 - key issue solved with MCTS, using greedy rollout strategy for evaluation (significant intelligence improvements)
 - performance bottleneck profiling with valgrind, optimize movements generation for mcts virtual thinking chessboard, achieved 5x speedup
+- performance bottleneck is still movement generation in mcts even after optimizing bruteforce movement generation, what's more, new and delete chessboard also costs about 10% of time
 - MCTS tree reuse(only achieved 1/10 speedup since only 1/10 nodes in previous iteratin remains) and remove unused nodes recursively(prevent memory leak), get possible moves optimizatioin(), chessboard optimization(light and heavy version judge and move), achieved 5x speedup; chessboard copy constructor light version/shared static variables between different chessboards; get possible moves optimizatioin(stone generate valid moves); competition result of mcst-100000 and a-b-4, almost draw; position value instead of win/loss (failed try, not working); expoitation and explore balance, C_UCB parameter tuning(not working); bug to be fixed, mcts not considering cycles in simulations and could result in invalid cycling move in actual board move, and fix memory leak;
 - TODO: test module
 - TODO: to do parallelization;  next try alpha-beta search evaluation;  
