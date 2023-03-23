@@ -1,0 +1,762 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 18.75      0.18     0.18   636860     0.00     0.00  Mcts::ucb(MctsNode*, double)
+ 14.59      0.32     0.14   904156     0.00     0.00  chessboard::getStones() const
+ 13.54      0.45     0.13 58817326     0.00     0.00  chessboard::judge(int, int, int, int)
+  6.25      0.51     0.06 17199640     0.00     0.00  rook::judge_move(chessboard&, int, int, int, int)
+  6.25      0.57     0.06   786258     0.00     0.00  cannon::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)
+  4.17      0.61     0.04 14938906     0.00     0.00  cannon::judge_move(chessboard&, int, int, int, int)
+  4.17      0.65     0.04  5843045     0.00     0.00  std::__detail::_Map_base<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](int&&)
+  4.17      0.69     0.04   636813     0.00     0.00  horse::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)
+  3.65      0.73     0.04  7986104     0.00     0.00  soldier::judge_move(chessboard&, int, int, int, int)
+  3.13      0.76     0.03  5424936     0.00     0.00  void std::vector<Stone*, std::allocator<Stone*> >::_M_realloc_insert<Stone* const&>(__gnu_cxx::__normal_iterator<Stone**, std::vector<Stone*, std::allocator<Stone*> > >, Stone* const&)
+  3.13      0.79     0.03   250000     0.00     0.00  Mcts::select()
+  2.60      0.81     0.03  5439469     0.00     0.00  general::judge_move(chessboard&, int, int, int, int)
+  2.08      0.83     0.02  3050904     0.00     0.00  void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&)
+  2.08      0.85     0.02  2222550     0.00     0.00  soldier::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)
+  2.08      0.87     0.02   250001     0.00     0.00  chessboard::~chessboard()
+  2.08      0.89     0.02   226642     0.00     0.00  chessboard::greedyMove(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)
+  1.04      0.90     0.01  1862418     0.00     0.00  guard::judge_move(chessboard&, int, int, int, int)
+  1.04      0.91     0.01  1821596     0.00     0.00  elephant::judge_move(chessboard&, int, int, int, int)
+  1.04      0.92     0.01  1090293     0.00     0.00  chessboard::move_quick(int, int, int, int)
+  1.04      0.93     0.01  1000004     0.00     0.00  guard::~guard()
+  1.04      0.94     0.01   905244     0.00     0.00  rook::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)
+  1.04      0.95     0.01   800003     0.00     0.00  cannon::~cannon()
+  1.04      0.96     0.01                             void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>)
+  0.00      0.96     0.00  3165459     0.00     0.00  horse::judge_move(chessboard&, int, int, int, int)
+  0.00      0.96     0.00  2500009     0.00     0.00  soldier::~soldier()
+  0.00      0.96     0.00  2500000     0.00     0.00  soldier::Clone()
+  0.00      0.96     0.00  1090293     0.00     0.00  chessboard::move_quick(std::pair<std::pair<int, int>, std::pair<int, int> >)
+  0.00      0.96     0.00  1000004     0.00     0.00  rook::~rook()
+  0.00      0.96     0.00  1000004     0.00     0.00  elephant::~elephant()
+  0.00      0.96     0.00  1000000     0.00     0.00  rook::Clone()
+  0.00      0.96     0.00  1000000     0.00     0.00  guard::Clone()
+  0.00      0.96     0.00  1000000     0.00     0.00  elephant::Clone()
+  0.00      0.96     0.00   906876     0.00     0.00  elephant::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)
+  0.00      0.96     0.00   906778     0.00     0.00  guard::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)
+  0.00      0.96     0.00   800003     0.00     0.00  horse::~horse()
+  0.00      0.96     0.00   800000     0.00     0.00  horse::Clone()
+  0.00      0.96     0.00   800000     0.00     0.00  cannon::Clone()
+  0.00      0.96     0.00   500001     0.00     0.00  general::~general()
+  0.00      0.96     0.00   500000     0.00     0.00  general::Clone()
+  0.00      0.96     0.00   453438     0.00     0.00  chessboard::getMoves_quick()
+  0.00      0.96     0.00   453289     0.00     0.00  general::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)
+  0.00      0.96     0.00   250001     0.00     0.00  std::_Deque_base<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_initialize_map(unsigned long)
+  0.00      0.96     0.00   250001     0.00     0.00  std::_Deque_base<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::~_Deque_base()
+  0.00      0.96     0.00   250000     0.00     0.00  chessboard::chessboard(chessboard const&, bool)
+  0.00      0.96     0.00   250000     0.00     0.00  chessboard::~chessboard()
+  0.00      0.96     0.00   250000     0.00     0.00  Mcts::backpropagate(MctsNode*, int)
+  0.00      0.96     0.00   250000     0.00     0.00  Mcts::rollout()
+  0.00      0.96     0.00   200683     0.00     0.00  chessboard::boardPosEval()
+  0.00      0.96     0.00    82224     0.00     0.00  void std::vector<MctsNode*, std::allocator<MctsNode*> >::_M_realloc_insert<MctsNode* const&>(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, MctsNode* const&)
+  0.00      0.96     0.00      779     0.00     0.00  Display::center(int, int)
+  0.00      0.96     0.00      318     0.00     0.00  operator<<(std::ostream&, std::pair<int, int> const&)
+  0.00      0.96     0.00      159     0.00     0.00  MctsNode::~MctsNode()
+  0.00      0.96     0.00      159     0.00     0.00  operator<<(std::ostream&, std::pair<std::pair<int, int>, std::pair<int, int> > const&)
+  0.00      0.96     0.00       35     0.00     0.00  void std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::_M_realloc_insert<std::vector<int, std::allocator<int> > const&>(__gnu_cxx::__normal_iterator<std::vector<int, std::allocator<int> >*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::vector<int, std::allocator<int> > const&)
+  0.00      0.96     0.00       24     0.00     0.00  Display::drawStones(QPainter&)
+  0.00      0.96     0.00       14     0.00     0.00  chessboard::flip()
+  0.00      0.96     0.00       14     0.00     0.00  std::_Hashtable<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, false>*, unsigned long)
+  0.00      0.96     0.00       14     0.00     0.00  std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::vector(std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > const&)
+  0.00      0.96     0.00       12     0.00     0.00  Display::getRowCol(QPoint, int&, int&)
+  0.00      0.96     0.00       12     0.00     0.00  std::pair<int, int>& std::deque<std::pair<int, int>, std::allocator<std::pair<int, int> > >::emplace_back<std::pair<int, int> >(std::pair<int, int>&&)
+  0.00      0.96     0.00       11     0.00     0.00  chessboard::checkCycle(int, int, int, int)
+  0.00      0.96     0.00       11     0.00     0.00  chessboard::move(int, int, int, int)
+  0.00      0.96     0.00       11     0.00     0.00  chessboard::show()
+  0.00      0.96     0.00       11     0.00     0.00  chessboard::update()
+  0.00      0.96     0.00       11     0.00     0.00  chessboard::boardHash[abi:cxx11]()
+  0.00      0.96     0.00       11     0.00     0.00  std::_Rb_tree_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_insert_equal<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.96     0.00       11     0.00     0.00  main
+  0.00      0.96     0.00       10     0.00     0.00  soldier::soldier(int, int, int, int)
+  0.00      0.96     0.00       10     0.00     0.00  std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::equal_range(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const
+  0.00      0.96     0.00        7     0.00     0.00  chessboard::flipMat(std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >&)
+  0.00      0.96     0.00        6     0.00     0.00  void std::__adjust_heap<__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, std::pair<std::pair<int, int>, std::pair<int, int> >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, __gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>)
+  0.00      0.96     0.00        5     0.00     0.00  chessboard::move(std::pair<std::pair<int, int>, std::pair<int, int> >)
+  0.00      0.96     0.00        5     0.00     0.00  Mcts::chooseChild()
+  0.00      0.96     0.00        5     0.00     0.00  Mcts::calcMcts_score()
+  0.00      0.96     0.00        5     0.00   190.03  Mcts::think()
+  0.00      0.96     0.00        5     0.00   190.03  Mcts::calcMcts()
+  0.00      0.96     0.00        5     0.00     0.00  Mcts::moveRoot()
+  0.00      0.96     0.00        5     0.00     0.00  MctsNode::show_children()
+  0.00      0.96     0.00        5     0.00     0.00  std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, tt_entry>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, tt_entry> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[](std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.96     0.00        5     0.00     0.00  void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>)
+  0.00      0.96     0.00        5     0.00     0.00  void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>)
+  0.00      0.96     0.00        4     0.00     0.00  rook::rook(int, int, int, int)
+  0.00      0.96     0.00        4     0.00     0.00  guard::guard(int, int, int, int)
+  0.00      0.96     0.00        4     0.00     0.00  horse::horse(int, int, int, int)
+  0.00      0.96     0.00        4     0.00     0.00  cannon::cannon(int, int, int, int)
+  0.00      0.96     0.00        4     0.00     0.00  elephant::elephant(int, int, int, int)
+  0.00      0.96     0.00        4     0.00     0.00  std::pair<std::_Rb_tree_iterator<std::pair<int const, Stone*> >, bool> std::_Rb_tree<int, std::pair<int const, Stone*>, std::_Select1st<std::pair<int const, Stone*> >, std::less<int>, std::allocator<std::pair<int const, Stone*> > >::_M_emplace_unique<std::pair<int, Stone*> >(std::pair<int, Stone*>&&)
+  0.00      0.96     0.00        4     0.00     0.00  std::_Rb_tree<int, std::pair<int const, Stone*>, std::_Select1st<std::pair<int const, Stone*> >, std::less<int>, std::allocator<std::pair<int const, Stone*> > >::_M_get_insert_unique_pos(int const&)
+  0.00      0.96     0.00        2     0.00     0.00  Player::Player(bool, chessboard&)
+  0.00      0.96     0.00        2     0.00   475.07  Display::mouseReleaseEvent(QMouseEvent*)
+  0.00      0.96     0.00        2     0.00     0.00  general::general(int, int, int, int)
+  0.00      0.96     0.00        2     0.00     0.00  std::_Hashtable<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&)
+  0.00      0.96     0.00        2     0.00     0.00  std::_Rb_tree<int, std::pair<int const, Player*>, std::_Select1st<std::pair<int const, Player*> >, std::less<int>, std::allocator<std::pair<int const, Player*> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, Player*> >, int const&)
+  0.00      0.96     0.00        1     0.00     0.00  chessboard::readPosVal()
+  0.00      0.96     0.00        1     0.00     0.00  chessboard::init()
+  0.00      0.96     0.00        1     0.00     0.00  chessboard::readBoard()
+  0.00      0.96     0.00        1     0.00     0.00  chessboard::chessboard(bool)
+  0.00      0.96     0.00        1     0.00     0.00  Mcts::Mcts(bool, chessboard&, int)
+  0.00      0.96     0.00        1     0.00   950.15  Display::setup()
+  0.00      0.96     0.00        1     0.00     0.00  std::_Rb_tree<int, std::pair<int const, Player*>, std::_Select1st<std::pair<int const, Player*> >, std::less<int>, std::allocator<std::pair<int const, Player*> > >::_M_get_insert_unique_pos(int const&)
+  0.00      0.96     0.00        1     0.00     0.00  _init
+  0.00      0.96     0.00        1     0.00     0.00  frame_dummy
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 1.04% of 0.96 seconds
+
+index % time    self  children    called     name
+                0.00    0.95       2/2           Display::setup() [2]
+[1]     99.0    0.00    0.95       2         Display::mouseReleaseEvent(QMouseEvent*) [1]
+                0.00    0.95       5/5           Mcts::think() [4]
+                0.00    0.00       6/11          chessboard::move(int, int, int, int) [37]
+                0.00    0.00      12/12          Display::getRowCol(QPoint, int&, int&) [77]
+                0.00    0.00      12/12          std::pair<int, int>& std::deque<std::pair<int, int>, std::allocator<std::pair<int, int> > >::emplace_back<std::pair<int, int> >(std::pair<int, int>&&) [78]
+                0.00    0.00       2/2           std::_Rb_tree<int, std::pair<int const, Player*>, std::_Select1st<std::pair<int const, Player*> >, std::less<int>, std::allocator<std::pair<int const, Player*> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, Player*> >, int const&) [103]
+                0.00    0.00       1/1           std::_Rb_tree<int, std::pair<int const, Player*>, std::_Select1st<std::pair<int const, Player*> >, std::less<int>, std::allocator<std::pair<int const, Player*> > >::_M_get_insert_unique_pos(int const&) [109]
+-----------------------------------------------
+                0.00    0.95       1/1           Display::Display(QWidget*) [3]
+[2]     99.0    0.00    0.95       1         Display::setup() [2]
+                0.00    0.95       2/2           Display::mouseReleaseEvent(QMouseEvent*) [1]
+                0.00    0.00       1/2           Player::Player(bool, chessboard&) [100]
+                0.00    0.00       1/1           Mcts::Mcts(bool, chessboard&, int) [108]
+-----------------------------------------------
+                                                 <spontaneous>
+[3]     99.0    0.00    0.95                 Display::Display(QWidget*) [3]
+                0.00    0.95       1/1           Display::setup() [2]
+                0.00    0.00       1/1           chessboard::chessboard(bool) [107]
+                0.00    0.00       1/1           chessboard::readPosVal() [104]
+                0.00    0.00       1/1           chessboard::init() [105]
+-----------------------------------------------
+                0.00    0.95       5/5           Display::mouseReleaseEvent(QMouseEvent*) [1]
+[4]     99.0    0.00    0.95       5         Mcts::think() [4]
+                0.00    0.95       5/5           Mcts::calcMcts() [5]
+                0.00    0.00       5/11          chessboard::move(int, int, int, int) [37]
+                0.00    0.00       5/5           chessboard::move(std::pair<std::pair<int, int>, std::pair<int, int> >) [85]
+                0.00    0.00       5/5           Mcts::moveRoot() [88]
+-----------------------------------------------
+                0.00    0.95       5/5           Mcts::think() [4]
+[5]     99.0    0.00    0.95       5         Mcts::calcMcts() [5]
+                0.03    0.46  250000/250000      Mcts::select() [7]
+                0.00    0.37  250000/250000      Mcts::rollout() [8]
+                0.00    0.05  250000/250000      chessboard::chessboard(chessboard const&, bool) [18]
+                0.00    0.04  250000/250000      chessboard::~chessboard() [22]
+                0.00    0.00       5/453438      chessboard::getMoves_quick() [6]
+                0.00    0.00  250000/250000      Mcts::backpropagate(MctsNode*, int) [67]
+                0.00    0.00       5/5           MctsNode::show_children() [89]
+                0.00    0.00       5/5           Mcts::chooseChild() [86]
+-----------------------------------------------
+                0.00    0.00       5/453438      Mcts::calcMcts() [5]
+                0.00    0.27  226642/453438      Mcts::rollout() [8]
+                0.00    0.27  226791/453438      Mcts::select() [7]
+[6]     56.8    0.00    0.55  453438         chessboard::getMoves_quick() [6]
+                0.06    0.08  786258/786258      cannon::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [11]
+                0.01    0.10  905244/905244      rook::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [13]
+                0.07    0.02  453438/904156      chessboard::getStones() const [10]
+                0.02    0.06 2222550/2222550     soldier::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [14]
+                0.04    0.01  636813/636813      horse::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [17]
+                0.00    0.04  453289/453289      general::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [23]
+                0.00    0.02  906876/906876      elephant::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [29]
+                0.00    0.02  906778/906778      guard::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [30]
+-----------------------------------------------
+                0.03    0.46  250000/250000      Mcts::calcMcts() [5]
+[7]     51.2    0.03    0.46  250000         Mcts::select() [7]
+                0.00    0.27  226791/453438      chessboard::getMoves_quick() [6]
+                0.18    0.00  636860/636860      Mcts::ucb(MctsNode*, double) [9]
+                0.01    0.00  863651/1090293     chessboard::move_quick(int, int, int, int) [31]
+                0.00    0.00  863651/1090293     chessboard::move_quick(std::pair<std::pair<int, int>, std::pair<int, int> >) [54]
+                0.00    0.00   82224/82224       void std::vector<MctsNode*, std::allocator<MctsNode*> >::_M_realloc_insert<MctsNode* const&>(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, MctsNode* const&) [68]
+-----------------------------------------------
+                0.00    0.37  250000/250000      Mcts::calcMcts() [5]
+[8]     38.8    0.00    0.37  250000         Mcts::rollout() [8]
+                0.00    0.27  226642/453438      chessboard::getMoves_quick() [6]
+                0.00    0.08  200672/200683      chessboard::boardPosEval() [15]
+                0.02    0.00  226642/226642      chessboard::greedyMove(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [28]
+                0.00    0.00  226642/1090293     chessboard::move_quick(int, int, int, int) [31]
+                0.00    0.00  226642/1090293     chessboard::move_quick(std::pair<std::pair<int, int>, std::pair<int, int> >) [54]
+-----------------------------------------------
+                0.18    0.00  636860/636860      Mcts::select() [7]
+[9]     18.8    0.18    0.00  636860         Mcts::ucb(MctsNode*, double) [9]
+-----------------------------------------------
+                0.00    0.00      11/904156      chessboard::boardHash[abi:cxx11]() [42]
+                0.00    0.00      24/904156      Display::drawStones(QPainter&) [38]
+                0.03    0.01  200683/904156      chessboard::boardPosEval() [15]
+                0.04    0.01  250000/904156      chessboard::chessboard(chessboard const&, bool) [18]
+                0.07    0.02  453438/904156      chessboard::getMoves_quick() [6]
+[10]    17.7    0.14    0.03  904156         chessboard::getStones() const [10]
+                0.03    0.00 5424936/5424936     void std::vector<Stone*, std::allocator<Stone*> >::_M_realloc_insert<Stone* const&>(__gnu_cxx::__normal_iterator<Stone**, std::vector<Stone*, std::allocator<Stone*> > >, Stone* const&) [25]
+-----------------------------------------------
+                0.06    0.08  786258/786258      chessboard::getMoves_quick() [6]
+[11]    14.5    0.06    0.08  786258         cannon::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [11]
+                0.04    0.00 14938902/14938906     cannon::judge_move(chessboard&, int, int, int, int) [19]
+                0.03    0.00 14938902/58817326     chessboard::judge(int, int, int, int) [12]
+                0.01    0.00  968996/3050904     void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&) [27]
+-----------------------------------------------
+                0.01    0.00 3627112/58817326     guard::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [30]
+                0.01    0.00 3627504/58817326     elephant::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [29]
+                0.01    0.00 5094504/58817326     horse::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [17]
+                0.01    0.00 5439468/58817326     general::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [23]
+                0.02    0.00 8890200/58817326     soldier::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [14]
+                0.03    0.00 14938902/58817326     cannon::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [11]
+                0.04    0.00 17199636/58817326     rook::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [13]
+[12]    13.5    0.13    0.00 58817326         chessboard::judge(int, int, int, int) [12]
+-----------------------------------------------
+                0.01    0.10  905244/905244      chessboard::getMoves_quick() [6]
+[13]    11.7    0.01    0.10  905244         rook::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [13]
+                0.06    0.00 17199636/17199640     rook::judge_move(chessboard&, int, int, int, int) [16]
+                0.04    0.00 17199636/58817326     chessboard::judge(int, int, int, int) [12]
+                0.00    0.00  680322/3050904     void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&) [27]
+-----------------------------------------------
+                0.02    0.06 2222550/2222550     chessboard::getMoves_quick() [6]
+[14]     8.4    0.02    0.06 2222550         soldier::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [14]
+                0.04    0.00 7986104/7986104     soldier::judge_move(chessboard&, int, int, int, int) [24]
+                0.02    0.00 8890200/58817326     chessboard::judge(int, int, int, int) [12]
+                0.01    0.00  878063/3050904     void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&) [27]
+-----------------------------------------------
+                0.00    0.00      11/200683      chessboard::show() [40]
+                0.00    0.08  200672/200683      Mcts::rollout() [8]
+[15]     8.1    0.00    0.08  200683         chessboard::boardPosEval() [15]
+                0.04    0.00 5843045/5843045     std::__detail::_Map_base<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](int&&) [20]
+                0.03    0.01  200683/904156      chessboard::getStones() const [10]
+-----------------------------------------------
+                0.00    0.00       4/17199640     chessboard::move(int, int, int, int) [37]
+                0.06    0.00 17199636/17199640     rook::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [13]
+[16]     6.2    0.06    0.00 17199640         rook::judge_move(chessboard&, int, int, int, int) [16]
+-----------------------------------------------
+                0.04    0.01  636813/636813      chessboard::getMoves_quick() [6]
+[17]     5.5    0.04    0.01  636813         horse::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [17]
+                0.01    0.00 5094504/58817326     chessboard::judge(int, int, int, int) [12]
+                0.00    0.00  226237/3050904     void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&) [27]
+                0.00    0.00 3165457/3165459     horse::judge_move(chessboard&, int, int, int, int) [51]
+-----------------------------------------------
+                0.00    0.05  250000/250000      Mcts::calcMcts() [5]
+[18]     4.9    0.00    0.05  250000         chessboard::chessboard(chessboard const&, bool) [18]
+                0.04    0.01  250000/904156      chessboard::getStones() const [10]
+                0.00    0.00 2500000/2500000     soldier::Clone() [53]
+                0.00    0.00 1000000/1000000     elephant::Clone() [59]
+                0.00    0.00 1000000/1000000     guard::Clone() [58]
+                0.00    0.00 1000000/1000000     rook::Clone() [57]
+                0.00    0.00  800000/800000      horse::Clone() [61]
+                0.00    0.00  800000/800000      cannon::Clone() [62]
+                0.00    0.00  500000/500000      general::Clone() [64]
+                0.00    0.00  250000/250001      std::_Deque_base<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_initialize_map(unsigned long) [65]
+-----------------------------------------------
+                0.00    0.00       4/14938906     chessboard::move(int, int, int, int) [37]
+                0.04    0.00 14938902/14938906     cannon::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [11]
+[19]     4.2    0.04    0.00 14938906         cannon::judge_move(chessboard&, int, int, int, int) [19]
+-----------------------------------------------
+                0.04    0.00 5843045/5843045     chessboard::boardPosEval() [15]
+[20]     4.2    0.04    0.00 5843045         std::__detail::_Map_base<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](int&&) [20]
+-----------------------------------------------
+                0.00    0.00       1/250001      Display::~Display() [43]
+                0.02    0.02  250000/250001      chessboard::~chessboard() [22]
+[21]     4.1    0.02    0.02  250001         chessboard::~chessboard() [21]
+                0.01    0.00  995038/1000004     guard::~guard() [34]
+                0.01    0.00  762456/800003      cannon::~cannon() [35]
+                0.00    0.00 2316208/2500009     soldier::~soldier() [52]
+                0.00    0.00  999623/1000004     elephant::~elephant() [56]
+                0.00    0.00  988521/1000004     rook::~rook() [55]
+                0.00    0.00  740546/800003      horse::~horse() [60]
+                0.00    0.00  450673/500001      general::~general() [63]
+                0.00    0.00  250001/250001      std::_Deque_base<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::~_Deque_base() [66]
+                0.00    0.00       6/6           void std::__adjust_heap<__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, std::pair<std::pair<int, int>, std::pair<int, int> >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, __gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>) [84]
+-----------------------------------------------
+                0.00    0.04  250000/250000      Mcts::calcMcts() [5]
+[22]     4.1    0.00    0.04  250000         chessboard::~chessboard() [22]
+                0.02    0.02  250000/250001      chessboard::~chessboard() [21]
+-----------------------------------------------
+                0.00    0.04  453289/453289      chessboard::getMoves_quick() [6]
+[23]     3.9    0.00    0.04  453289         general::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [23]
+                0.03    0.00 5439468/5439469     general::judge_move(chessboard&, int, int, int, int) [26]
+                0.01    0.00 5439468/58817326     chessboard::judge(int, int, int, int) [12]
+                0.00    0.00   55197/3050904     void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&) [27]
+-----------------------------------------------
+                0.04    0.00 7986104/7986104     soldier::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [14]
+[24]     3.6    0.04    0.00 7986104         soldier::judge_move(chessboard&, int, int, int, int) [24]
+-----------------------------------------------
+                0.03    0.00 5424936/5424936     chessboard::getStones() const [10]
+[25]     3.1    0.03    0.00 5424936         void std::vector<Stone*, std::allocator<Stone*> >::_M_realloc_insert<Stone* const&>(__gnu_cxx::__normal_iterator<Stone**, std::vector<Stone*, std::allocator<Stone*> > >, Stone* const&) [25]
+-----------------------------------------------
+                0.00    0.00       1/5439469     chessboard::move(int, int, int, int) [37]
+                0.03    0.00 5439468/5439469     general::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [23]
+[26]     2.6    0.03    0.00 5439469         general::judge_move(chessboard&, int, int, int, int) [26]
+-----------------------------------------------
+                0.00    0.00   55197/3050904     general::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [23]
+                0.00    0.00   73760/3050904     guard::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [30]
+                0.00    0.00  168329/3050904     elephant::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [29]
+                0.00    0.00  226237/3050904     horse::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [17]
+                0.00    0.00  680322/3050904     rook::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [13]
+                0.01    0.00  878063/3050904     soldier::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [14]
+                0.01    0.00  968996/3050904     cannon::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [11]
+[27]     2.1    0.02    0.00 3050904         void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&) [27]
+-----------------------------------------------
+                0.02    0.00  226642/226642      Mcts::rollout() [8]
+[28]     2.1    0.02    0.00  226642         chessboard::greedyMove(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [28]
+-----------------------------------------------
+                0.00    0.02  906876/906876      chessboard::getMoves_quick() [6]
+[29]     2.0    0.00    0.02  906876         elephant::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [29]
+                0.01    0.00 1821596/1821596     elephant::judge_move(chessboard&, int, int, int, int) [33]
+                0.01    0.00 3627504/58817326     chessboard::judge(int, int, int, int) [12]
+                0.00    0.00  168329/3050904     void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&) [27]
+-----------------------------------------------
+                0.00    0.02  906778/906778      chessboard::getMoves_quick() [6]
+[30]     1.9    0.00    0.02  906778         guard::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [30]
+                0.01    0.00 1862418/1862418     guard::judge_move(chessboard&, int, int, int, int) [32]
+                0.01    0.00 3627112/58817326     chessboard::judge(int, int, int, int) [12]
+                0.00    0.00   73760/3050904     void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&) [27]
+-----------------------------------------------
+                0.00    0.00  226642/1090293     Mcts::rollout() [8]
+                0.01    0.00  863651/1090293     Mcts::select() [7]
+[31]     1.1    0.01    0.00 1090293         chessboard::move_quick(int, int, int, int) [31]
+                0.00    0.00   37547/800003      cannon::~cannon() [35]
+                0.00    0.00    4966/1000004     guard::~guard() [34]
+                0.00    0.00  183801/2500009     soldier::~soldier() [52]
+                0.00    0.00   59457/800003      horse::~horse() [60]
+                0.00    0.00   49328/500001      general::~general() [63]
+                0.00    0.00   11483/1000004     rook::~rook() [55]
+                0.00    0.00     381/1000004     elephant::~elephant() [56]
+-----------------------------------------------
+                0.01    0.00 1862418/1862418     guard::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [30]
+[32]     1.0    0.01    0.00 1862418         guard::judge_move(chessboard&, int, int, int, int) [32]
+-----------------------------------------------
+                0.01    0.00 1821596/1821596     elephant::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [29]
+[33]     1.0    0.01    0.00 1821596         elephant::judge_move(chessboard&, int, int, int, int) [33]
+-----------------------------------------------
+                0.00    0.00    4966/1000004     chessboard::move_quick(int, int, int, int) [31]
+                0.01    0.00  995038/1000004     chessboard::~chessboard() [21]
+[34]     1.0    0.01    0.00 1000004         guard::~guard() [34]
+-----------------------------------------------
+                0.00    0.00   37547/800003      chessboard::move_quick(int, int, int, int) [31]
+                0.01    0.00  762456/800003      chessboard::~chessboard() [21]
+[35]     1.0    0.01    0.00  800003         cannon::~cannon() [35]
+-----------------------------------------------
+                                                 <spontaneous>
+[36]     1.0    0.01    0.00                 void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>) [36]
+-----------------------------------------------
+                0.00    0.00       5/11          Mcts::think() [4]
+                0.00    0.00       6/11          Display::mouseReleaseEvent(QMouseEvent*) [1]
+[37]     0.0    0.00    0.00      11         chessboard::move(int, int, int, int) [37]
+                0.00    0.00      11/11          chessboard::show() [40]
+                0.00    0.00      11/11          chessboard::checkCycle(int, int, int, int) [41]
+                0.00    0.00       4/17199640     rook::judge_move(chessboard&, int, int, int, int) [16]
+                0.00    0.00       4/14938906     cannon::judge_move(chessboard&, int, int, int, int) [19]
+                0.00    0.00       1/5439469     general::judge_move(chessboard&, int, int, int, int) [26]
+                0.00    0.00       4/4           std::pair<std::_Rb_tree_iterator<std::pair<int const, Stone*> >, bool> std::_Rb_tree<int, std::pair<int const, Stone*>, std::_Select1st<std::pair<int const, Stone*> >, std::less<int>, std::allocator<std::pair<int const, Stone*> > >::_M_emplace_unique<std::pair<int, Stone*> >(std::pair<int, Stone*>&&) [98]
+                0.00    0.00       2/3165459     horse::judge_move(chessboard&, int, int, int, int) [51]
+-----------------------------------------------
+                0.00    0.00      24/24          Display::paintEvent(QPaintEvent*) [39]
+[38]     0.0    0.00    0.00      24         Display::drawStones(QPainter&) [38]
+                0.00    0.00      24/904156      chessboard::getStones() const [10]
+-----------------------------------------------
+                                                 <spontaneous>
+[39]     0.0    0.00    0.00                 Display::paintEvent(QPaintEvent*) [39]
+                0.00    0.00      24/24          Display::drawStones(QPainter&) [38]
+-----------------------------------------------
+                0.00    0.00      11/11          chessboard::move(int, int, int, int) [37]
+[40]     0.0    0.00    0.00      11         chessboard::show() [40]
+                0.00    0.00      11/200683      chessboard::boardPosEval() [15]
+                0.00    0.00      11/11          chessboard::update() [79]
+-----------------------------------------------
+                0.00    0.00      11/11          chessboard::move(int, int, int, int) [37]
+[41]     0.0    0.00    0.00      11         chessboard::checkCycle(int, int, int, int) [41]
+                0.00    0.00      11/11          chessboard::boardHash[abi:cxx11]() [42]
+                0.00    0.00      11/11          std::_Rb_tree_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_insert_equal<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [80]
+                0.00    0.00      10/10          std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::equal_range(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const [82]
+-----------------------------------------------
+                0.00    0.00      11/11          chessboard::checkCycle(int, int, int, int) [41]
+[42]     0.0    0.00    0.00      11         chessboard::boardHash[abi:cxx11]() [42]
+                0.00    0.00      11/904156      chessboard::getStones() const [10]
+-----------------------------------------------
+                                                 <spontaneous>
+[43]     0.0    0.00    0.00                 Display::~Display() [43]
+                0.00    0.00       1/250001      chessboard::~chessboard() [21]
+                0.00    0.00       1/1           frame_dummy [45]
+-----------------------------------------------
+                0.00    0.00      11/11          __libc_csu_init [201]
+[44]     0.0    0.00    0.00      11         main [44]
+-----------------------------------------------
+                0.00    0.00       1/1           Display::~Display() [43]
+[45]     0.0    0.00    0.00       1         frame_dummy [45]
+-----------------------------------------------
+                0.00    0.00       2/3165459     chessboard::move(int, int, int, int) [37]
+                0.00    0.00 3165457/3165459     horse::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [17]
+[51]     0.0    0.00    0.00 3165459         horse::judge_move(chessboard&, int, int, int, int) [51]
+-----------------------------------------------
+                0.00    0.00  183801/2500009     chessboard::move_quick(int, int, int, int) [31]
+                0.00    0.00 2316208/2500009     chessboard::~chessboard() [21]
+[52]     0.0    0.00    0.00 2500009         soldier::~soldier() [52]
+-----------------------------------------------
+                0.00    0.00 2500000/2500000     chessboard::chessboard(chessboard const&, bool) [18]
+[53]     0.0    0.00    0.00 2500000         soldier::Clone() [53]
+-----------------------------------------------
+                0.00    0.00  226642/1090293     Mcts::rollout() [8]
+                0.00    0.00  863651/1090293     Mcts::select() [7]
+[54]     0.0    0.00    0.00 1090293         chessboard::move_quick(std::pair<std::pair<int, int>, std::pair<int, int> >) [54]
+-----------------------------------------------
+                0.00    0.00   11483/1000004     chessboard::move_quick(int, int, int, int) [31]
+                0.00    0.00  988521/1000004     chessboard::~chessboard() [21]
+[55]     0.0    0.00    0.00 1000004         rook::~rook() [55]
+-----------------------------------------------
+                0.00    0.00     381/1000004     chessboard::move_quick(int, int, int, int) [31]
+                0.00    0.00  999623/1000004     chessboard::~chessboard() [21]
+[56]     0.0    0.00    0.00 1000004         elephant::~elephant() [56]
+-----------------------------------------------
+                0.00    0.00 1000000/1000000     chessboard::chessboard(chessboard const&, bool) [18]
+[57]     0.0    0.00    0.00 1000000         rook::Clone() [57]
+-----------------------------------------------
+                0.00    0.00 1000000/1000000     chessboard::chessboard(chessboard const&, bool) [18]
+[58]     0.0    0.00    0.00 1000000         guard::Clone() [58]
+-----------------------------------------------
+                0.00    0.00 1000000/1000000     chessboard::chessboard(chessboard const&, bool) [18]
+[59]     0.0    0.00    0.00 1000000         elephant::Clone() [59]
+-----------------------------------------------
+                0.00    0.00   59457/800003      chessboard::move_quick(int, int, int, int) [31]
+                0.00    0.00  740546/800003      chessboard::~chessboard() [21]
+[60]     0.0    0.00    0.00  800003         horse::~horse() [60]
+-----------------------------------------------
+                0.00    0.00  800000/800000      chessboard::chessboard(chessboard const&, bool) [18]
+[61]     0.0    0.00    0.00  800000         horse::Clone() [61]
+-----------------------------------------------
+                0.00    0.00  800000/800000      chessboard::chessboard(chessboard const&, bool) [18]
+[62]     0.0    0.00    0.00  800000         cannon::Clone() [62]
+-----------------------------------------------
+                0.00    0.00   49328/500001      chessboard::move_quick(int, int, int, int) [31]
+                0.00    0.00  450673/500001      chessboard::~chessboard() [21]
+[63]     0.0    0.00    0.00  500001         general::~general() [63]
+-----------------------------------------------
+                0.00    0.00  500000/500000      chessboard::chessboard(chessboard const&, bool) [18]
+[64]     0.0    0.00    0.00  500000         general::Clone() [64]
+-----------------------------------------------
+                0.00    0.00       1/250001      chessboard::chessboard(bool) [107]
+                0.00    0.00  250000/250001      chessboard::chessboard(chessboard const&, bool) [18]
+[65]     0.0    0.00    0.00  250001         std::_Deque_base<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_initialize_map(unsigned long) [65]
+-----------------------------------------------
+                0.00    0.00  250001/250001      chessboard::~chessboard() [21]
+[66]     0.0    0.00    0.00  250001         std::_Deque_base<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::~_Deque_base() [66]
+-----------------------------------------------
+                0.00    0.00  250000/250000      Mcts::calcMcts() [5]
+[67]     0.0    0.00    0.00  250000         Mcts::backpropagate(MctsNode*, int) [67]
+-----------------------------------------------
+                0.00    0.00   82224/82224       Mcts::select() [7]
+[68]     0.0    0.00    0.00   82224         void std::vector<MctsNode*, std::allocator<MctsNode*> >::_M_realloc_insert<MctsNode* const&>(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, MctsNode* const&) [68]
+-----------------------------------------------
+                0.00    0.00     779/779         Display::getRowCol(QPoint, int&, int&) [77]
+[69]     0.0    0.00    0.00     779         Display::center(int, int) [69]
+-----------------------------------------------
+                0.00    0.00     318/318         operator<<(std::ostream&, std::pair<std::pair<int, int>, std::pair<int, int> > const&) [72]
+[70]     0.0    0.00    0.00     318         operator<<(std::ostream&, std::pair<int, int> const&) [70]
+-----------------------------------------------
+                0.00    0.00     159/159         Mcts::moveRoot() [88]
+[71]     0.0    0.00    0.00     159         MctsNode::~MctsNode() [71]
+-----------------------------------------------
+                0.00    0.00     159/159         MctsNode::show_children() [89]
+[72]     0.0    0.00    0.00     159         operator<<(std::ostream&, std::pair<std::pair<int, int>, std::pair<int, int> > const&) [72]
+                0.00    0.00     318/318         operator<<(std::ostream&, std::pair<int, int> const&) [70]
+-----------------------------------------------
+                0.00    0.00      35/35          chessboard::readPosVal() [104]
+[73]     0.0    0.00    0.00      35         void std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::_M_realloc_insert<std::vector<int, std::allocator<int> > const&>(__gnu_cxx::__normal_iterator<std::vector<int, std::allocator<int> >*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::vector<int, std::allocator<int> > const&) [73]
+-----------------------------------------------
+                0.00    0.00      14/14          chessboard::readPosVal() [104]
+[74]     0.0    0.00    0.00      14         chessboard::flip() [74]
+                0.00    0.00      14/14          std::_Hashtable<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, false>*, unsigned long) [75]
+-----------------------------------------------
+                0.00    0.00      14/14          chessboard::flip() [74]
+[75]     0.0    0.00    0.00      14         std::_Hashtable<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, false>*, unsigned long) [75]
+                0.00    0.00       2/2           std::_Hashtable<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) [102]
+-----------------------------------------------
+                0.00    0.00      14/14          chessboard::readPosVal() [104]
+[76]     0.0    0.00    0.00      14         std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::vector(std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > const&) [76]
+-----------------------------------------------
+                0.00    0.00      12/12          Display::mouseReleaseEvent(QMouseEvent*) [1]
+[77]     0.0    0.00    0.00      12         Display::getRowCol(QPoint, int&, int&) [77]
+                0.00    0.00     779/779         Display::center(int, int) [69]
+-----------------------------------------------
+                0.00    0.00      12/12          Display::mouseReleaseEvent(QMouseEvent*) [1]
+[78]     0.0    0.00    0.00      12         std::pair<int, int>& std::deque<std::pair<int, int>, std::allocator<std::pair<int, int> > >::emplace_back<std::pair<int, int> >(std::pair<int, int>&&) [78]
+-----------------------------------------------
+                0.00    0.00      11/11          chessboard::show() [40]
+[79]     0.0    0.00    0.00      11         chessboard::update() [79]
+-----------------------------------------------
+                0.00    0.00      11/11          chessboard::checkCycle(int, int, int, int) [41]
+[80]     0.0    0.00    0.00      11         std::_Rb_tree_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_insert_equal<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [80]
+-----------------------------------------------
+                0.00    0.00      10/10          chessboard::readBoard() [106]
+[81]     0.0    0.00    0.00      10         soldier::soldier(int, int, int, int) [81]
+-----------------------------------------------
+                0.00    0.00      10/10          chessboard::checkCycle(int, int, int, int) [41]
+[82]     0.0    0.00    0.00      10         std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::equal_range(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const [82]
+-----------------------------------------------
+                0.00    0.00       7/7           chessboard::readPosVal() [104]
+[83]     0.0    0.00    0.00       7         chessboard::flipMat(std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >&) [83]
+-----------------------------------------------
+                0.00    0.00       6/6           chessboard::~chessboard() [21]
+[84]     0.0    0.00    0.00       6         void std::__adjust_heap<__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, std::pair<std::pair<int, int>, std::pair<int, int> >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, __gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>) [84]
+-----------------------------------------------
+                0.00    0.00       5/5           Mcts::think() [4]
+[85]     0.0    0.00    0.00       5         chessboard::move(std::pair<std::pair<int, int>, std::pair<int, int> >) [85]
+-----------------------------------------------
+                0.00    0.00       5/5           Mcts::calcMcts() [5]
+[86]     0.0    0.00    0.00       5         Mcts::chooseChild() [86]
+                0.00    0.00       5/5           void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>) [91]
+                0.00    0.00       5/5           std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, tt_entry>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, tt_entry> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[](std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [90]
+-----------------------------------------------
+                0.00    0.00       5/5           MctsNode::show_children() [89]
+[87]     0.0    0.00    0.00       5         Mcts::calcMcts_score() [87]
+-----------------------------------------------
+                0.00    0.00       5/5           Mcts::think() [4]
+[88]     0.0    0.00    0.00       5         Mcts::moveRoot() [88]
+                0.00    0.00     159/159         MctsNode::~MctsNode() [71]
+-----------------------------------------------
+                0.00    0.00       5/5           Mcts::calcMcts() [5]
+[89]     0.0    0.00    0.00       5         MctsNode::show_children() [89]
+                0.00    0.00     159/159         operator<<(std::ostream&, std::pair<std::pair<int, int>, std::pair<int, int> > const&) [72]
+                0.00    0.00       5/5           void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>) [92]
+                0.00    0.00       5/5           Mcts::calcMcts_score() [87]
+-----------------------------------------------
+                0.00    0.00       5/5           Mcts::chooseChild() [86]
+[90]     0.0    0.00    0.00       5         std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, tt_entry>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, tt_entry> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[](std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [90]
+-----------------------------------------------
+                                   9             void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>) [91]
+                0.00    0.00       5/5           Mcts::chooseChild() [86]
+[91]     0.0    0.00    0.00       5+9       void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>) [91]
+                                   9             void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>) [91]
+-----------------------------------------------
+                                  11             void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>) [92]
+                0.00    0.00       5/5           MctsNode::show_children() [89]
+[92]     0.0    0.00    0.00       5+11      void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>) [92]
+                                  11             void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>) [92]
+-----------------------------------------------
+                0.00    0.00       4/4           chessboard::readBoard() [106]
+[93]     0.0    0.00    0.00       4         rook::rook(int, int, int, int) [93]
+-----------------------------------------------
+                0.00    0.00       4/4           chessboard::readBoard() [106]
+[94]     0.0    0.00    0.00       4         guard::guard(int, int, int, int) [94]
+-----------------------------------------------
+                0.00    0.00       4/4           chessboard::readBoard() [106]
+[95]     0.0    0.00    0.00       4         horse::horse(int, int, int, int) [95]
+-----------------------------------------------
+                0.00    0.00       4/4           chessboard::readBoard() [106]
+[96]     0.0    0.00    0.00       4         cannon::cannon(int, int, int, int) [96]
+-----------------------------------------------
+                0.00    0.00       4/4           chessboard::readBoard() [106]
+[97]     0.0    0.00    0.00       4         elephant::elephant(int, int, int, int) [97]
+-----------------------------------------------
+                0.00    0.00       4/4           chessboard::move(int, int, int, int) [37]
+[98]     0.0    0.00    0.00       4         std::pair<std::_Rb_tree_iterator<std::pair<int const, Stone*> >, bool> std::_Rb_tree<int, std::pair<int const, Stone*>, std::_Select1st<std::pair<int const, Stone*> >, std::less<int>, std::allocator<std::pair<int const, Stone*> > >::_M_emplace_unique<std::pair<int, Stone*> >(std::pair<int, Stone*>&&) [98]
+                0.00    0.00       4/4           std::_Rb_tree<int, std::pair<int const, Stone*>, std::_Select1st<std::pair<int const, Stone*> >, std::less<int>, std::allocator<std::pair<int const, Stone*> > >::_M_get_insert_unique_pos(int const&) [99]
+-----------------------------------------------
+                0.00    0.00       4/4           std::pair<std::_Rb_tree_iterator<std::pair<int const, Stone*> >, bool> std::_Rb_tree<int, std::pair<int const, Stone*>, std::_Select1st<std::pair<int const, Stone*> >, std::less<int>, std::allocator<std::pair<int const, Stone*> > >::_M_emplace_unique<std::pair<int, Stone*> >(std::pair<int, Stone*>&&) [98]
+[99]     0.0    0.00    0.00       4         std::_Rb_tree<int, std::pair<int const, Stone*>, std::_Select1st<std::pair<int const, Stone*> >, std::less<int>, std::allocator<std::pair<int const, Stone*> > >::_M_get_insert_unique_pos(int const&) [99]
+-----------------------------------------------
+                0.00    0.00       1/2           Display::setup() [2]
+                0.00    0.00       1/2           Mcts::Mcts(bool, chessboard&, int) [108]
+[100]    0.0    0.00    0.00       2         Player::Player(bool, chessboard&) [100]
+-----------------------------------------------
+                0.00    0.00       2/2           chessboard::readBoard() [106]
+[101]    0.0    0.00    0.00       2         general::general(int, int, int, int) [101]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Hashtable<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, false>*, unsigned long) [75]
+[102]    0.0    0.00    0.00       2         std::_Hashtable<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) [102]
+-----------------------------------------------
+                0.00    0.00       2/2           Display::mouseReleaseEvent(QMouseEvent*) [1]
+[103]    0.0    0.00    0.00       2         std::_Rb_tree<int, std::pair<int const, Player*>, std::_Select1st<std::pair<int const, Player*> >, std::less<int>, std::allocator<std::pair<int const, Player*> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, Player*> >, int const&) [103]
+-----------------------------------------------
+                0.00    0.00       1/1           Display::Display(QWidget*) [3]
+[104]    0.0    0.00    0.00       1         chessboard::readPosVal() [104]
+                0.00    0.00      35/35          void std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::_M_realloc_insert<std::vector<int, std::allocator<int> > const&>(__gnu_cxx::__normal_iterator<std::vector<int, std::allocator<int> >*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::vector<int, std::allocator<int> > const&) [73]
+                0.00    0.00      14/14          std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::vector(std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > const&) [76]
+                0.00    0.00      14/14          chessboard::flip() [74]
+                0.00    0.00       7/7           chessboard::flipMat(std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >&) [83]
+-----------------------------------------------
+                0.00    0.00       1/1           Display::Display(QWidget*) [3]
+[105]    0.0    0.00    0.00       1         chessboard::init() [105]
+                0.00    0.00       1/1           chessboard::readBoard() [106]
+-----------------------------------------------
+                0.00    0.00       1/1           chessboard::init() [105]
+[106]    0.0    0.00    0.00       1         chessboard::readBoard() [106]
+                0.00    0.00      10/10          soldier::soldier(int, int, int, int) [81]
+                0.00    0.00       4/4           elephant::elephant(int, int, int, int) [97]
+                0.00    0.00       4/4           rook::rook(int, int, int, int) [93]
+                0.00    0.00       4/4           cannon::cannon(int, int, int, int) [96]
+                0.00    0.00       4/4           horse::horse(int, int, int, int) [95]
+                0.00    0.00       4/4           guard::guard(int, int, int, int) [94]
+                0.00    0.00       2/2           general::general(int, int, int, int) [101]
+-----------------------------------------------
+                0.00    0.00       1/1           Display::Display(QWidget*) [3]
+[107]    0.0    0.00    0.00       1         chessboard::chessboard(bool) [107]
+                0.00    0.00       1/250001      std::_Deque_base<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_initialize_map(unsigned long) [65]
+-----------------------------------------------
+                0.00    0.00       1/1           Display::setup() [2]
+[108]    0.0    0.00    0.00       1         Mcts::Mcts(bool, chessboard&, int) [108]
+                0.00    0.00       1/2           Player::Player(bool, chessboard&) [100]
+-----------------------------------------------
+                0.00    0.00       1/1           Display::mouseReleaseEvent(QMouseEvent*) [1]
+[109]    0.0    0.00    0.00       1         std::_Rb_tree<int, std::pair<int const, Player*>, std::_Select1st<std::pair<int const, Player*> >, std::less<int>, std::allocator<std::pair<int const, Player*> > >::_M_get_insert_unique_pos(int const&) [109]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [201]
+[110]    0.0    0.00    0.00       1         _init [110]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [41] chessboard::checkCycle(int, int, int, int) [93] rook::rook(int, int, int, int) [71] MctsNode::~MctsNode()
+  [28] chessboard::greedyMove(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [55] rook::~rook() [33] elephant::judge_move(chessboard&, int, int, int, int)
+  [54] chessboard::move_quick(std::pair<std::pair<int, int>, std::pair<int, int> >) [32] guard::judge_move(chessboard&, int, int, int, int) [29] elephant::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)
+  [31] chessboard::move_quick(int, int, int, int) [30] guard::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [59] elephant::Clone()
+ [104] chessboard::readPosVal() [58] guard::Clone()       [97] elephant::elephant(int, int, int, int)
+  [15] chessboard::boardPosEval() [94] guard::guard(int, int, int, int) [56] elephant::~elephant()
+   [6] chessboard::getMoves_quick() [34] guard::~guard()  [10] chessboard::getStones() const
+  [74] chessboard::flip()     [51] horse::judge_move(chessboard&, int, int, int, int) [82] std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::equal_range(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const
+ [105] chessboard::init()     [17] horse::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [75] std::_Hashtable<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, false>*, unsigned long)
+  [85] chessboard::move(std::pair<std::pair<int, int>, std::pair<int, int> >) [61] horse::Clone() [102] std::_Hashtable<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&)
+  [37] chessboard::move(int, int, int, int) [95] horse::horse(int, int, int, int) [65] std::_Deque_base<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_initialize_map(unsigned long)
+  [40] chessboard::show()     [60] horse::~horse()        [66] std::_Deque_base<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::~_Deque_base()
+  [12] chessboard::judge(int, int, int, int) [100] Player::Player(bool, chessboard&) [78] std::pair<int, int>& std::deque<std::pair<int, int>, std::allocator<std::pair<int, int> > >::emplace_back<std::pair<int, int> >(std::pair<int, int>&&)
+  [79] chessboard::update()   [19] cannon::judge_move(chessboard&, int, int, int, int) [25] void std::vector<Stone*, std::allocator<Stone*> >::_M_realloc_insert<Stone* const&>(__gnu_cxx::__normal_iterator<Stone**, std::vector<Stone*, std::allocator<Stone*> > >, Stone* const&)
+  [83] chessboard::flipMat(std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >&) [11] cannon::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [68] void std::vector<MctsNode*, std::allocator<MctsNode*> >::_M_realloc_insert<MctsNode* const&>(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, MctsNode* const&)
+  [42] chessboard::boardHash[abi:cxx11]() [62] cannon::Clone() [73] void std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::_M_realloc_insert<std::vector<int, std::allocator<int> > const&>(__gnu_cxx::__normal_iterator<std::vector<int, std::allocator<int> >*, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::vector<int, std::allocator<int> > const&)
+ [106] chessboard::readBoard() [96] cannon::cannon(int, int, int, int) [76] std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >::vector(std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > const&)
+  [18] chessboard::chessboard(chessboard const&, bool) [35] cannon::~cannon() [27] void std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >::_M_realloc_insert<std::pair<std::pair<int, int>, std::pair<int, int> > >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >&&)
+ [107] chessboard::chessboard(bool) [38] Display::drawStones(QPainter&) [80] std::_Rb_tree_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_insert_equal<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  [22] chessboard::~chessboard() [1] Display::mouseReleaseEvent(QMouseEvent*) [98] std::pair<std::_Rb_tree_iterator<std::pair<int const, Stone*> >, bool> std::_Rb_tree<int, std::pair<int const, Stone*>, std::_Select1st<std::pair<int const, Stone*> >, std::less<int>, std::allocator<std::pair<int const, Stone*> > >::_M_emplace_unique<std::pair<int, Stone*> >(std::pair<int, Stone*>&&)
+  [21] chessboard::~chessboard() [2] Display::setup()     [99] std::_Rb_tree<int, std::pair<int const, Stone*>, std::_Select1st<std::pair<int const, Stone*> >, std::less<int>, std::allocator<std::pair<int const, Stone*> > >::_M_get_insert_unique_pos(int const&)
+  [86] Mcts::chooseChild()    [69] Display::center(int, int) [109] std::_Rb_tree<int, std::pair<int const, Player*>, std::_Select1st<std::pair<int const, Player*> >, std::less<int>, std::allocator<std::pair<int const, Player*> > >::_M_get_insert_unique_pos(int const&)
+  [67] Mcts::backpropagate(MctsNode*, int) [77] Display::getRowCol(QPoint, int&, int&) [103] std::_Rb_tree<int, std::pair<int const, Player*>, std::_Select1st<std::pair<int const, Player*> >, std::less<int>, std::allocator<std::pair<int const, Player*> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, Player*> >, int const&)
+  [87] Mcts::calcMcts_score() [26] general::judge_move(chessboard&, int, int, int, int) [90] std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, tt_entry>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, tt_entry> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[](std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+   [9] Mcts::ucb(MctsNode*, double) [23] general::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [20] std::__detail::_Map_base<int, std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > >, std::allocator<std::pair<int const, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > > >, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](int&&)
+   [4] Mcts::think()          [64] general::Clone()       [84] void std::__adjust_heap<__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, std::pair<std::pair<int, int>, std::pair<int, int> >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, __gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, std::pair<std::pair<int, int>, std::pair<int, int> >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>)
+   [7] Mcts::select()        [101] general::general(int, int, int, int) [91] void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<Mcts::chooseChild()::{lambda(MctsNode*, MctsNode*)#1}>)
+   [8] Mcts::rollout()        [63] general::~general()    [92] void std::__introsort_loop<__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}> >(__gnu_cxx::__normal_iterator<MctsNode**, std::vector<MctsNode*, std::allocator<MctsNode*> > >, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<MctsNode::show_children()::{lambda(MctsNode*, MctsNode*)#1}>)
+   [5] Mcts::calcMcts()       [24] soldier::judge_move(chessboard&, int, int, int, int) [36] void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<int, int>, std::pair<int, int> >*, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > > >, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>, long, __gnu_cxx::__ops::_Iter_comp_iter<chessboard::sortMoves(std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&)::{lambda(std::pair<std::pair<int, int>, std::pair<int, int> >&, std::pair<std::pair<int, int>, std::pair<int, int> >&)#1}>)
+  [88] Mcts::moveRoot()       [14] soldier::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [72] operator<<(std::ostream&, std::pair<std::pair<int, int>, std::pair<int, int> > const&)
+ [108] Mcts::Mcts(bool, chessboard&, int) [53] soldier::Clone() [70] operator<<(std::ostream&, std::pair<int, int> const&)
+  [16] rook::judge_move(chessboard&, int, int, int, int) [81] soldier::soldier(int, int, int, int) [110] _init
+  [13] rook::generate_move(chessboard&, std::vector<std::pair<std::pair<int, int>, std::pair<int, int> >, std::allocator<std::pair<std::pair<int, int>, std::pair<int, int> > > >&) [52] soldier::~soldier() [45] frame_dummy
+  [57] rook::Clone()          [89] MctsNode::show_children() [44] main

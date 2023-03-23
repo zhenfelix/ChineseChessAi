@@ -13,10 +13,10 @@ void Display::setup()
 {
     player_a = new Player(true, cb);//configure players
     // player_a = new Player(false, cb); //random move player to debug, test reproducibility
-    // player_a = new Minimax(false, cb, 3); //weaker minimax player to debug
+    // player_a = new Minimax(false, cb, 4); //weaker minimax player to debug
     // player_b = new Player(true,cb);
     // player_b = new Minimax(false, cb, 5);
-    player_b = new Mcts(false, cb, 500000);
+    player_b = new Mcts(false, cb, 50000);
     // player_b = new Mcts(false, cb);
 
     color2player[-1] = player_a;

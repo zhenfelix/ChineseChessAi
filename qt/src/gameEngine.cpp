@@ -461,7 +461,8 @@ std::vector<move_type> chessboard::getMoves_quick()
     std::vector<Stone *> candidate_stones = getStones();
     for (auto s : candidate_stones)
     {
-        s->generate_move(*this, candidates);
+        if ((s->get())*color > 0)//discard invalid opponet stones
+            s->generate_move(*this, candidates);
     }
 
     return candidates;

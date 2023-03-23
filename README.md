@@ -15,8 +15,10 @@ Features:
 - position evaluation function, Quiescence search(heuristic search)
 - with transipositon table, only ~2x improvements, not too significant. Add principal variational search, neither significant. 
 - key issue solved with MCTS, using greedy rollout strategy for evaluation (significant intelligence improvements)
+- performance bottleneck profiling with valgrind, optimize movements generation for mcts virtual thinking chessboard, achieved 5x speedup
 - MCTS tree reuse(only achieved 1/10 speedup since only 1/10 nodes in previous iteratin remains) and remove unused nodes recursively(prevent memory leak), get possible moves optimizatioin(), chessboard optimization(light and heavy version judge and move), achieved 5x speedup; chessboard copy constructor light version/shared static variables between different chessboards; get possible moves optimizatioin(stone generate valid moves); competition result of mcst-100000 and a-b-4, almost draw; position value instead of win/loss (failed try, not working); expoitation and explore balance, C_UCB parameter tuning(not working); bug to be fixed, mcts not considering cycles in simulations and could result in invalid cycling move in actual board move, and fix memory leak;
-- TODO: to do parallelization;  next try alpha-beta search evaluation;  test module
+- TODO: test module
+- TODO: to do parallelization;  next try alpha-beta search evaluation;  
 
 
 ref:
@@ -43,6 +45,7 @@ ref:
 - [Techniques to Parallelize Chess](http://ww2.cs.fsu.edu/~guidry/parallel_chess.pdf)
 - [使用 Valgrind 检测 C++ 内存泄漏](http://senlinzhan.github.io/2017/12/31/valgrind/)
 - [C/C++性能测试工具 GNU gprof](https://fooyou.github.io/document/2015/07/22/performance-tools-for-linux-cplusplus.html)
+- [Is it possible to get a graphical representation of gprof results?](https://stackoverflow.com/questions/2439060/is-it-possible-to-get-a-graphical-representation-of-gprof-results)
 
 
 
