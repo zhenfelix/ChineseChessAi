@@ -52,19 +52,27 @@ ref:
 
 
 
+skill of software design, and good c++ programing habits like STL and memory management
+debug and improve performance with tools like version control, unit test and profiling, 
+frameworks and building tools like qt and make
 
-
-
+核心竞争力是抽象问题和解决问题的能力，目前不会被gpt替代，gpt泛化能力不够，比如不能解决库里没见过的cf题目，创新能力将是核心能力。当前gpt在宽度和深度上的局限，宽度-大规模代码的系统，深度-高难度的cf题目
+gpt可以正确的在不同编程语言之间转化
 
 ## Questions
 
 ##### what c++ tech is used in your projects?
-
+git
+cmake and make
+static code analysis
+profiling
+qt
+google test
 
 ##### what challeges did you find in your projects?
-
+不同棋子的Clone函数实现多态的复制
 
 ##### how did you improve performance in minimax and mcts?
-
+衡量性能的方法：计时器和profiling
 
 ##### how did you debug and solve problems in your projects?
